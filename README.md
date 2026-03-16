@@ -1,8 +1,8 @@
-# 🌊 Africa Jobs — Mano River Union
+# 🌊 Africa Jobs MRU — Version 2 (Multi-Page)
 
 **The MRU's dedicated youth employment platform**, connecting young talent with employers across Sierra Leone 🇸🇱, Liberia 🇱🇷, Guinea 🇬🇳 and Côte d'Ivoire 🇨🇮.
 
-🔗 **Live site:** [https://YOUR-USERNAME.github.io/africa-jobs-mru](https://YOUR-USERNAME.github.io/africa-jobs-mru)
+🔗 **Live site:** [https://YOUR-USERNAME.github.io/africa-jobs-mru-v2](https://YOUR-USERNAME.github.io/africa-jobs-mru-v2)
 
 ---
 
@@ -25,8 +25,8 @@
 Just open `index.html` in any modern browser — no build step, no dependencies.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/africa-jobs-mru.git
-cd africa-jobs-mru
+git clone https://github.com/YOUR-USERNAME/africa-jobs-mru-v2.git
+cd africa-jobs-mru-v2
 open index.html   # macOS
 # or
 start index.html  # Windows

@@ -1,15 +1,19 @@
 {
   "name": "Africa Jobs MRU",
   "short_name": "Africa Jobs",
-  "description": "The Mano River Union's dedicated youth employment platform — Sierra Leone, Liberia, Guinea and Côte d'Ivoire",
-  "start_url": "/africa-jobs-mru/",
-  "scope": "/africa-jobs-mru/",
+  "description": "The Mano River Union's dedicated youth employment platform \u2014 Sierra Leone, Liberia, Guinea and C\u00f4te d'Ivoire",
+  "start_url": "/africa-jobs-mru-v2/",
+  "scope": "/africa-jobs-mru-v2/",
   "display": "standalone",
   "background_color": "#0D1F2D",
   "theme_color": "#7B1C1C",
   "orientation": "any",
   "lang": "en",
-  "categories": ["business", "education", "productivity"],
+  "categories": [
+    "business",
+    "education",
+    "productivity"
+  ],
   "icons": [
     {
       "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Ccircle cx='96' cy='96' r='96' fill='%237B1C1C'/%3E%3Ccircle cx='96' cy='96' r='88' stroke='%23C9A840' stroke-width='4' fill='none'/%3E%3Cpath d='M96 36 L120 132 H108 L96 72 L84 132 H72 L96 36Z' fill='%23C9A840'/%3E%3Cpath d='M78 108 H114' stroke='%237B1C1C' stroke-width='8'/%3E%3C/svg%3E",
@@ -26,7 +30,7 @@
   ],
   "screenshots": [
     {
-      "label": "Africa Jobs MRU — Home",
+      "label": "Africa Jobs MRU \u2014 Home",
       "form_factor": "wide"
     }
   ],
@@ -35,22 +39,37 @@
       "name": "Find Jobs",
       "short_name": "Jobs",
       "description": "Browse jobs across the MRU",
-      "url": "/africa-jobs-mru/#jobs",
-      "icons": [{ "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ctext y='.9em' font-size='90'%3E💼%3C/text%3E%3C/svg%3E", "sizes": "96x96" }]
+      "url": "/africa-jobs-mru-v2/#jobs",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ctext y='.9em' font-size='90'%3E\ud83d\udcbc%3C/text%3E%3C/svg%3E",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Community",
       "short_name": "Community",
       "description": "Connect with MRU members",
-      "url": "/africa-jobs-mru/#discover",
-      "icons": [{ "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ctext y='.9em' font-size='90'%3E🌊%3C/text%3E%3C/svg%3E", "sizes": "96x96" }]
+      "url": "/africa-jobs-mru-v2/#discover",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ctext y='.9em' font-size='90'%3E\ud83c\udf0a%3C/text%3E%3C/svg%3E",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Statistics",
       "short_name": "Stats",
       "description": "MRU labour market data",
-      "url": "/africa-jobs-mru/#stats",
-      "icons": [{ "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E", "sizes": "96x96" }]
+      "url": "/africa-jobs-mru-v2/#stats",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ctext y='.9em' font-size='90'%3E\ud83d\udcca%3C/text%3E%3C/svg%3E",
+          "sizes": "96x96"
+        }
+      ]
     }
   ],
   "prefer_related_applications": false

@@ -4,14 +4,14 @@
 // where internet connectivity is intermittent or unavailable
 // ══════════════════════════════════════════════════════════════════
 
-const CACHE_NAME = 'africa-jobs-mru-v1';
-const OFFLINE_URL = '/africa-jobs-mru/offline.html';
+const CACHE_NAME = 'africa-jobs-mru-v2-v1';
+const OFFLINE_URL = '/africa-jobs-mru-v2-v2/offline.html';
 
 // Resources to cache immediately on install
 const PRECACHE_URLS = [
-  '/africa-jobs-mru/',
-  '/africa-jobs-mru/index.html',
-  '/africa-jobs-mru/offline.html',
+  '/africa-jobs-mru-v2-v2/',
+  '/africa-jobs-mru-v2-v2/index.html',
+  '/africa-jobs-mru-v2-v2/offline.html',
   // External fonts & libraries cached via fetch events
 ];
 
@@ -127,9 +127,9 @@ self.addEventListener('push', event => {
   event.waitUntil(
     self.registration.showNotification(data.title || 'Africa Jobs MRU', {
       body: data.body || 'New jobs matching your profile are available.',
-      icon: '/africa-jobs-mru/icon-192.png',
-      badge: '/africa-jobs-mru/icon-192.png',
-      data: { url: data.url || '/africa-jobs-mru/' }
+      icon: '/africa-jobs-mru-v2-v2/icon-192.png',
+      badge: '/africa-jobs-mru-v2-v2/icon-192.png',
+      data: { url: data.url || '/africa-jobs-mru-v2-v2/' }
     })
   );
 });
