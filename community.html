@@ -1984,7 +1984,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <span class="plbl">Years of Experience &amp; Background</span>
     <textarea class="pta" id="clBg" placeholder="e.g. 3 years in financial reporting at a local NGO, BSc Accounting from FBC…" style="min-height:80px"></textarea>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px">
-      <button class="pb" onclick="genCover()">Generate Cover Letter →</button>
+      <button class="pb" onclick="genCover()">✦ Generate with AI →</button>
       <button class="pb" id="clCopy" onclick="copyCover()" style="display:none;background:transparent;border:1.5px solid rgba(201,168,64,.5);color:var(--gold)">📋 Copy</button>
     </div>
     <div class="cov-out" id="covOut"></div>
@@ -2023,14 +2023,19 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <div class="prem-ovl" id="ovlInterview">
   <div class="prem-panel">
     <button class="prem-x" onclick="closePT('Interview')" aria-label="Close">✕<span class="sr-only">Close</span></button>
-    <div class="prem-ttl">🎤 Interview Preparation Guide</div>
-    <div class="prem-sub">Sector-specific interview questions with model answer frameworks. Click any question to reveal guidance.</div>
-    <span class="plbl">Select Your Sector</span>
-    <select class="ps" id="intvSec" onchange="renderIntv()">
+    <div class="prem-ttl">🎤 Interview Coach</div>
+    <div class="prem-sub">AI-powered interview questions tailored to your role and sector. Click any question to reveal the model answer framework.</div>
+    <div class="pr">
+      <div><span class="plbl">Your Target Role</span><input class="pi" id="intvRole" placeholder="e.g. Finance Analyst, Software Developer"/></div>
+      <div><span class="plbl">Sector</span><select class="ps" id="intvSec">
       <option value="tech">Technology</option><option value="finance">Finance &amp; Banking</option>
       <option value="health">Healthcare</option><option value="ngo">NGO / Development</option>
       <option value="edu">Education</option><option value="general">General / Any Role</option>
-    </select>
+    </select></div>
+    </div>
+    <button class="pb" onclick="genInterviewQs()" style="margin-bottom:16px;">✦ Generate AI Questions →</button>
+    <button class="pb" onclick="renderIntv()" style="background:transparent;border:1.5px solid rgba(201,168,64,.4);color:var(--gold);margin-bottom:16px;">Show Standard Questions</button>
+
     <div id="intvQs"></div>
   </div>
 </div>
@@ -2040,12 +2045,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <button class="prem-x" onclick="closePT('Career')" aria-label="Close">✕<span class="sr-only">Close</span></button>
     <div class="prem-ttl">🗺️ Career Path Planner</div>
     <div class="prem-sub">Visualise realistic growth paths in your sector. See the roles, skills and certifications on your way to the top.</div>
-    <span class="plbl">Choose Your Career Track</span>
-    <select class="ps" id="carTrack" onchange="renderCareer()">
+    <div class="pr">
+      <div><span class="plbl">Your Current Role (optional)</span><input class="pi" id="carCurrent" placeholder="e.g. Junior Accountant"/></div>
+      <div><span class="plbl">Your 5-Year Goal (optional)</span><input class="pi" id="carGoal" placeholder="e.g. CFO of an NGO"/></div>
+    </div>
+    <span class="plbl">Career Track</span>
+    <select class="ps" id="carTrack" onchange="">
       <option value="tech">Technology &amp; Software</option><option value="finance">Finance &amp; Banking</option>
       <option value="health">Healthcare &amp; Public Health</option><option value="ngo">NGO &amp; International Development</option>
       <option value="edu">Education &amp; Academia</option>
     </select>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;"><button class="pb" onclick="genCareerPath()">✦ Generate AI Path →</button><button class="pb" onclick="renderCareer()" style="background:transparent;border:1.5px solid rgba(201,168,64,.4);color:var(--gold);">Standard Path</button></div>
     <div id="carOut"></div>
   </div>
 </div>
@@ -5882,6 +5892,154 @@ document.addEventListener('DOMContentLoaded', function(){
     if(el) _ovlObserver.observe(el, {attributes:true});
   });
 });
+
+// ── Cover Letter Generator ────────────────────────────────────
+async function genCover(){
+  var name=$('clNm').value.trim();
+  var jobTitle=$('clJT').value.trim();
+  var company=$('clCo').value.trim();
+  var skills=$('clSk').value.trim();
+  var bg=$('clBg').value.trim();
+  var out=$('covOut');
+  if(!name||!jobTitle||!company){
+    out.innerHTML='<div style="color:#E07070;padding:12px;background:rgba(224,112,112,.1);border-radius:8px;">⚠️ Please fill in your name, job title and company name.</div>';
+    return;
+  }
+  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">'
+    +'<div style="font-size:1.5rem;margin-bottom:8px;animation:spin 1s linear infinite;">⚙️</div>'
+    +'Generating your personalised cover letter…</div>';
+  document.getElementById('clCopy').style.display='none';
+  try{
+    var prompt=[
+      'Write a professional, warm and concise cover letter for a job application in an African context.',
+      'Applicant: '+name,
+      'Applying for: '+jobTitle+' at '+company,
+      (skills?'Key skills: '+skills:''),
+      (bg?'Background: '+bg:''),
+      'Instructions:',
+      '- 3 paragraphs: opening (why this role/company), middle (key skills with 1-2 examples), closing (call to action)',
+      '- Professional but warm tone appropriate for MRU employers (Sierra Leone, Liberia, Guinea, Cote d\'Ivoire)',
+      '- Address it to Dear Hiring Manager',
+      '- Sign off with Yours sincerely followed by the applicant name',
+      '- Keep it under 300 words',
+      '- Write the complete letter with no placeholder text',
+    ].filter(Boolean).join('\n');
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
+        messages:[{role:'user',content:prompt}]})
+    });
+    var data=await resp.json();
+    var letter=(data.content&&data.content[0]&&data.content[0].text)||'';
+    if(!letter)throw new Error('No response');
+    out.innerHTML='<div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,64,.2);'
+      +'border-radius:12px;padding:24px;font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.85);'
+      +'white-space:pre-wrap;font-family:Georgia,serif;">'+letter+'</div>';
+    document.getElementById('clCopy').style.display='inline-flex';
+    // Award MPs for first CV/cover letter use
+    if(!hasEarnedEver('cover_gen')){markEarnedEver('cover_gen');awardMP(20,'Cover Letter Generated ✍️',false);}
+  }catch(err){
+    out.innerHTML='<div style="color:#E07070;padding:12px;background:rgba(224,112,112,.1);border-radius:8px;">'
+      +'⚠️ Could not generate letter — please check your connection and try again.</div>';
+  }
+}
+function copyCover(){
+  var txt=document.getElementById('covOut').innerText;
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){showToast('Cover letter copied to clipboard! 📋');});}
+  else{var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();showToast('Copied!');}
+}
+
+// ── AI Interview Coach (Claude-powered questions) ─────────────
+async function genInterviewQs(){
+  var sec=$('intvSec').value;
+  var role=$('intvRole')?$('intvRole').value:'';
+  var out=$('intvQs');
+  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">'
+    +'<div style="font-size:1.5rem;">🤔</div>Generating tailored questions…</div>';
+  try{
+    var sectorLabel={'tech':'Technology','finance':'Finance & Banking','health':'Healthcare',
+      'edu':'Education','ngo':'NGO/Development','general':'General Professional'};
+    var prompt=[
+      'Generate 6 realistic interview questions for a '+(sectorLabel[sec]||sec)+' role'+(role?' for a '+role+' position':''),
+      'in the Mano River Union (Sierra Leone, Liberia, Guinea, Cote d\'Ivoire).',
+      'For each question provide: the question itself, and a 2-3 sentence model answer framework.',
+      'Format as a JSON array: [{q:"question text",a:"framework text"}]',
+      'Return only the JSON array with no other text.',
+    ].join(' ');
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
+        messages:[{role:'user',content:prompt}]})
+    });
+    var data=await resp.json();
+    var raw=(data.content&&data.content[0]&&data.content[0].text)||'[]';
+    raw=raw.replace(/```json|```/g,'').trim();
+    var qs=JSON.parse(raw);
+    out.innerHTML=qs.map(function(q,i){
+      return '<div class="iq" onclick="this.classList.toggle(\'open\')">'
+        +'<div class="iq-q">Q'+(i+1)+'. '+q.q+'</div>'
+        +'<div class="iq-a">💡 <strong>Approach:</strong><br>'+q.a+'</div></div>';
+    }).join('');
+    if(!hasEarnedEver('interview_use')){markEarnedEver('interview_use');awardMP(15,'Interview Coach Used 🎤',false);}
+  }catch(err){
+    // Fallback to hardcoded questions on error
+    renderIntv();
+  }
+}
+
+// ── AI Career Path Planner (Claude-powered) ───────────────────
+async function genCareerPath(){
+  var track=$('carTrack').value;
+  var current=$('carCurrent')?$('carCurrent').value.trim():'';
+  var goal=$('carGoal')?$('carGoal').value.trim():'';
+  var out=$('carOut');
+  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">'
+    +'<div style="font-size:1.5rem;">🗺️</div>Mapping your career path…</div>';
+  var trackLabel={'tech':'Technology & Software','finance':'Finance & Banking',
+    'health':'Healthcare','edu':'Education','ngo':'NGO/Development','govt':'Government & Public Sector'};
+  try{
+    var prompt=[
+      'Create a realistic 5-stage career progression path for the '+(trackLabel[track]||track)+' sector in the Mano River Union (West Africa).',
+      (current?'Current role: '+current:''),
+      (goal?'Career goal: '+goal:''),
+      'For each stage: level label (e.g. Entry 0-2yrs), typical role title, 3-4 key skills, and one realistic milestone.',
+      'Format as JSON array of 5 objects: [{level:"label",role:"title",skills:["s1","s2","s3"],milestone:"text"}]',
+      'Return only the JSON array.',
+    ].filter(Boolean).join(' ');
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
+        messages:[{role:'user',content:prompt}]})
+    });
+    var data=await resp.json();
+    var raw=(data.content&&data.content[0]&&data.content[0].text)||'[]';
+    raw=raw.replace(/```json|```/g,'').trim();
+    var steps=JSON.parse(raw);
+    var colors=['#4CAF7D','#C9A840','#E07B3A','#7B5EA7','#4A90C4'];
+    out.innerHTML='<div style="margin-top:22px;">'+steps.map(function(s,i){
+      return '<div style="display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;">'
+        +'<div style="width:38px;height:38px;border-radius:50%;background:'+colors[i]+'22;'
+        +'border:2px solid '+colors[i]+';display:flex;align-items:center;justify-content:center;'
+        +'font-size:.75rem;font-weight:700;color:'+colors[i]+';flex-shrink:0;">'+(i+1)+'</div>'
+        +'<div style="flex:1;">'
+        +'<div style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:'+colors[i]+';font-weight:700;margin-bottom:2px;">'+s.level+'</div>'
+        +'<div style="font-weight:700;color:#fff;font-size:.95rem;margin-bottom:4px;">'+s.role+'</div>'
+        +'<div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:6px;">'+( s.skills||[]).join(' · ')+'</div>'
+        +'<div style="font-size:.75rem;color:rgba(255,255,255,.35);font-style:italic;">🏆 '+s.milestone+'</div>'
+        +'</div></div>';
+    }).join('')+'</div>';
+    if(!hasEarnedEver('career_plan')){markEarnedEver('career_plan');awardMP(20,'Career Path Planned 🗺️',false);}
+  }catch(err){renderCareer();}
+}
+
+// ── AI Salary Benchmark (enhanced) ───────────────────────────
+function renderSalaryEnhanced(){
+  renderSalary(); // use existing function
+  if(!hasEarnedEver('salary_check')){markEarnedEver('salary_check');awardMP(10,'Salary Insights Checked 💰',false);}
+}
 
 // ── Slide-out Sidebar ──────────────────────────────────────────
 function toggleSidebar(){
