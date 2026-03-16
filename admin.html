@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Africa Jobs MRU — Admin Dashboard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ──────────────────────────────────────────────────── */
+:root{
+  --burg:#7B1C1C; --burg-dk:#4A0E0E; --burg-lt:#9B2C2C;
+  --gold:#C9A840; --gold-dk:#8a6800; --gold-lt:#F5EDD4;
+  --slate:#0D1F2D; --slate-lt:#1E3344; --slate-mid:#2D4B5A;
+  --cream:#FAF7F2; --off:#F5F0E8;
+  --ink:#2C2C2C; --ink-mid:#555; --ink-lt:#888;
+  --green:#2E7D32; --red:#C62828; --amber:#E65100;
+  --r:8px; --r-lg:14px; --r-xl:20px;
+  --shadow:0 4px 24px rgba(0,0,0,.12);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.18);
+}
+
+/* ── RESET ──────────────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--slate);
+  color:#fff;min-height:100vh;display:flex;flex-direction:column;}
+
+/* ── LOGIN SCREEN ───────────────────────────────────────────── */
+#loginScreen{
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:24px;
+  background:radial-gradient(ellipse at 30% 20%, rgba(123,28,28,.35) 0%, transparent 60%),
+             radial-gradient(ellipse at 70% 80%, rgba(201,168,64,.15) 0%, transparent 55%),
+             var(--slate);
+}
+.login-box{
+  background:rgba(255,255,255,.04);border:1px solid rgba(201,168,64,.25);
+  border-radius:20px;padding:48px 44px;width:100%;max-width:420px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(201,168,64,.15);
+}
+.login-logo{text-align:center;margin-bottom:32px;}
+.login-logo svg{width:52px;height:52px;margin-bottom:12px;}
+.login-logo h1{font-family:'Cormorant Garamond',serif;font-size:1.7rem;
+  font-weight:700;color:var(--gold);line-height:1.1;}
+.login-logo p{font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.12em;
+  text-transform:uppercase;margin-top:4px;}
+.login-field{margin-bottom:18px;}
+.login-field label{display:block;font-size:.72rem;font-weight:600;
+  color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:7px;}
+.login-field input{width:100%;background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.12);border-radius:var(--r);
+  padding:12px 14px;color:#fff;font-family:'DM Sans',sans-serif;
+  font-size:.92rem;outline:none;transition:border-color .15s;}
+.login-field input:focus{border-color:var(--gold);}
+.login-field input::placeholder{color:rgba(255,255,255,.25);}
+.login-btn{width:100%;background:var(--burg);border:none;border-radius:var(--r);
+  padding:14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem;
+  font-weight:700;cursor:pointer;letter-spacing:.05em;margin-top:8px;
+  transition:background .15s,transform .1s;position:relative;overflow:hidden;}
+.login-btn:hover{background:var(--burg-lt);}
+.login-btn:active{transform:scale(.98);}
+.login-err{background:rgba(198,40,40,.15);border:1px solid rgba(198,40,40,.3);
+  border-radius:var(--r);padding:10px 14px;font-size:.82rem;color:#EF9A9A;
+  margin-top:14px;display:none;}
+.login-badge{display:flex;align-items:center;gap:8px;margin-top:24px;
+  padding-top:20px;border-top:1px solid rgba(255,255,255,.08);
+  font-size:.68rem;color:rgba(255,255,255,.3);}
+
+/* ── ADMIN SHELL ─────────────────────────────────────────────── */
+#adminShell{display:none;flex:1;flex-direction:column;}
+.admin-topbar{
+  background:var(--burg-dk);border-bottom:2px solid var(--gold);
+  padding:0 24px;height:60px;display:flex;align-items:center;
+  gap:16px;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.3);
+}
+.admin-topbar .tb-logo{
+  font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;
+  color:var(--gold);white-space:nowrap;
+}
+.admin-topbar .tb-logo span{font-size:.65rem;color:rgba(255,255,255,.4);
+  letter-spacing:.15em;text-transform:uppercase;display:block;line-height:1;}
+.tb-spacer{flex:1;}
+.tb-badge{background:rgba(201,168,64,.15);border:1px solid rgba(201,168,64,.25);
+  border-radius:20px;padding:4px 12px;font-size:.7rem;color:var(--gold);font-weight:600;}
+.tb-logout{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.65);border-radius:var(--r);padding:6px 14px;
+  font-size:.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.tb-logout:hover{background:rgba(255,255,255,.15);}
+.tb-live-link{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.4);
+  font-size:.72rem;text-decoration:none;transition:color .15s;}
+.tb-live-link:hover{color:var(--gold);}
+
+/* Admin body layout */
+.admin-body{display:flex;flex:1;min-height:0;}
+.admin-sidebar{
+  width:220px;background:rgba(0,0,0,.3);border-right:1px solid rgba(255,255,255,.07);
+  padding:20px 0;flex-shrink:0;overflow-y:auto;
+}
+.sidebar-section{padding:0 16px;margin-bottom:8px;}
+.sidebar-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.25);padding:10px 8px 6px;display:block;}
+.sidebar-btn{display:flex;align-items:center;gap:9px;width:100%;
+  background:none;border:none;color:rgba(255,255,255,.6);
+  padding:9px 10px;border-radius:var(--r);font-size:.82rem;font-weight:500;
+  cursor:pointer;font-family:'DM Sans',sans-serif;text-align:left;
+  transition:background .15s,color .15s;margin-bottom:2px;}
+.sidebar-btn:hover{background:rgba(255,255,255,.07);color:#fff;}
+.sidebar-btn.active{background:rgba(201,168,64,.15);color:var(--gold);font-weight:600;}
+.sidebar-btn .sb-ico{font-size:.95rem;width:18px;text-align:center;flex-shrink:0;}
+.sidebar-count{margin-left:auto;background:rgba(255,255,255,.1);border-radius:10px;
+  padding:1px 7px;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.5);}
+
+/* Main content area */
+.admin-main{flex:1;overflow-y:auto;padding:32px;background:var(--cream);}
+
+/* ── PANELS ─────────────────────────────────────────────────── */
+.admin-panel{display:none;}
+.admin-panel.active{display:block;}
+
+.panel-header{display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.panel-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;
+  font-weight:700;color:var(--burg);}
+.panel-subtitle{font-size:.82rem;color:var(--ink-lt);margin-top:2px;}
+.panel-actions{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;
+  border:none;border-radius:var(--r);font-family:'DM Sans',sans-serif;
+  font-size:.8rem;font-weight:700;cursor:pointer;letter-spacing:.04em;
+  transition:all .15s;text-decoration:none;}
+.btn-primary{background:var(--burg);color:#fff;}
+.btn-primary:hover{background:var(--burg-lt);}
+.btn-gold{background:var(--gold);color:var(--burg-dk);}
+.btn-gold:hover{opacity:.88;}
+.btn-ghost{background:transparent;border:1.5px solid rgba(123,28,28,.25);color:var(--burg);}
+.btn-ghost:hover{background:rgba(123,28,28,.06);}
+.btn-danger{background:rgba(198,40,40,.1);border:1.5px solid rgba(198,40,40,.25);color:var(--red);}
+.btn-danger:hover{background:rgba(198,40,40,.2);}
+.btn-sm{padding:5px 12px;font-size:.72rem;}
+.btn-icon{width:32px;height:32px;padding:0;justify-content:center;}
+
+/* ── CARDS ──────────────────────────────────────────────────── */
+.admin-card{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:var(--r-lg);
+  padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.admin-card-header{display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(0,0,0,.06);}
+.admin-card-title{font-weight:700;font-size:.95rem;color:var(--ink);}
+
+/* ── STATS ROW ───────────────────────────────────────────────── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+.stat-card{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:var(--r-lg);
+  padding:20px 18px;border-top:3px solid var(--burg);}
+.stat-card-v{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;
+  color:var(--burg);line-height:1;}
+.stat-card-l{font-size:.72rem;color:var(--ink-lt);margin-top:4px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;}
+.stat-card-sub{font-size:.7rem;color:var(--ink-lt);margin-top:6px;}
+
+/* ── FORM ELEMENTS ──────────────────────────────────────────── */
+.form-group{margin-bottom:18px;}
+.form-label{display:block;font-size:.72rem;font-weight:700;color:var(--ink);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px;}
+.form-label .req{color:var(--red);margin-left:2px;}
+.form-input,.form-select,.form-textarea{
+  width:100%;border:1.5px solid rgba(0,0,0,.12);border-radius:var(--r);
+  padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.9rem;
+  color:var(--ink);background:#fff;outline:none;transition:border-color .15s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--burg);}
+.form-textarea{resize:vertical;min-height:120px;}
+.form-hint{font-size:.7rem;color:var(--ink-lt);margin-top:5px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+/* ── TABLE ──────────────────────────────────────────────────── */
+.admin-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.admin-table th{text-align:left;padding:10px 14px;font-size:.68rem;font-weight:700;
+  color:var(--ink-lt);letter-spacing:.1em;text-transform:uppercase;
+  border-bottom:2px solid rgba(0,0,0,.08);background:#fff;}
+.admin-table td{padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.05);
+  color:var(--ink);vertical-align:middle;}
+.admin-table tr:hover td{background:rgba(123,28,28,.02);}
+.admin-table tr:last-child td{border-bottom:none;}
+.tbl-actions{display:flex;gap:6px;align-items:center;}
+
+/* ── BADGES ─────────────────────────────────────────────────── */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;
+  border-radius:20px;font-size:.65rem;font-weight:700;letter-spacing:.05em;}
+.badge-green{background:rgba(46,125,50,.12);color:var(--green);border:1px solid rgba(46,125,50,.2);}
+.badge-amber{background:rgba(230,81,0,.1);color:var(--amber);border:1px solid rgba(230,81,0,.2);}
+.badge-red{background:rgba(198,40,40,.1);color:var(--red);border:1px solid rgba(198,40,40,.2);}
+.badge-blue{background:rgba(21,101,192,.1);color:#1565C0;border:1px solid rgba(21,101,192,.2);}
+.badge-gold{background:rgba(201,168,64,.12);color:var(--gold-dk);border:1px solid rgba(201,168,64,.3);}
+
+/* ── MODAL ──────────────────────────────────────────────────── */
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);
+  z-index:500;backdrop-filter:blur(4px);}
+.modal-backdrop.open{display:flex;align-items:center;justify-content:center;padding:20px;}
+.modal{background:#fff;border-radius:var(--r-xl);padding:32px;
+  width:100%;max-width:680px;max-height:90vh;overflow-y:auto;
+  box-shadow:var(--shadow-lg);}
+.modal-header{display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid rgba(123,28,28,.1);}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;
+  font-weight:700;color:var(--burg);}
+.modal-close{background:none;border:none;font-size:1.3rem;color:var(--ink-lt);
+  cursor:pointer;padding:4px;border-radius:6px;transition:color .15s;}
+.modal-close:hover{color:var(--burg);}
+.modal-footer{display:flex;gap:10px;justify-content:flex-end;margin-top:24px;
+  padding-top:16px;border-top:1px solid rgba(0,0,0,.07);}
+
+/* ── UPLOAD ZONE ─────────────────────────────────────────────── */
+.upload-zone{border:2px dashed rgba(123,28,28,.25);border-radius:var(--r-lg);
+  padding:36px 24px;text-align:center;cursor:pointer;transition:all .2s;
+  background:rgba(123,28,28,.02);}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--burg);
+  background:rgba(123,28,28,.05);}
+.upload-zone input[type="file"]{display:none;}
+.upload-ico{font-size:2rem;margin-bottom:10px;}
+.upload-label{font-size:.88rem;color:var(--ink-mid);line-height:1.5;}
+.upload-label strong{color:var(--burg);}
+.upload-hint{font-size:.72rem;color:var(--ink-lt);margin-top:6px;}
+.uploaded-file{display:flex;align-items:center;gap:10px;background:rgba(46,125,50,.06);
+  border:1px solid rgba(46,125,50,.2);border-radius:var(--r);padding:10px 14px;margin-top:10px;}
+.uploaded-file-name{flex:1;font-size:.82rem;color:var(--green);font-weight:600;}
+.uploaded-file-size{font-size:.7rem;color:var(--ink-lt);}
+
+/* ── RICH TEXT TOOLBAR ───────────────────────────────────────── */
+.rte-toolbar{display:flex;gap:4px;padding:8px;background:#f5f5f5;
+  border:1.5px solid rgba(0,0,0,.12);border-bottom:none;border-radius:var(--r) var(--r) 0 0;
+  flex-wrap:wrap;}
+.rte-btn{background:none;border:1px solid transparent;border-radius:4px;
+  padding:4px 8px;font-size:.78rem;font-weight:600;color:var(--ink);
+  cursor:pointer;transition:all .15s;font-family:'DM Mono',monospace;}
+.rte-btn:hover{background:#fff;border-color:rgba(0,0,0,.15);}
+.rte-divider{width:1px;background:rgba(0,0,0,.12);margin:2px 4px;}
+#postContentEditor{border-radius:0 0 var(--r) var(--r);border-top:none;min-height:200px;}
+
+/* ── TOAST ──────────────────────────────────────────────────── */
+.admin-toast{position:fixed;bottom:24px;right:24px;z-index:9999;
+  background:var(--burg-dk);color:#fff;border:1px solid rgba(201,168,64,.3);
+  border-radius:var(--r-lg);padding:12px 20px;font-size:.85rem;font-weight:600;
+  box-shadow:var(--shadow-lg);transform:translateY(20px);opacity:0;
+  transition:all .3s cubic-bezier(.34,1.4,.64,1);pointer-events:none;}
+.admin-toast.show{transform:translateY(0);opacity:1;}
+
+/* ── EMPTY STATE ─────────────────────────────────────────────── */
+.empty-state{text-align:center;padding:48px 24px;color:var(--ink-lt);}
+.empty-state .es-ico{font-size:2.5rem;margin-bottom:12px;}
+.empty-state p{font-size:.88rem;line-height:1.6;}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media(max-width:768px){
+  .admin-sidebar{display:none;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .admin-main{padding:20px 16px;}
+  .admin-topbar{padding:0 16px;}
+  .modal{padding:20px;}
+}
+@media(max-width:480px){
+  .stats-row{grid-template-columns:1fr;}
+  .panel-header{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ LOGIN SCREEN ════════════════════════════════════════════ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="28" stroke="#C9A840" stroke-width="2"/>
+        <path d="M30 10 L42 46 H36 L30 28 L24 46 H18 L30 10Z" fill="#C9A840"/>
+        <path d="M22 36 H38" stroke="#7B1C1C" stroke-width="2.5"/>
+      </svg>
+      <h1>Africa Jobs MRU</h1>
+      <p>Admin Dashboard</p>
+    </div>
+
+    <div class="login-field">
+      <label>Admin Username</label>
+      <input type="text" id="adminUser" placeholder="Enter username" autocomplete="username">
+    </div>
+    <div class="login-field">
+      <label>Password</label>
+      <input type="password" id="adminPass" placeholder="Enter password" autocomplete="current-password"
+        onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Sign In to Admin →</button>
+
+    <div class="login-err" id="loginErr">⚠️ Incorrect username or password.</div>
+
+    <div class="login-badge">
+      <span>🔒</span>
+      <span>Admin access only — this page is not indexed by search engines</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN SHELL ═════════════════════════════════════════════ -->
+<div id="adminShell" style="display:none;flex-direction:column;min-height:100vh;">
+
+  <!-- Top bar -->
+  <div class="admin-topbar">
+    <div class="tb-logo">
+      Africa Jobs MRU <span>Admin Dashboard</span>
+    </div>
+    <div class="tb-spacer"></div>
+    <a href="index.html" target="_blank" class="tb-live-link">🔗 View Live Site</a>
+    <div class="tb-badge">🛡️ Admin</div>
+    <button class="tb-logout" onclick="doLogout()">Sign Out</button>
+  </div>
+
+  <!-- Body -->
+  <div class="admin-body">
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">Content</span>
+        <button class="sidebar-btn active" onclick="showPanel('dashboard')" id="sbDashboard">
+          <span class="sb-ico">📊</span> Dashboard
+        </button>
+        <button class="sidebar-btn" onclick="showPanel('posts')" id="sbPosts">
+          <span class="sb-ico">📝</span> Blog Posts
+          <span class="sidebar-count" id="postsCount">0</span>
+        </button>
+        <button class="sidebar-btn" onclick="showPanel('resources')" id="sbResources">
+          <span class="sb-ico">📁</span> Resources
+          <span class="sidebar-count" id="resourcesCount">0</span>
+        </button>
+        <button class="sidebar-btn" onclick="showPanel('jobs')" id="sbJobs">
+          <span class="sb-ico">💼</span> Job Listings
+          <span class="sidebar-count" id="jobsCount">0</span>
+        </button>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Community</span>
+        <button class="sidebar-btn" onclick="showPanel('users')" id="sbUsers">
+          <span class="sb-ico">👥</span> Users
+          <span class="sidebar-count" id="usersCount">0</span>
+        </button>
+        <button class="sidebar-btn" onclick="showPanel('feed')" id="sbFeed">
+          <span class="sb-ico">🌍</span> Community Feed
+        </button>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Settings</span>
+        <button class="sidebar-btn" onclick="showPanel('settings')" id="sbSettings">
+          <span class="sb-ico">⚙️</span> Site Settings
+        </button>
+        <button class="sidebar-btn" onclick="showPanel('password')" id="sbPassword">
+          <span class="sb-ico">🔑</span> Change Password
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="admin-main">
+
+      <!-- ── DASHBOARD ─────────────────────────────────────── -->
+      <div class="admin-panel active" id="panelDashboard">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Dashboard</div>
+            <div class="panel-subtitle" id="dashWelcome">Welcome back, Admin</div>
+          </div>
+        </div>
+
+        <div class="stats-row" id="dashStats">
+          <div class="stat-card">
+            <div class="stat-card-v" id="dsBlogCount">0</div>
+            <div class="stat-card-l">Blog Posts</div>
+            <div class="stat-card-sub">Published + drafts</div>
+          </div>
+          <div class="stat-card" style="border-top-color:var(--gold);">
+            <div class="stat-card-v" id="dsResCount" style="color:var(--gold-dk);">0</div>
+            <div class="stat-card-l">Resources</div>
+            <div class="stat-card-sub">Downloadable files</div>
+          </div>
+          <div class="stat-card" style="border-top-color:var(--green);">
+            <div class="stat-card-v" id="dsUserCount" style="color:var(--green);">0</div>
+            <div class="stat-card-l">Registered Users</div>
+            <div class="stat-card-sub">Job seekers + orgs</div>
+          </div>
+          <div class="stat-card" style="border-top-color:#1565C0;">
+            <div class="stat-card-v" id="dsJobCount" style="color:#1565C0;">0</div>
+            <div class="stat-card-l">Job Listings</div>
+            <div class="stat-card-sub">Across all MRU nations</div>
+          </div>
+        </div>
+
+        <!-- Recent activity -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">📋 Recent Admin Activity</div>
+          </div>
+          <div id="recentActivity">
+            <div class="empty-state">
+              <div class="es-ico">🌱</div>
+              <p>No admin activity yet. Start by adding a blog post or uploading a resource.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">⚡ Quick Actions</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="showPanel('posts');openNewPostModal()">✏️ New Blog Post</button>
+            <button class="btn btn-gold" onclick="showPanel('resources');openNewResourceModal()">📁 Upload Resource</button>
+            <button class="btn btn-ghost" onclick="showPanel('users')">👥 View Users</button>
+            <a href="blog.html" target="_blank" class="btn btn-ghost">🔗 View Blog Page</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── BLOG POSTS ─────────────────────────────────────── -->
+      <div class="admin-panel" id="panelPosts">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Blog Posts</div>
+            <div class="panel-subtitle">Create and manage blog articles visible on the blog page</div>
+          </div>
+          <div class="panel-actions">
+            <button class="btn btn-primary" onclick="openNewPostModal()">✏️ New Post</button>
+          </div>
+        </div>
+
+        <div class="admin-card" style="padding:0;overflow:hidden;">
+          <div id="postsTableWrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Author</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="postsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RESOURCES ──────────────────────────────────────── -->
+      <div class="admin-panel" id="panelResources">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Downloadable Resources</div>
+            <div class="panel-subtitle">Upload files users can download from the blog page</div>
+          </div>
+          <div class="panel-actions">
+            <button class="btn btn-primary" onclick="openNewResourceModal()">📁 Upload Resource</button>
+          </div>
+        </div>
+
+        <div id="resourcesGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;"></div>
+      </div>
+
+      <!-- ── JOBS ──────────────────────────────────────────── -->
+      <div class="admin-panel" id="panelJobs">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Job Listings</div>
+            <div class="panel-subtitle">Overview of all job listings across the 4 MRU nations</div>
+          </div>
+        </div>
+        <div class="admin-card">
+          <div id="jobsOverview"></div>
+        </div>
+      </div>
+
+      <!-- ── USERS ─────────────────────────────────────────── -->
+      <div class="admin-panel" id="panelUsers">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Registered Users</div>
+            <div class="panel-subtitle">All users registered via localStorage on this browser session</div>
+          </div>
+        </div>
+        <div class="admin-card" style="padding:0;overflow:hidden;">
+          <table class="admin-table">
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>Type</th><th>Field</th><th>Mano Points</th><th>Joined</th></tr>
+            </thead>
+            <tbody id="usersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── COMMUNITY FEED ─────────────────────────────────── -->
+      <div class="admin-panel" id="panelFeed">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Community Feed</div>
+            <div class="panel-subtitle">Moderate posts from the community page</div>
+          </div>
+        </div>
+        <div id="feedAdminList"></div>
+      </div>
+
+      <!-- ── SETTINGS ───────────────────────────────────────── -->
+      <div class="admin-panel" id="panelSettings">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Site Settings</div>
+            <div class="panel-subtitle">Configure platform-wide settings visible to all users</div>
+          </div>
+          <button class="btn btn-primary" onclick="saveSettings()">💾 Save Settings</button>
+        </div>
+        <div class="admin-card">
+          <div class="form-group">
+            <label class="form-label">Platform Announcement Banner</label>
+            <input class="form-input" id="settAnnouncement" placeholder="e.g. 🎉 New jobs added for Guinea this week!">
+            <div class="form-hint">Shown to all users at the top of the site. Leave blank to hide.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Featured Country (Hero default)</label>
+            <select class="form-select" id="settCountry">
+              <option value="sl">🇸🇱 Sierra Leone</option>
+              <option value="lr">🇱🇷 Liberia</option>
+              <option value="gn">🇬🇳 Guinea</option>
+              <option value="ci">🇨🇮 Côte d'Ivoire</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Contact Email (shown in footer)</label>
+            <input class="form-input" id="settEmail" placeholder="e.g. hello@africajobsmru.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Platform Status</label>
+            <select class="form-select" id="settStatus">
+              <option value="live">🟢 Live — fully operational</option>
+              <option value="maintenance">🟡 Maintenance — limited access</option>
+              <option value="beta">🔵 Beta — testing mode</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CHANGE PASSWORD ─────────────────────────────────── -->
+      <div class="admin-panel" id="panelPassword">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Change Admin Password</div>
+            <div class="panel-subtitle">Update your admin login credentials</div>
+          </div>
+        </div>
+        <div class="admin-card" style="max-width:440px;">
+          <div class="form-group">
+            <label class="form-label">Current Password <span class="req">*</span></label>
+            <input class="form-input" type="password" id="pwCurrent" placeholder="Current password">
+          </div>
+          <div class="form-group">
+            <label class="form-label">New Password <span class="req">*</span></label>
+            <input class="form-input" type="password" id="pwNew" placeholder="New password (min 8 chars)">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm New Password <span class="req">*</span></label>
+            <input class="form-input" type="password" id="pwConfirm" placeholder="Repeat new password">
+          </div>
+          <div class="login-err" id="pwErr" style="margin-bottom:12px;"></div>
+          <button class="btn btn-primary" onclick="changePassword()">🔑 Update Password</button>
+        </div>
+      </div>
+
+    </div><!-- /admin-main -->
+  </div><!-- /admin-body -->
+</div><!-- /adminShell -->
+
+<!-- ══ MODALS ══════════════════════════════════════════════════ -->
+
+<!-- New / Edit Blog Post Modal -->
+<div class="modal-backdrop" id="postModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="postModalTitle">✏️ New Blog Post</div>
+      <button class="modal-close" onclick="closeModal('postModal')" aria-label="Close">✕</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Post Title <span class="req">*</span></label>
+        <input class="form-input" id="postTitle" placeholder="e.g. How to ace your first MRU job interview">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Category Tag</label>
+        <select class="form-select" id="postTag">
+          <option>📋 Career Guide</option>
+          <option>🌍 MRU Spotlight</option>
+          <option>🏆 Success Story</option>
+          <option>📊 Data & Research</option>
+          <option>💼 Employer Insight</option>
+          <option>🎓 Skills & Training</option>
+          <option>🌊 Mano Points</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Author Name</label>
+        <input class="form-input" id="postAuthor" value="Africa Jobs Career Team">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Read Time</label>
+        <input class="form-input" id="postReadTime" placeholder="e.g. 5 min read">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Summary <span class="req">*</span></label>
+      <input class="form-input" id="postSummary" placeholder="One sentence shown on the blog card">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Full Article Content</label>
+      <div class="rte-toolbar">
+        <button class="rte-btn" onclick="rteCmd('bold')" title="Bold"><b>B</b></button>
+        <button class="rte-btn" onclick="rteCmd('italic')" title="Italic"><i>I</i></button>
+        <button class="rte-btn" onclick="rteCmd('underline')" title="Underline"><u>U</u></button>
+        <div class="rte-divider"></div>
+        <button class="rte-btn" onclick="rteCmd('insertUnorderedList')" title="Bullet list">• List</button>
+        <button class="rte-btn" onclick="rteCmd('insertOrderedList')" title="Numbered list">1. List</button>
+        <div class="rte-divider"></div>
+        <button class="rte-btn" onclick="rteInsertHeading()" title="Heading">H2</button>
+        <button class="rte-btn" onclick="rteCmd('removeFormat')" title="Clear formatting">✕ Format</button>
+      </div>
+      <div class="form-input" id="postContentEditor" contenteditable="true"
+        style="border-radius:0 0 var(--r) var(--r);border-top:none;min-height:180px;
+        overflow-y:auto;line-height:1.7;" 
+        data-placeholder="Write the full blog post content here…"></div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Status</label>
+      <select class="form-select" id="postStatus">
+        <option value="published">✅ Published — visible on blog page</option>
+        <option value="draft">📝 Draft — hidden from users</option>
+      </select>
+    </div>
+    <input type="hidden" id="postEditId">
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('postModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="savePost()">💾 Save Post</button>
+    </div>
+  </div>
+</div>
+
+<!-- New Resource Modal -->
+<div class="modal-backdrop" id="resourceModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">📁 Upload Resource</div>
+      <button class="modal-close" onclick="closeModal('resourceModal')" aria-label="Close">✕</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Resource Title <span class="req">*</span></label>
+      <input class="form-input" id="resTitle" placeholder="e.g. MRU CV Template 2026">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Description</label>
+      <input class="form-input" id="resDesc" placeholder="Brief description shown on the resource card">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Icon / Emoji</label>
+        <input class="form-input" id="resIcon" value="📄" placeholder="📄">
+      </div>
+      <div class="form-group">
+        <label class="form-label">File Type Label</label>
+        <select class="form-select" id="resType">
+          <option value="PDF">PDF Document</option>
+          <option value="DOCX">Word Document</option>
+          <option value="XLSX">Spreadsheet</option>
+          <option value="PPTX">Presentation</option>
+          <option value="ZIP">ZIP Archive</option>
+          <option value="Link">External Link</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group" id="resFileGroup">
+      <label class="form-label">Upload File</label>
+      <div class="upload-zone" id="resUploadZone" onclick="document.getElementById('resFile').click()"
+        ondragover="event.preventDefault();this.classList.add('drag-over')"
+        ondragleave="this.classList.remove('drag-over')"
+        ondrop="handleResFileDrop(event)">
+        <input type="file" id="resFile" accept=".pdf,.docx,.xlsx,.pptx,.zip"
+          onchange="handleResFileSelect(this)">
+        <div class="upload-ico">☁️</div>
+        <div class="upload-label"><strong>Click to upload</strong> or drag and drop</div>
+        <div class="upload-hint">PDF, DOCX, XLSX, PPTX or ZIP — max 10MB</div>
+      </div>
+      <div id="resFilePreview"></div>
+    </div>
+    <div class="form-group" id="resLinkGroup" style="display:none;">
+      <label class="form-label">External Link URL</label>
+      <input class="form-input" id="resLinkUrl" placeholder="https://...">
+    </div>
+    <input type="hidden" id="resEditId">
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('resourceModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveResource()">💾 Save Resource</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="admin-toast" id="adminToast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// AFRICA JOBS MRU — ADMIN DASHBOARD
+// All data stored in localStorage under 'aj_admin_*' keys
+// Changes sync to the main site via shared localStorage
+// ══════════════════════════════════════════════════════════════════
+
+// ── Auth ─────────────────────────────────────────────────────────
+var ADMIN_DEFAULT_USER = 'admin';
+var ADMIN_DEFAULT_PASS = 'AfricaJobs2026!';
+var _adminSession = false;
+
+function getAdminCreds(){
+  return {
+    user: localStorage.getItem('aj_admin_user') || ADMIN_DEFAULT_USER,
+    pass: localStorage.getItem('aj_admin_pass') || ADMIN_DEFAULT_PASS
+  };
+}
+
+function doLogin(){
+  var user = document.getElementById('adminUser').value.trim();
+  var pass = document.getElementById('adminPass').value;
+  var creds = getAdminCreds();
+  var err = document.getElementById('loginErr');
+  if(user === creds.user && pass === creds.pass){
+    _adminSession = true;
+    localStorage.setItem('aj_admin_session', Date.now().toString());
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminShell').style.display = 'flex';
+    initAdmin();
+  } else {
+    err.style.display = 'block';
+    document.getElementById('adminPass').value = '';
+    setTimeout(function(){ err.style.display = 'none'; }, 3000);
+  }
+}
+
+function doLogout(){
+  _adminSession = false;
+  localStorage.removeItem('aj_admin_session');
+  document.getElementById('adminShell').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('adminUser').value = '';
+  document.getElementById('adminPass').value = '';
+}
+
+// Check for existing session on load
+window.addEventListener('DOMContentLoaded', function(){
+  var sess = localStorage.getItem('aj_admin_session');
+  if(sess && (Date.now() - parseInt(sess)) < 8 * 60 * 60 * 1000){
+    // Session valid (8 hours)
+    _adminSession = true;
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminShell').style.display = 'flex';
+    initAdmin();
+  }
+  // Enter key on login
+  document.getElementById('adminUser').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') document.getElementById('adminPass').focus();
+  });
+});
+
+// ── Panel navigation ───────────────────────────────────────────
+function showPanel(name){
+  document.querySelectorAll('.admin-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.sidebar-btn').forEach(function(b){ b.classList.remove('active'); });
+  var panel = document.getElementById('panel' + name.charAt(0).toUpperCase() + name.slice(1));
+  var btn = document.getElementById('sb' + name.charAt(0).toUpperCase() + name.slice(1));
+  if(panel) panel.classList.add('active');
+  if(btn) btn.classList.add('active');
+  // Refresh panel content
+  var refreshMap = {
+    dashboard: renderDashboard,
+    posts: renderPosts,
+    resources: renderResources,
+    jobs: renderJobsOverview,
+    users: renderUsers,
+    feed: renderFeedAdmin,
+    settings: renderSettings,
+  };
+  if(refreshMap[name]) refreshMap[name]();
+}
+
+// ── Init ───────────────────────────────────────────────────────
+function initAdmin(){
+  var now = new Date();
+  document.getElementById('dashWelcome').textContent =
+    'Welcome back — ' + now.toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  renderDashboard();
+  renderPosts();
+  renderResources();
+  updateSidebarCounts();
+}
+
+// ── Data helpers ───────────────────────────────────────────────
+function getPosts(){ return JSON.parse(localStorage.getItem('aj_admin_posts') || '[]'); }
+function savePosts(arr){ localStorage.setItem('aj_admin_posts', JSON.stringify(arr)); }
+function getResources(){ return JSON.parse(localStorage.getItem('aj_admin_resources') || '[]'); }
+function saveResources(arr){ localStorage.setItem('aj_admin_resources', JSON.stringify(arr)); }
+function getSettings(){ return JSON.parse(localStorage.getItem('aj_admin_settings') || '{}'); }
+function saveSettingsData(obj){ localStorage.setItem('aj_admin_settings', JSON.stringify(obj)); }
+
+// Get platform users from main site localStorage
+function getPlatformUsers(){
+  try{ return JSON.parse(localStorage.getItem('aj_users') || '[]'); }
+  catch(e){ return []; }
+}
+
+function updateSidebarCounts(){
+  var posts = getPosts();
+  var resources = getResources();
+  var users = getPlatformUsers();
+  document.getElementById('postsCount').textContent = posts.length;
+  document.getElementById('resourcesCount').textContent = resources.length;
+  document.getElementById('usersCount').textContent = users.length;
+  // Count jobs from COUNTRIES if available
+  try{
+    var totalJobs = 0;
+    var countries = ['sl','lr','gn','ci'];
+    countries.forEach(function(code){
+      var stored = localStorage.getItem('aj_jobs_' + code);
+      if(stored){ totalJobs += JSON.parse(stored).length; }
+    });
+    document.getElementById('jobsCount').textContent = totalJobs || '—';
+  } catch(e){}
+}
+
+// ── Dashboard ─────────────────────────────────────────────────
+function renderDashboard(){
+  var posts = getPosts();
+  var resources = getResources();
+  var users = getPlatformUsers();
+  document.getElementById('dsBlogCount').textContent = posts.length;
+  document.getElementById('dsResCount').textContent = resources.length;
+  document.getElementById('dsUserCount').textContent = users.length || '—';
+  document.getElementById('dsJobCount').textContent = '118+';
+
+  // Recent activity log
+  var log = JSON.parse(localStorage.getItem('aj_admin_log') || '[]');
+  var actEl = document.getElementById('recentActivity');
+  if(!log.length){
+    actEl.innerHTML = '<div class="empty-state"><div class="es-ico">🌱</div>'
+      + '<p>No admin activity yet. Start by adding a blog post or uploading a resource.</p></div>';
+  } else {
+    actEl.innerHTML = '<div style="display:flex;flex-direction:column;gap:0;">'
+      + log.slice(0,8).map(function(entry){
+        return '<div style="display:flex;align-items:center;gap:12px;padding:11px 0;'
+          + 'border-bottom:1px solid rgba(0,0,0,.05);">'
+          + '<span style="font-size:1rem;">' + (entry.ico || '📋') + '</span>'
+          + '<div style="flex:1;"><div style="font-size:.85rem;color:var(--ink);font-weight:500;">'
+          + entry.action + '</div>'
+          + '<div style="font-size:.7rem;color:var(--ink-lt);">' + entry.time + '</div></div>'
+          + '</div>';
+      }).join('') + '</div>';
+  }
+  updateSidebarCounts();
+}
+
+function logActivity(ico, action){
+  var log = JSON.parse(localStorage.getItem('aj_admin_log') || '[]');
+  log.unshift({ico: ico, action: action, time: new Date().toLocaleString()});
+  localStorage.setItem('aj_admin_log', JSON.stringify(log.slice(0, 50)));
+}
+
+// ── Blog Posts ────────────────────────────────────────────────
+function renderPosts(){
+  var posts = getPosts();
+  var tbody = document.getElementById('postsTableBody');
+  if(!posts.length){
+    tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state">'
+      + '<div class="es-ico">📝</div>'
+      + '<p>No blog posts yet. Click "New Post" to create your first article.</p>'
+      + '</div></td></tr>';
+    return;
+  }
+  tbody.innerHTML = posts.map(function(p){
+    var statusBadge = p.status === 'published'
+      ? '<span class="badge badge-green">✅ Published</span>'
+      : '<span class="badge badge-amber">📝 Draft</span>';
+    return '<tr>'
+      + '<td><div style="font-weight:600;color:var(--ink);font-size:.85rem;">' + p.title + '</div>'
+      + '<div style="font-size:.72rem;color:var(--ink-lt);margin-top:2px;">' + (p.summary || '') + '</div></td>'
+      + '<td><span class="badge badge-gold">' + (p.tag || '') + '</span></td>'
+      + '<td style="font-size:.82rem;">' + (p.author || '') + '</td>'
+      + '<td style="font-size:.82rem;color:var(--ink-lt);">' + (p.date || '') + '</td>'
+      + '<td>' + statusBadge + '</td>'
+      + '<td><div class="tbl-actions">'
+      + '<button class="btn btn-ghost btn-sm" onclick="editPost(\'' + p.id + '\')">✏️ Edit</button>'
+      + '<button class="btn btn-danger btn-sm" onclick="deletePost(\'' + p.id + '\')">🗑️</button>'
+      + '</div></td>'
+      + '</tr>';
+  }).join('');
+  document.getElementById('postsCount').textContent = posts.length;
+}
+
+function openNewPostModal(){
+  document.getElementById('postEditId').value = '';
+  document.getElementById('postModalTitle').textContent = '✏️ New Blog Post';
+  document.getElementById('postTitle').value = '';
+  document.getElementById('postSummary').value = '';
+  document.getElementById('postAuthor').value = 'Africa Jobs Career Team';
+  document.getElementById('postReadTime').value = '5 min read';
+  document.getElementById('postContentEditor').innerHTML = '';
+  document.getElementById('postStatus').value = 'published';
+  openModal('postModal');
+}
+
+function editPost(id){
+  var posts = getPosts();
+  var p = posts.find(function(x){ return x.id === id; });
+  if(!p) return;
+  document.getElementById('postEditId').value = id;
+  document.getElementById('postModalTitle').textContent = '✏️ Edit Blog Post';
+  document.getElementById('postTitle').value = p.title || '';
+  document.getElementById('postSummary').value = p.summary || '';
+  document.getElementById('postAuthor').value = p.author || '';
+  document.getElementById('postReadTime').value = p.readTime || '';
+  document.getElementById('postContentEditor').innerHTML = p.content || '';
+  document.getElementById('postStatus').value = p.status || 'published';
+  // Set tag
+  var tagSel = document.getElementById('postTag');
+  for(var i=0; i<tagSel.options.length; i++){
+    if(tagSel.options[i].text === p.tag){ tagSel.selectedIndex = i; break; }
+  }
+  openModal('postModal');
+}
+
+function savePost(){
+  var title = document.getElementById('postTitle').value.trim();
+  var summary = document.getElementById('postSummary').value.trim();
+  if(!title){ adminToast('⚠️ Title is required.', true); return; }
+  if(!summary){ adminToast('⚠️ Summary is required.', true); return; }
+
+  var posts = getPosts();
+  var editId = document.getElementById('postEditId').value;
+  var now = new Date();
+  var dateStr = now.toLocaleDateString('en-GB', {month:'long', year:'numeric'});
+  var content = document.getElementById('postContentEditor').innerHTML;
+
+  if(editId){
+    var idx = posts.findIndex(function(p){ return p.id === editId; });
+    if(idx >= 0){
+      posts[idx] = Object.assign(posts[idx], {
+        title: title, summary: summary,
+        tag: document.getElementById('postTag').options[document.getElementById('postTag').selectedIndex].text,
+        author: document.getElementById('postAuthor').value.trim(),
+        readTime: document.getElementById('postReadTime').value.trim(),
+        content: content,
+        status: document.getElementById('postStatus').value,
+        updated: dateStr
+      });
+    }
+    logActivity('✏️', 'Updated blog post: ' + title);
+  } else {
+    var newPost = {
+      id: 'post-' + Date.now(),
+      title: title, summary: summary,
+      tag: document.getElementById('postTag').options[document.getElementById('postTag').selectedIndex].text,
+      author: document.getElementById('postAuthor').value.trim(),
+      readTime: document.getElementById('postReadTime').value.trim() || '5 min read',
+      content: content,
+      status: document.getElementById('postStatus').value,
+      date: dateStr,
+    };
+    posts.unshift(newPost);
+    logActivity('📝', 'Created blog post: ' + title);
+  }
+  savePosts(posts);
+  // Sync to blog page
+  localStorage.setItem('aj_blog_posts', JSON.stringify(posts));
+  closeModal('postModal');
+  renderPosts();
+  adminToast('✅ Post saved and synced to blog page!');
+  updateSidebarCounts();
+}
+
+function deletePost(id){
+  if(!confirm('Delete this blog post? This cannot be undone.')) return;
+  var posts = getPosts().filter(function(p){ return p.id !== id; });
+  savePosts(posts);
+  localStorage.setItem('aj_blog_posts', JSON.stringify(posts));
+  logActivity('🗑️', 'Deleted blog post');
+  renderPosts();
+  adminToast('🗑️ Post deleted.');
+  updateSidebarCounts();
+}
+
+// ── Resources ──────────────────────────────────────────────────
+var _resFileData = null;
+
+function renderResources(){
+  var resources = getResources();
+  var grid = document.getElementById('resourcesGrid');
+  if(!resources.length){
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;">'
+      + '<div class="es-ico">📁</div>'
+      + '<p>No resources uploaded yet. Click "Upload Resource" to add your first file.</p></div>';
+    return;
+  }
+  grid.innerHTML = resources.map(function(r){
+    var typeBadge = '<span class="badge badge-blue">' + (r.fileType || 'File') + '</span>';
+    return '<div class="admin-card" style="margin-bottom:0;">'
+      + '<div style="font-size:2rem;margin-bottom:10px;">' + (r.icon || '📄') + '</div>'
+      + '<div style="font-weight:700;color:var(--ink);font-size:.92rem;margin-bottom:4px;">' + r.title + '</div>'
+      + '<div style="font-size:.78rem;color:var(--ink-lt);margin-bottom:10px;line-height:1.5;">' + (r.desc || '') + '</div>'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;">'
+      + typeBadge
+      + '<div style="display:flex;gap:6px;">'
+      + '<button class="btn btn-ghost btn-sm" onclick="editResource(\'' + r.id + '\')">✏️</button>'
+      + '<button class="btn btn-danger btn-sm" onclick="deleteResource(\'' + r.id + '\')">🗑️</button>'
+      + '</div></div>'
+      + (r.fileName ? '<div style="font-size:.68rem;color:var(--green);margin-top:8px;">✅ ' + r.fileName + '</div>' : '')
+      + '</div>';
+  }).join('');
+  document.getElementById('resourcesCount').textContent = resources.length;
+}
+
+function openNewResourceModal(){
+  document.getElementById('resEditId').value = '';
+  document.getElementById('resTitle').value = '';
+  document.getElementById('resDesc').value = '';
+  document.getElementById('resIcon').value = '📄';
+  document.getElementById('resType').value = 'PDF';
+  document.getElementById('resFilePreview').innerHTML = '';
+  _resFileData = null;
+  toggleResTypeFields();
+  openModal('resourceModal');
+}
+
+function editResource(id){
+  var resources = getResources();
+  var r = resources.find(function(x){ return x.id === id; });
+  if(!r) return;
+  document.getElementById('resEditId').value = id;
+  document.getElementById('resTitle').value = r.title || '';
+  document.getElementById('resDesc').value = r.desc || '';
+  document.getElementById('resIcon').value = r.icon || '📄';
+  document.getElementById('resType').value = r.fileType || 'PDF';
+  if(r.fileName){
+    document.getElementById('resFilePreview').innerHTML =
+      '<div class="uploaded-file"><span class="uploaded-file-name">📎 ' + r.fileName + '</span>'
+      + '<span class="uploaded-file-size">Previously uploaded</span></div>';
+  }
+  toggleResTypeFields();
+  openModal('resourceModal');
+}
+
+document.getElementById('resType').addEventListener('change', toggleResTypeFields);
+function toggleResTypeFields(){
+  var type = document.getElementById('resType').value;
+  document.getElementById('resFileGroup').style.display = type === 'Link' ? 'none' : 'block';
+  document.getElementById('resLinkGroup').style.display = type === 'Link' ? 'block' : 'none';
+}
+
+function handleResFileSelect(input){
+  if(!input.files || !input.files[0]) return;
+  var file = input.files[0];
+  var maxMB = 10;
+  if(file.size > maxMB * 1024 * 1024){
+    adminToast('⚠️ File too large. Max ' + maxMB + 'MB.', true); return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(e){
+    _resFileData = { name: file.name, size: file.size, type: file.type, data: e.target.result };
+    var mb = (file.size / 1024 / 1024).toFixed(2);
+    document.getElementById('resFilePreview').innerHTML =
+      '<div class="uploaded-file"><span class="uploaded-file-name">✅ ' + file.name + '</span>'
+      + '<span class="uploaded-file-size">' + mb + ' MB</span></div>';
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleResFileDrop(e){
+  e.preventDefault();
+  document.getElementById('resUploadZone').classList.remove('drag-over');
+  var file = e.dataTransfer.files[0];
+  if(!file) return;
+  var fakeInput = {files: [file]};
+  handleResFileSelect({files: [file]});
+}
+
+function saveResource(){
+  var title = document.getElementById('resTitle').value.trim();
+  if(!title){ adminToast('⚠️ Title is required.', true); return; }
+  var resources = getResources();
+  var editId = document.getElementById('resEditId').value;
+  var resourceObj = {
+    id: editId || 'res-' + Date.now(),
+    title: title,
+    desc: document.getElementById('resDesc').value.trim(),
+    icon: document.getElementById('resIcon').value.trim() || '📄',
+    fileType: document.getElementById('resType').value,
+    linkUrl: document.getElementById('resLinkUrl').value.trim(),
+  };
+  if(_resFileData){
+    resourceObj.fileName = _resFileData.name;
+    resourceObj.fileSize = _resFileData.size;
+    resourceObj.fileData = _resFileData.data; // base64
+  }
+  if(editId){
+    var idx = resources.findIndex(function(r){ return r.id === editId; });
+    if(idx >= 0) resources[idx] = Object.assign(resources[idx], resourceObj);
+    logActivity('📁', 'Updated resource: ' + title);
+  } else {
+    resources.push(resourceObj);
+    logActivity('📁', 'Uploaded resource: ' + title);
+  }
+  saveResources(resources);
+  localStorage.setItem('aj_resources', JSON.stringify(resources)); // sync to main site
+  _resFileData = null;
+  closeModal('resourceModal');
+  renderResources();
+  adminToast('✅ Resource saved and synced to blog page!');
+  updateSidebarCounts();
+}
+
+function deleteResource(id){
+  if(!confirm('Delete this resource? Users will lose access to it.')) return;
+  var resources = getResources().filter(function(r){ return r.id !== id; });
+  saveResources(resources);
+  localStorage.setItem('aj_resources', JSON.stringify(resources));
+  logActivity('🗑️', 'Deleted resource');
+  renderResources();
+  adminToast('🗑️ Resource deleted.');
+  updateSidebarCounts();
+}
+
+// ── Jobs Overview ──────────────────────────────────────────────
+function renderJobsOverview(){
+  var countries = [
+    {code:'sl', name:'Sierra Leone 🇸🇱', districts:16, jobs:42},
+    {code:'lr', name:'Liberia 🇱🇷', districts:15, jobs:31},
+    {code:'gn', name:'Guinea 🇬🇳', districts:33, jobs:28},
+    {code:'ci', name:'Côte d\'Ivoire 🇨🇮', districts:31, jobs:17},
+  ];
+  document.getElementById('jobsOverview').innerHTML =
+    '<table class="admin-table"><thead><tr>'
+    + '<th>Country</th><th>Locations</th><th>Job Listings</th><th>Status</th>'
+    + '</tr></thead><tbody>'
+    + countries.map(function(c){
+      return '<tr><td><strong>' + c.name + '</strong></td>'
+        + '<td>' + c.districts + ' districts/regions</td>'
+        + '<td><strong>' + c.jobs + '</strong></td>'
+        + '<td><span class="badge badge-green">✅ Active</span></td></tr>';
+    }).join('')
+    + '</tbody></table>'
+    + '<div style="margin-top:16px;padding:14px;background:rgba(201,168,64,.08);'
+    + 'border:1px solid rgba(201,168,64,.2);border-radius:var(--r);font-size:.82rem;color:var(--ink-mid);">'
+    + '💡 Job listings are currently hardcoded in the platform data. '
+    + 'A future release will allow adding individual job listings here. '
+    + 'To add jobs now, contact your developer to update the COUNTRIES data in index.html.'
+    + '</div>';
+}
+
+// ── Users ──────────────────────────────────────────────────────
+function renderUsers(){
+  var users = getPlatformUsers();
+  var tbody = document.getElementById('usersTableBody');
+  if(!users.length){
+    tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state">'
+      + '<div class="es-ico">👥</div>'
+      + '<p>No users registered yet, or user data is stored in a different browser session.</p>'
+      + '</div></td></tr>';
+    return;
+  }
+  tbody.innerHTML = users.map(function(u){
+    return '<tr>'
+      + '<td><strong>' + (u.name || '—') + '</strong></td>'
+      + '<td style="font-size:.8rem;color:var(--ink-lt);">' + (u.email || '—') + '</td>'
+      + '<td><span class="badge ' + (u.type === 'org' ? 'badge-blue' : 'badge-green') + '">'
+      + (u.type === 'org' ? '🏢 Organisation' : '👤 Job Seeker') + '</span></td>'
+      + '<td style="font-size:.82rem;">' + (u.field || '—') + '</td>'
+      + '<td><strong style="color:var(--gold-dk);">' + (u.points || 0) + ' MPs</strong></td>'
+      + '<td style="font-size:.78rem;color:var(--ink-lt);">' + (u.joinDate || '—') + '</td>'
+      + '</tr>';
+  }).join('');
+  document.getElementById('usersCount').textContent = users.length;
+}
+
+// ── Community Feed ─────────────────────────────────────────────
+function renderFeedAdmin(){
+  // Feed posts stored from community page
+  var posts = JSON.parse(localStorage.getItem('aj_feed_posts') || '[]');
+  var el = document.getElementById('feedAdminList');
+  if(!posts.length){
+    el.innerHTML = '<div class="empty-state"><div class="es-ico">🌍</div>'
+      + '<p>No community posts found. Posts created on the community page will appear here.</p></div>';
+    return;
+  }
+  el.innerHTML = posts.map(function(p, i){
+    return '<div class="admin-card" style="margin-bottom:12px;">'
+      + '<div style="display:flex;align-items:flex-start;gap:12px;">'
+      + '<div style="font-size:1.5rem;">' + (p.av || '👤') + '</div>'
+      + '<div style="flex:1;">'
+      + '<div style="font-weight:700;font-size:.88rem;">' + (p.user || 'Unknown') + ' ' + (p.country || '') + '</div>'
+      + '<div style="font-size:.72rem;color:var(--ink-lt);margin-bottom:8px;">' + (p.field || '') + ' · ' + (p.time || '') + '</div>'
+      + '<div style="font-size:.85rem;color:var(--ink);line-height:1.6;">' + (p.text || '') + '</div>'
+      + '</div>'
+      + '<button class="btn btn-danger btn-sm" onclick="deleteFeedPost(' + i + ')">🗑️ Remove</button>'
+      + '</div></div>';
+  }).join('');
+}
+
+function deleteFeedPost(index){
+  if(!confirm('Remove this post from the community feed?')) return;
+  var posts = JSON.parse(localStorage.getItem('aj_feed_posts') || '[]');
+  posts.splice(index, 1);
+  localStorage.setItem('aj_feed_posts', JSON.stringify(posts));
+  renderFeedAdmin();
+  adminToast('🗑️ Post removed from feed.');
+}
+
+// ── Settings ──────────────────────────────────────────────────
+function renderSettings(){
+  var s = getSettings();
+  document.getElementById('settAnnouncement').value = s.announcement || '';
+  document.getElementById('settCountry').value = s.country || 'sl';
+  document.getElementById('settEmail').value = s.email || '';
+  document.getElementById('settStatus').value = s.status || 'live';
+}
+
+function saveSettings(){
+  var s = {
+    announcement: document.getElementById('settAnnouncement').value.trim(),
+    country: document.getElementById('settCountry').value,
+    email: document.getElementById('settEmail').value.trim(),
+    status: document.getElementById('settStatus').value,
+  };
+  saveSettingsData(s);
+  localStorage.setItem('aj_site_settings', JSON.stringify(s)); // sync to main site
+  logActivity('⚙️', 'Updated site settings');
+  adminToast('✅ Settings saved and synced to site!');
+}
+
+// ── Change password ───────────────────────────────────────────
+function changePassword(){
+  var current = document.getElementById('pwCurrent').value;
+  var newPw = document.getElementById('pwNew').value;
+  var confirm = document.getElementById('pwConfirm').value;
+  var err = document.getElementById('pwErr');
+  var creds = getAdminCreds();
+  err.style.display = 'none';
+  if(current !== creds.pass){
+    err.textContent = '⚠️ Current password is incorrect.'; err.style.display = 'block'; return;
+  }
+  if(newPw.length < 8){
+    err.textContent = '⚠️ New password must be at least 8 characters.'; err.style.display = 'block'; return;
+  }
+  if(newPw !== confirm){
+    err.textContent = '⚠️ Passwords do not match.'; err.style.display = 'block'; return;
+  }
+  localStorage.setItem('aj_admin_pass', newPw);
+  document.getElementById('pwCurrent').value = '';
+  document.getElementById('pwNew').value = '';
+  document.getElementById('pwConfirm').value = '';
+  logActivity('🔑', 'Admin password changed');
+  adminToast('✅ Password updated successfully.');
+}
+
+// ── Rich text editor helpers ──────────────────────────────────
+function rteCmd(cmd){
+  document.getElementById('postContentEditor').focus();
+  document.execCommand(cmd, false, null);
+}
+function rteInsertHeading(){
+  document.getElementById('postContentEditor').focus();
+  document.execCommand('formatBlock', false, 'h3');
+}
+
+// ── Modal helpers ─────────────────────────────────────────────
+function openModal(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close modal on backdrop click
+document.querySelectorAll('.modal-backdrop').forEach(function(bd){
+  bd.addEventListener('click', function(e){
+    if(e.target === bd) closeModal(bd.id);
+  });
+});
+// Esc closes modals
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    document.querySelectorAll('.modal-backdrop.open').forEach(function(m){
+      closeModal(m.id);
+    });
+  }
+});
+
+// ── Toast ─────────────────────────────────────────────────────
+function adminToast(msg, isError){
+  var t = document.getElementById('adminToast');
+  t.textContent = msg;
+  t.style.background = isError ? 'var(--red)' : 'var(--burg-dk)';
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3200);
+}
+
+// ── Placeholder for editor ────────────────────────────────────
+var editor = document.getElementById('postContentEditor');
+if(editor){
+  editor.addEventListener('focus', function(){
+    if(this.innerHTML === '') this.style.color = 'var(--ink)';
+  });
+}
+</script>
+</body>
+</html>

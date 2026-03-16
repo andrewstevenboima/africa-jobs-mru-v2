@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Africa Jobs MRU — You're Offline</title>
+<style>
+  :root{--burg:#7B1C1C;--gold:#C9A840;--cream:#FAF7F2;--slate:#1E3344}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:var(--slate);
+    color:#fff;min-height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:24px;text-align:center}
+  .logo{font-size:2.5rem;margin-bottom:8px}
+  h1{font-family:Georgia,serif;font-size:2rem;color:var(--gold);margin-bottom:8px}
+  .tagline{font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:40px}
+  .card{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,64,.25);
+    border-radius:16px;padding:32px;max-width:440px;width:100%;margin-bottom:24px}
+  .wave{font-size:3rem;margin-bottom:16px}
+  h2{font-family:Georgia,serif;color:var(--gold);font-size:1.3rem;margin-bottom:12px}
+  p{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:12px}
+  .offline-list{list-style:none;text-align:left;margin:16px 0}
+  .offline-list li{display:flex;align-items:flex-start;gap:10px;
+    padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);
+    font-size:.84rem;color:rgba(255,255,255,.7)}
+  .offline-list li:last-child{border-bottom:none}
+  .ico{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+  .retry-btn{display:inline-flex;align-items:center;gap:8px;
+    background:var(--burg);color:#fff;border:none;border-radius:24px;
+    padding:12px 28px;font-size:.88rem;font-weight:700;cursor:pointer;
+    letter-spacing:.05em;margin-top:8px;transition:opacity .15s}
+  .retry-btn:hover{opacity:.88}
+  .status{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:24px}
+  .flags{font-size:1.4rem;margin-top:16px;letter-spacing:4px}
+</style>
+</head>
+<body>
+
+<div class="logo">🌊</div>
+<h1>Africa Jobs MRU</h1>
+<p class="tagline">🇸🇱 Sierra Leone · 🇱🇷 Liberia · 🇬🇳 Guinea · 🇨🇮 Côte d'Ivoire</p>
+
+<div class="card">
+  <div class="wave">📡</div>
+  <h2>You're currently offline</h2>
+  <p>No internet connection detected. Africa Jobs MRU is designed to work offline — here's what you can still access from your cached version:</p>
+
+  <ul class="offline-list">
+    <li><span class="ico">💼</span>
+      <div><strong>Job Listings</strong> — Browse jobs saved from your last session across all 4 MRU nations</div>
+    </li>
+    <li><span class="ico">👤</span>
+      <div><strong>Your Profile & Mano Points</strong> — View your dashboard, tier and activity history</div>
+    </li>
+    <li><span class="ico">🌊</span>
+      <div><strong>Log Activities</strong> — Record activities offline; they'll be counted when you reconnect</div>
+    </li>
+    <li><span class="ico">📖</span>
+      <div><strong>Blog & Resources</strong> — Read career guides and download CV templates you've already loaded</div>
+    </li>
+    <li><span class="ico">📊</span>
+      <div><strong>Statistics</strong> — View MRU labour market data from your last connected session</div>
+    </li>
+  </ul>
+
+  <button class="retry-btn" onclick="window.location.reload()">
+    🔄 Try Again
+  </button>
+</div>
+
+<div class="status">
+  If you visited Africa Jobs MRU recently while online, try navigating directly to the home page —
+  your browser may have it cached.
+</div>
+
+<div class="flags">🇸🇱 🇱🇷 🇬🇳 🇨🇮</div>
+
+<script>
+  // Auto-retry when connection comes back
+  window.addEventListener('online', () => {
+    window.location.reload();
+  });
+
+  // Show connection status
+  const status = document.querySelector('.status');
+  if (navigator.onLine) {
+    status.textContent = 'Connection detected — click Try Again to reload.';
+    status.style.color = '#7EE8A2';
+  }
+</script>
+</body>
+</html>
