@@ -1172,6 +1172,154 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 /* Hide old auth-close buttons replaced by sticky bar */
 .auth-close{display:none!important;}
 
+/* ─── Tier Page Overlays (Free / Premium / Enterprise) ──────── */
+.tier-page{
+  display:none;position:fixed;inset:0;z-index:5500;
+  overflow-y:auto;flex-direction:column;
+}
+.tier-page.active{display:flex;}
+
+/* Free page — cream background */
+#freePageOvl{background:var(--cream);}
+/* Premium page — dark branded */
+#premPageOvl{background:linear-gradient(135deg,#0a0a14 0%,#1a0808 50%,#0d1520 100%);}
+/* Enterprise page — deep slate */
+#entPageOvl{background:linear-gradient(135deg,#050d16 0%,#0a1a2a 60%,#081220 100%);}
+
+/* Shared tier page nav bar */
+.tp-nav{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;gap:14px;padding:12px 36px;
+  flex-shrink:0;
+}
+#freePageOvl .tp-nav{background:rgba(250,247,242,.95);border-bottom:1px solid rgba(0,0,0,.08);backdrop-filter:blur(10px);}
+#premPageOvl .tp-nav{background:rgba(10,10,20,.95);border-bottom:1px solid rgba(201,168,64,.15);backdrop-filter:blur(10px);}
+#entPageOvl  .tp-nav{background:rgba(5,13,22,.95);border-bottom:1px solid rgba(74,144,196,.2);backdrop-filter:blur(10px);}
+
+.tp-back{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(123,28,28,.08);border:1.5px solid rgba(123,28,28,.2);
+  border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;
+  color:var(--burg);cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:background .15s;white-space:nowrap;
+}
+.tp-back:hover{background:rgba(123,28,28,.15);}
+.tp-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;flex:1;}
+#freePageOvl .tp-title{color:var(--burg);}
+#premPageOvl .tp-title{color:var(--gold);}
+#entPageOvl  .tp-title{color:#4A90C4;}
+.tp-close{
+  background:none;border:none;font-size:1.2rem;cursor:pointer;
+  padding:4px 8px;border-radius:6px;transition:color .15s;flex-shrink:0;
+}
+#freePageOvl .tp-close{color:var(--ink-lt);}
+#premPageOvl .tp-close{color:rgba(255,255,255,.4);}
+#entPageOvl  .tp-close{color:rgba(255,255,255,.4);}
+.tp-close:hover{color:var(--burg)!important;}
+
+/* Shared content containers */
+.tp-hero{text-align:center;padding:56px 24px 40px;max-width:700px;margin:0 auto;}
+.tp-eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+.tp-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:14px;}
+.tp-hero p{font-size:.95rem;line-height:1.75;max-width:540px;margin:0 auto 28px;}
+
+/* Free page colours */
+#freePageOvl .tp-eyebrow{color:var(--burg);}
+#freePageOvl .tp-hero h1{color:var(--burg);}
+#freePageOvl .tp-hero p{color:var(--ink-mid);}
+
+/* Premium page colours */
+#premPageOvl .tp-eyebrow{color:var(--gold);}
+#premPageOvl .tp-hero h1{color:#fff;}
+#premPageOvl .tp-hero p{color:rgba(255,255,255,.55);}
+
+/* Enterprise page colours */
+#entPageOvl .tp-eyebrow{color:#4A90C4;}
+#entPageOvl .tp-hero h1{color:#fff;}
+#entPageOvl .tp-hero p{color:rgba(255,255,255,.55);}
+
+/* Feature grid */
+.tp-feat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;max-width:1100px;margin:0 auto;padding:0 24px 24px;
+}
+.tp-feat-card{border-radius:14px;padding:24px;}
+#freePageOvl .tp-feat-card{background:#fff;border:1px solid rgba(0,0,0,.07);box-shadow:0 2px 8px rgba(0,0,0,.04);}
+#premPageOvl .tp-feat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);}
+#entPageOvl  .tp-feat-card{background:rgba(255,255,255,.04);border:1px solid rgba(74,144,196,.15);}
+.tp-feat-card:hover{transform:translateY(-2px);transition:transform .2s;}
+.tp-feat-ico{font-size:1.8rem;margin-bottom:10px;}
+.tp-feat-nm{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+.tp-feat-ds{font-size:.8rem;line-height:1.65;}
+#freePageOvl .tp-feat-nm{color:var(--burg);}
+#freePageOvl .tp-feat-ds{color:var(--ink-mid);}
+#premPageOvl .tp-feat-nm{color:#fff;}
+#premPageOvl .tp-feat-ds{color:rgba(255,255,255,.5);}
+#entPageOvl  .tp-feat-nm{color:#fff;}
+#entPageOvl  .tp-feat-ds{color:rgba(255,255,255,.5);}
+
+/* CTA strip */
+.tp-cta{text-align:center;padding:48px 24px 64px;}
+.tp-cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  border:none;border-radius:28px;padding:14px 36px;
+  font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;
+  cursor:pointer;letter-spacing:.04em;transition:all .18s;
+}
+.tp-cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25);}
+#freePageOvl .tp-cta-btn{background:var(--burg);color:#fff;}
+#premPageOvl .tp-cta-btn{background:var(--gold);color:var(--burg-dk);}
+#entPageOvl  .tp-cta-btn{background:#4A90C4;color:#fff;}
+.tp-cta-note{font-size:.75rem;margin-top:12px;opacity:.5;}
+#freePageOvl .tp-cta-note{color:var(--ink);}
+#premPageOvl .tp-cta-note{color:#fff;}
+#entPageOvl  .tp-cta-note{color:#fff;}
+
+/* Trial banner for premium */
+.tp-trial-bar{
+  max-width:700px;margin:0 auto 36px;padding:18px 28px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  background:linear-gradient(135deg,rgba(201,168,64,.2),rgba(201,168,64,.06));
+  border:1.5px solid rgba(201,168,64,.35);border-radius:14px;
+}
+.tp-trial-badge{background:var(--gold);color:var(--burg-dk);border-radius:20px;padding:5px 14px;font-size:.72rem;font-weight:800;white-space:nowrap;}
+.tp-trial-txt{flex:1;color:rgba(255,255,255,.8);font-size:.85rem;line-height:1.5;}
+.tp-trial-txt strong{color:#fff;}
+.tp-trial-btn{background:var(--gold);color:var(--burg-dk);border:none;border-radius:20px;padding:9px 22px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:800;cursor:pointer;white-space:nowrap;transition:all .15s;}
+.tp-trial-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(201,168,64,.4);}
+
+/* Enterprise contact form */
+.ent-form{max-width:560px;margin:0 auto 48px;padding:0 24px;}
+.ent-form-card{background:rgba(255,255,255,.05);border:1px solid rgba(74,144,196,.2);border-radius:16px;padding:32px;}
+.ent-form-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.ent-form-sub{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:24px;line-height:1.6;}
+.ent-input{width:100%;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;margin-bottom:14px;outline:none;transition:border-color .15s;}
+.ent-input:focus{border-color:#4A90C4;}
+.ent-input::placeholder{color:rgba(255,255,255,.25);}
+.ent-select{width:100%;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;margin-bottom:14px;outline:none;}
+.ent-select option{background:#0a1a2a;color:#fff;}
+.ent-submit{width:100%;background:#4A90C4;border:none;border-radius:24px;padding:13px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;transition:all .15s;margin-top:4px;}
+.ent-submit:hover{background:#5ba3d9;transform:translateY(-1px);}
+.ent-ok{display:none;text-align:center;padding:20px;background:rgba(46,125,50,.15);border:1px solid rgba(46,125,50,.3);border-radius:10px;color:#81C784;font-size:.88rem;margin-top:12px;}
+
+/* Stats strip */
+.tp-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:32px 24px;max-width:800px;margin:0 auto;}
+.tp-stat{text-align:center;}
+.tp-stat-v{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;}
+.tp-stat-l{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.5;margin-top:2px;}
+#freePageOvl .tp-stat-v{color:var(--burg);}
+#premPageOvl .tp-stat-v{color:var(--gold);}
+#entPageOvl  .tp-stat-v{color:#4A90C4;}
+
+/* Responsive */
+@media(max-width:680px){
+  .tp-nav{padding:10px 16px;}
+  .tp-hero{padding:36px 16px 28px;}
+  .tp-feat-grid{grid-template-columns:1fr;padding:0 16px 16px;}
+  .tp-stats{gap:20px;}
+  .tp-trial-bar{flex-direction:column;text-align:center;}
+}
+
 /* ─── Slide-out Sidebar ──────────────── */
 #mobileMenuBtn{display:none;flex-direction:column;justify-content:space-between;
   width:36px;height:36px;background:none;border:none;cursor:pointer;
@@ -1778,6 +1926,198 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
   <div class="pp-tools-grid" id="premToolsGrid"></div>
   <div class="trial-countdown" id="trialCountdown" style="display:none;"></div>
+</div>
+
+<!-- ══ FREE TIER PAGE ══ -->
+<div class="tier-page" id="freePageOvl" role="dialog" aria-label="Africa Jobs Free Plan">
+  <div class="tp-nav">
+    <button class="tp-back" onclick="closeTierPage('free')">← Back</button>
+    <span class="tp-title">🌱 Free Plan</span>
+    <button class="tp-close" onclick="closeTierPage('free')">✕</button>
+  </div>
+  <div class="tp-hero">
+    <div class="tp-eyebrow">🌱 Get Started Free</div>
+    <h1>Your Career Journey<br>Starts Here</h1>
+    <p>No credit card, no commitment. Create your profile, explore jobs across all 4 MRU nations and start earning Mano Points from day one.</p>
+  </div>
+  <div class="tp-stats">
+    <div class="tp-stat"><div class="tp-stat-v">500+</div><div class="tp-stat-l">Job Listings</div></div>
+    <div class="tp-stat"><div class="tp-stat-v">4</div><div class="tp-stat-l">MRU Nations</div></div>
+    <div class="tp-stat"><div class="tp-stat-v">118+</div><div class="tp-stat-l">Districts Covered</div></div>
+    <div class="tp-stat"><div class="tp-stat-v">0</div><div class="tp-stat-l">Cost to Join</div></div>
+  </div>
+  <div class="tp-feat-grid">
+    <div class="tp-feat-card"><div class="tp-feat-ico">💼</div><div class="tp-feat-nm">Browse All Job Listings</div><div class="tp-feat-ds">Access every job posting across Sierra Leone, Liberia, Guinea and Côte d'Ivoire — filtered by district, sector and type.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🗺️</div><div class="tp-feat-nm">Interactive MRU Map</div><div class="tp-feat-ds">Explore opportunities district-by-district across the entire Mano River Union region using our visual job map.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">👤</div><div class="tp-feat-nm">Professional Profile</div><div class="tp-feat-ds">Build a complete profile showcasing your skills, experience, education and career goals for employers to discover.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🌊</div><div class="tp-feat-nm">Mano Points &amp; Rewards</div><div class="tp-feat-ds">Earn points for every career action — logging activities, applying for jobs, building confluences. Redeem for workshops, events and partner discounts.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🤝</div><div class="tp-feat-nm">Community &amp; Confluences</div><div class="tp-feat-ds">Connect with professionals across all 4 MRU nations. Post updates, share opportunities and build your network.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🎯</div><div class="tp-feat-nm">ATS Resume Analyzer</div><div class="tp-feat-ds">Get a free preview of your CV's ATS compatibility score — see how employers' systems read your resume.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">📊</div><div class="tp-feat-nm">MRU Labour Market Data</div><div class="tp-feat-ds">Access verified World Bank and ILO employment statistics for all 4 member states — understand the job market before you apply.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">📖</div><div class="tp-feat-nm">Blog &amp; Career Resources</div><div class="tp-feat-ds">Free access to career guides, success stories, CV templates and downloadable resources built for MRU job seekers.</div></div>
+  </div>
+  <div class="tp-cta">
+    <button class="tp-cta-btn" onclick="closeTierPage('free');showAuth('seeker','signup')">🌱 Create Free Account →</button>
+    <div class="tp-cta-note">Takes 2 minutes · No credit card needed · Earn 50 MPs on signup</div>
+    <div style="margin-top:20px;font-size:.8rem;color:var(--ink-lt);">
+      Want more? <button onclick="closeTierPage('free');openTierPage('premium')" style="background:none;border:none;color:var(--burg);font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.8rem;">Explore Premium →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PREMIUM TIER PAGE ══ -->
+<div class="tier-page" id="premPageOvl" role="dialog" aria-label="Africa Jobs Premium">
+  <div class="tp-nav">
+    <button class="tp-back" onclick="closeTierPage('premium')">← Back</button>
+    <span class="tp-title">✦ Professional Plan</span>
+    <button class="tp-close" onclick="closeTierPage('premium')">✕</button>
+  </div>
+  <div class="tp-hero">
+    <div class="tp-eyebrow">✦ Africa Jobs Premium</div>
+    <h1>Your Career<br><span style="color:var(--gold);">Supercharged</span></h1>
+    <p>Six AI-powered tools built specifically for the MRU job market. From ATS scoring to personalised career roadmaps — everything you need to stand out.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold);">$4.99</div>
+      <div style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.3;">per<br>month</div>
+      <div style="margin-left:16px;padding:5px 14px;background:rgba(201,168,64,.15);border:1px solid rgba(201,168,64,.3);border-radius:20px;font-size:.72rem;font-weight:700;color:var(--gold);">7-DAY FREE TRIAL</div>
+    </div>
+  </div>
+  <!-- Trial Banner -->
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+    <div class="tp-trial-bar" id="premTrialBar">
+      <span class="tp-trial-badge">🎁 FREE TRIAL</span>
+      <div class="tp-trial-txt"><strong>Try all 6 Premium tools free for 7 days.</strong><br>No credit card required. Cancel anytime.</div>
+      <button class="tp-trial-btn" onclick="startPremiumTrial()">Start Free Trial →</button>
+    </div>
+  </div>
+  <!-- Tools Grid -->
+  <div class="tp-feat-grid" id="premToolCards">
+    <div class="tp-feat-card" onclick="openToolFromTierPage('ATS')" style="cursor:pointer;">
+      <div class="tp-feat-ico">🎯</div><div class="tp-feat-nm">ATS Resume Analyzer</div>
+      <div class="tp-feat-ds">Score your CV against ATS systems used by MRU employers. Get keyword gaps, improvement tips and an instant compatibility percentage.</div>
+      <div style="margin-top:12px;font-size:.65rem;font-weight:700;color:var(--gold);letter-spacing:.08em;">✓ ALWAYS FREE PREVIEW · UNLIMITED WITH PREMIUM</div>
+    </div>
+    <div class="tp-feat-card" onclick="openToolFromTierPage('Cover')" style="cursor:pointer;">
+      <div class="tp-feat-ico">✍️</div><div class="tp-feat-nm">Cover Letter Generator</div>
+      <div class="tp-feat-ds">AI-crafted cover letters tailored to any MRU job listing. Fill in your details and receive a professional letter in seconds.</div>
+      <div style="margin-top:12px;" id="coverTag"><span style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.08em;">✦ PREMIUM</span></div>
+    </div>
+    <div class="tp-feat-card" onclick="openToolFromTierPage('Match')" style="cursor:pointer;">
+      <div class="tp-feat-ico">🤝</div><div class="tp-feat-nm">AI Job Matching</div>
+      <div class="tp-feat-ds">Smart engine scoring every job against your profile and CV. Find your perfect-fit roles instantly across all 4 MRU nations.</div>
+      <div style="margin-top:12px;" id="matchTag"><span style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.08em;">✦ PREMIUM</span></div>
+    </div>
+    <div class="tp-feat-card" onclick="openToolFromTierPage('Salary')" style="cursor:pointer;">
+      <div class="tp-feat-ico">💰</div><div class="tp-feat-nm">Salary Insights</div>
+      <div class="tp-feat-ds">Benchmark salaries by role, sector and location across Sierra Leone, Liberia, Guinea and Côte d'Ivoire. Know your worth before you negotiate.</div>
+      <div style="margin-top:12px;" id="salaryTag"><span style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.08em;">✦ PREMIUM</span></div>
+    </div>
+    <div class="tp-feat-card" onclick="openToolFromTierPage('Interview')" style="cursor:pointer;">
+      <div class="tp-feat-ico">🎤</div><div class="tp-feat-nm">Interview Coach</div>
+      <div class="tp-feat-ds">AI-generated interview questions for your exact role and sector. Practice answers and walk into any interview confident and prepared.</div>
+      <div style="margin-top:12px;" id="interviewTag"><span style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.08em;">✦ PREMIUM</span></div>
+    </div>
+    <div class="tp-feat-card" onclick="openToolFromTierPage('Career')" style="cursor:pointer;">
+      <div class="tp-feat-ico">🗺️</div><div class="tp-feat-nm">Career Path Planner</div>
+      <div class="tp-feat-ds">Map your journey across the MRU. Get a personalised roadmap from your current role to your 5-year goal with actionable milestones.</div>
+      <div style="margin-top:12px;" id="careerTag"><span style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.08em;">✦ PREMIUM</span></div>
+    </div>
+  </div>
+  <!-- Additional Premium benefits -->
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px 24px;">
+    <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:28px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:18px;">✦ Also included with Premium</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.65);">✅ Priority application badge on your profile</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.65);">✅ Verified profile highlight for employers</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.65);">✅ Double Mano Points on all activities</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.65);">✅ Exclusive premium job listings</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.65);">✅ Early access to new features</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.65);">✅ Partner discount upgrades</div>
+      </div>
+    </div>
+  </div>
+  <div class="tp-cta">
+    <button class="tp-cta-btn" onclick="startPremiumTrial()">✦ Start 7-Day Free Trial →</button>
+    <div class="tp-cta-note">No credit card · Cancel anytime · Full access from day one</div>
+    <div style="margin-top:20px;font-size:.8rem;color:rgba(255,255,255,.3);">
+      Hiring as an organisation? <button onclick="closeTierPage('premium');openTierPage('enterprise')" style="background:none;border:none;color:#4A90C4;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.8rem;">See Enterprise Plan →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ENTERPRISE TIER PAGE ══ -->
+<div class="tier-page" id="entPageOvl" role="dialog" aria-label="Africa Jobs Enterprise">
+  <div class="tp-nav">
+    <button class="tp-back" onclick="closeTierPage('enterprise')">← Back</button>
+    <span class="tp-title">🏢 Enterprise Plan</span>
+    <button class="tp-close" onclick="closeTierPage('enterprise')">✕</button>
+  </div>
+  <div class="tp-hero">
+    <div class="tp-eyebrow" style="color:#4A90C4;">🏢 For Organisations</div>
+    <h1>Hire Smarter<br><span style="color:#4A90C4;">Across the MRU</span></h1>
+    <p>Purpose-built tools for employers, NGOs, government agencies and institutions hiring across Sierra Leone, Liberia, Guinea and Côte d'Ivoire.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:#4A90C4;">$29</div>
+      <div style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.3;">per<br>month</div>
+      <div style="margin-left:16px;padding:5px 14px;background:rgba(74,144,196,.15);border:1px solid rgba(74,144,196,.3);border-radius:20px;font-size:.72rem;font-weight:700;color:#4A90C4;">ORGANISATION ONLY</div>
+    </div>
+  </div>
+  <div class="tp-stats">
+    <div class="tp-stat"><div class="tp-stat-v">10K+</div><div class="tp-stat-l">Active Job Seekers</div></div>
+    <div class="tp-stat"><div class="tp-stat-v">4</div><div class="tp-stat-l">MRU Nations</div></div>
+    <div class="tp-stat"><div class="tp-stat-v">118+</div><div class="tp-stat-l">Districts Covered</div></div>
+    <div class="tp-stat"><div class="tp-stat-v">60+</div><div class="tp-stat-l">Sectors</div></div>
+  </div>
+  <!-- Features Grid -->
+  <div class="tp-feat-grid">
+    <div class="tp-feat-card"><div class="tp-feat-ico">📢</div><div class="tp-feat-nm">Unlimited Job Postings</div><div class="tp-feat-ds">Post as many vacancies as you need across all 4 MRU nations. Reach candidates at district, regional and national level simultaneously.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🤖</div><div class="tp-feat-nm">Bulk CV Screening with AI</div><div class="tp-feat-ds">Upload multiple CVs and let our AI rank candidates by fit score for your vacancy. Filter by skills, sector, location and experience level in seconds.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">📋</div><div class="tp-feat-nm">Applicant Tracking System</div><div class="tp-feat-ds">Manage your entire hiring pipeline — from application to offer — in one dashboard. Track candidate status, add notes and collaborate with your team.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🏅</div><div class="tp-feat-nm">Branded Employer Page</div><div class="tp-feat-ds">Get a dedicated, fully branded organisation page on Africa Jobs MRU. Showcase your mission, culture and open roles to attract the right talent.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">📊</div><div class="tp-feat-nm">Analytics &amp; Reporting</div><div class="tp-feat-ds">Track applications, views, conversion rates and candidate demographics across all your postings. Export reports for board presentations and donor reporting.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🧑‍💼</div><div class="tp-feat-nm">Dedicated Account Manager</div><div class="tp-feat-ds">A dedicated Africa Jobs team member supports your onboarding, posting strategy and candidate sourcing across the MRU region.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🔍</div><div class="tp-feat-nm">Candidate Search &amp; Browse</div><div class="tp-feat-ds">Proactively search our talent pool by skills, sector, location, education and Mano Points verification score. Reach out directly to top candidates.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🔗</div><div class="tp-feat-nm">API Access for Integrations</div><div class="tp-feat-ds">Connect Africa Jobs MRU to your existing HR systems, ATS platforms or donor portals via our REST API for seamless data flow.</div></div>
+    <div class="tp-feat-card"><div class="tp-feat-ico">🌊</div><div class="tp-feat-nm">Mano Points Partner Benefits</div><div class="tp-feat-ds">Offer Mano Points rewards to candidates who engage with your brand — building loyalty and incentivising quality applications from verified members.</div></div>
+  </div>
+  <!-- Contact / Enquiry Form -->
+  <div class="ent-form">
+    <div class="ent-form-card">
+      <div class="ent-form-title">Request Enterprise Access</div>
+      <div class="ent-form-sub">Complete this form and our team will be in touch within 24 hours to set up your organisation account and discuss your specific hiring needs.</div>
+      <input class="ent-input" id="entOrgName" placeholder="Organisation / Company Name *">
+      <input class="ent-input" id="entContact" placeholder="Contact Person Name *">
+      <input class="ent-input" id="entEmail" placeholder="Work Email Address *" type="email">
+      <select class="ent-select" id="entSector">
+        <option value="">Organisation Type *</option>
+        <option>Private Company</option>
+        <option>NGO / Non-Profit</option>
+        <option>Government Agency</option>
+        <option>International Organisation (UN, World Bank etc.)</option>
+        <option>Education Institution</option>
+        <option>Healthcare Organisation</option>
+        <option>Financial Institution</option>
+        <option>Other</option>
+      </select>
+      <select class="ent-select" id="entCountry">
+        <option value="">Primary Country *</option>
+        <option>🇸🇱 Sierra Leone</option>
+        <option>🇱🇷 Liberia</option>
+        <option>🇬🇳 Guinea</option>
+        <option>🇨🇮 Côte d'Ivoire</option>
+        <option>Multiple MRU Countries</option>
+      </select>
+      <input class="ent-input" id="entHires" placeholder="Expected number of hires per year (optional)">
+      <button class="ent-submit" onclick="submitEnterpriseEnquiry()">🏢 Request Enterprise Access →</button>
+      <div class="ent-ok" id="entOk">✅ Thank you! Our team will contact you within 24 hours to set up your Enterprise account.</div>
+    </div>
+  </div>
+  <div class="tp-cta">
+    <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-bottom:12px;">Already have an organisation account?</div>
+    <button class="tp-cta-btn" onclick="closeTierPage('enterprise');showAuth('org','login')">Sign In as Organisation →</button>
+    <div class="tp-cta-note">For individual job seekers — <button onclick="closeTierPage('enterprise');openTierPage('free')" style="background:none;border:none;color:#4A90C4;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.75rem;">see the Free plan</button></div>
+  </div>
 </div>
 <!-- ══ SEEKER DASHBOARD ══ -->
 <div class="ovl dash-ovl" id="seekerDash">
@@ -5283,11 +5623,7 @@ function startFreeTrial(){
   showToast('7-day Premium trial activated! All tools unlocked.');
   renderPremiumPage();
 }
-function openPremiumPage(){
-  var u=getSession();if(!u){showAuth('seeker','login');return;}
-  var ovl=document.getElementById('premiumPageOvl');
-  if(ovl){ovl.classList.add('active');document.body.style.overflow='hidden';renderPremiumPage();}
-}
+function openPremiumPage(){openTierPage('premium');}
 function closePremiumPage(){
   var ovl=document.getElementById('premiumPageOvl');
   if(ovl){ovl.classList.remove('active');document.body.style.overflow='';}
@@ -5326,7 +5662,7 @@ function renderPremiumPage(){
   if(cd){cd.style.display=unlocked?'block':'none';
     if(unlocked)cd.innerHTML='Trial ends in <strong>'+days+' day'+(days!==1?'s':'')+'</strong>. Upgrade to keep access.';}
 }
-function openPrem(){var u=getSession();if(!u){showAuth('seeker','login');return;}openPremiumPage();}
+function openPrem(){openTierPage('premium');}
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){var o=document.getElementById('premiumPageOvl');if(o&&o.classList.contains('active'))closePremiumPage();}
 });
@@ -6040,6 +6376,136 @@ function renderSalaryEnhanced(){
   renderSalary(); // use existing function
   if(!hasEarnedEver('salary_check')){markEarnedEver('salary_check');awardMP(10,'Salary Insights Checked 💰',false);}
 }
+
+// ═══════════════════════════════════════════════════════════════
+// TIER PAGES — Free / Premium / Enterprise
+// ═══════════════════════════════════════════════════════════════
+var TIER_IDS = {free:'freePageOvl', premium:'premPageOvl', enterprise:'entPageOvl'};
+
+function openTierPage(tier){
+  var u = getSession();
+  // Enterprise only for orgs — but show page to anyone to read about it
+  var id = TIER_IDS[tier];
+  if(!id) return;
+  // Close any other tier pages first
+  Object.values(TIER_IDS).forEach(function(tid){
+    var el = document.getElementById(tid);
+    if(el) el.classList.remove('active');
+  });
+  var ovl = document.getElementById(id);
+  if(!ovl) return;
+  ovl.classList.add('active');
+  ovl.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  if(tier === 'premium') updatePremiumPageUI();
+}
+
+function closeTierPage(tier){
+  var id = TIER_IDS[tier];
+  if(!id) return;
+  var ovl = document.getElementById(id);
+  if(ovl) ovl.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeAllTierPages(){
+  Object.values(TIER_IDS).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.classList.remove('active');
+  });
+  document.body.style.overflow = '';
+}
+
+function updatePremiumPageUI(){
+  var unlocked = isTrialActive();
+  var days = getTrialDaysLeft();
+  var bar = document.getElementById('premTrialBar');
+  if(bar){
+    if(unlocked){
+      bar.innerHTML = '<span class="tp-trial-badge" style="background:#2E7D32;color:#fff;">✅ TRIAL ACTIVE</span>'
+        + '<div class="tp-trial-txt"><strong>All tools unlocked — '+days+' day'+(days!==1?'s':'')+' remaining.</strong><br>Enjoy full Premium access until your trial ends.</div>';
+    }
+  }
+  // Update tool card tags
+  var toolTags = ['coverTag','matchTag','salaryTag','interviewTag','careerTag'];
+  toolTags.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && unlocked){
+      el.innerHTML = '<span style="font-size:.65rem;font-weight:700;color:#81C784;letter-spacing:.08em;">✅ TRIAL UNLOCKED — CLICK TO OPEN</span>';
+    }
+  });
+}
+
+function openToolFromTierPage(toolId){
+  var unlocked = isTrialActive();
+  if(toolId === 'ATS' || unlocked){
+    closeAllTierPages();
+    setTimeout(function(){ openPT(toolId); }, 150);
+  } else {
+    // Nudge to start trial
+    startPremiumTrial();
+  }
+}
+
+function startPremiumTrial(){
+  var u = getSession();
+  if(!u){ closeAllTierPages(); showAuth('seeker','login'); return; }
+  var existing = getTrialStatus();
+  if(existing && existing.startDate && isTrialActive()){
+    showToast('Trial already active — '+getTrialDaysLeft()+' days left! 🎉');
+    updatePremiumPageUI(); return;
+  }
+  localStorage.setItem('aj_trial', JSON.stringify({startDate:Date.now(), email:u.email, name:u.name}));
+  showToast('🎉 7-day Premium trial activated! All tools unlocked.');
+  updatePremiumPageUI();
+  if(typeof awardMP === 'function') awardMP(25, 'Premium Trial Activated ✦', false);
+}
+
+function submitEnterpriseEnquiry(){
+  var org = document.getElementById('entOrgName').value.trim();
+  var contact = document.getElementById('entContact').value.trim();
+  var email = document.getElementById('entEmail').value.trim();
+  var sector = document.getElementById('entSector').value;
+  var country = document.getElementById('entCountry').value;
+  if(!org || !contact || !email || !sector || !country){
+    showToast('⚠️ Please fill in all required fields.'); return;
+  }
+  // Store enquiry in localStorage for admin to see
+  var enquiries = JSON.parse(localStorage.getItem('aj_ent_enquiries')||'[]');
+  enquiries.push({org:org, contact:contact, email:email, sector:sector, country:country,
+    hires:document.getElementById('entHires').value.trim(),
+    date:new Date().toLocaleDateString('en-GB'), time:new Date().toLocaleTimeString()});
+  localStorage.setItem('aj_ent_enquiries', JSON.stringify(enquiries));
+  // Show success
+  document.getElementById('entOk').style.display = 'block';
+  ['entOrgName','entContact','entEmail','entHires'].forEach(function(id){
+    var el=document.getElementById(id); if(el)el.value='';
+  });
+  document.getElementById('entSector').value='';
+  document.getElementById('entCountry').value='';
+  showToast('✅ Enterprise enquiry submitted! We will be in touch within 24 hours.');
+}
+
+// Update pricing section buttons to open tier pages
+document.addEventListener('DOMContentLoaded', function(){
+  // Override pricing card buttons
+  var priceBtns = document.querySelectorAll('.price-btn');
+  priceBtns.forEach(function(btn){
+    var txt = btn.textContent.trim();
+    if(txt.includes('Free') || txt.includes('Started')){
+      btn.onclick = function(){ openTierPage('free'); };
+    } else if(txt.includes('Premium') || txt.includes('Try')){
+      btn.onclick = function(){ openTierPage('premium'); };
+    } else if(txt.includes('Sales') || txt.includes('Contact') || txt.includes('Enterprise')){
+      btn.onclick = function(){ openTierPage('enterprise'); };
+    }
+  });
+});
+
+// Close on Esc
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeAllTierPages();
+});
 
 // ── Slide-out Sidebar ──────────────────────────────────────────
 function toggleSidebar(){
