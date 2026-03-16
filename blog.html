@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-
 <meta charset="UTF-8"/>
   <!-- PWA — Progressive Web App -->
   <link rel="manifest" href="manifest.json">
@@ -10,10 +9,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Africa Jobs">
   <meta name="application-name" content="Africa Jobs MRU">
-  <meta name="description" content="The Mano River Union's dedicated youth employment platform — Sierra Leone, Liberia, Guinea and Côte d'Ivoire">
+  <meta name="description" content="Career guides, MRU success stories and downloadable resources for youth across the Mano River Union">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Africa Jobs — Where Careers Happen</title>
+<title>Africa Jobs MRU — Blog & Resources</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -1058,317 +1057,186 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   transition:transform .35s cubic-bezier(.34,1.4,.64,1),opacity .3s;
 }
 
-/* ════════════════════════════════════════════════════════════════
-   RESPONSIVE / ADAPTIVE DESIGN — All device sizes
-   Mobile-first approach for MRU users (many on Android phones)
-   Breakpoints: 480px (small phone) | 768px (tablet) | 1024px (desktop)
-   ════════════════════════════════════════════════════════════════ */
-
-/* ── Base mobile styles (applied to all, overridden up) ────────── */
-.container{padding-left:20px;padding-right:20px;}
-.hero-brand{font-size:clamp(2.2rem,8vw,4.5rem);}
-.hero-sub{font-size:clamp(.8rem,3vw,1rem);}
-.hero-cta-row{flex-direction:column;gap:10px;align-items:center;}
-.hero-cta-row .btn-pri,.hero-cta-row .btn-sec{width:100%;max-width:280px;text-align:center;justify-content:center;}
-
-/* Nav mobile */
-.nav-links{display:none;}
-#mobileMenuBtn{display:flex;}
-#mobileNav{
-  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
-  background:var(--slate);z-index:8000;flex-direction:column;
-  align-items:center;justify-content:center;gap:0;
-  padding:60px 0;
-}
-#mobileNav.open{display:flex;}
-#mobileNav a{
-  display:block;width:100%;text-align:center;padding:18px 40px;
-  font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.8);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  text-decoration:none;transition:color .15s,background .15s;
-}
-#mobileNav a:hover,#mobileNav a.nav-active{color:var(--gold);background:rgba(201,168,64,.06);}
-#mobileNav .mnav-close{
-  position:absolute;top:20px;right:20px;background:none;border:none;
-  color:rgba(255,255,255,.5);font-size:1.6rem;cursor:pointer;padding:8px;
-}
-#mobileNav .mnav-country{
-  display:flex;align-items:center;gap:10px;margin-top:20px;
-  padding:14px 40px;font-size:.88rem;color:rgba(255,255,255,.5);
-}
-
-/* Jobs layout — mobile stacks vertically */
-.jobs-layout{grid-template-columns:1fr!important;}
-.jobs-side{max-height:340px;border-right:none;border-bottom:1px solid rgba(201,168,64,.16);}
-#mapCanvas{min-height:360px;}
-.dist-tabs{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
-.dtab-d{flex-shrink:0;}
-
-/* Match filter bar — scroll on mobile */
-.match-filter-bar{overflow-x:auto;flex-wrap:nowrap;gap:6px;-webkit-overflow-scrolling:touch;}
-.mf-btn{flex-shrink:0;font-size:.65rem;padding:4px 10px;}
-
-/* Community feed — full width on mobile */
-.feed-layout{grid-template-columns:1fr!important;}
-.post-type-row{gap:5px;}
-.post-type-btn{font-size:.65rem;padding:4px 8px;}
-.post-submit{margin-left:0;width:100%;margin-top:8px;}
-
-/* Stats — single column on mobile */
-.kpi-grid{grid-template-columns:1fr 1fr;}
-.charts-grid{grid-template-columns:1fr;}
-.member-cards-grid{grid-template-columns:1fr 1fr;}
-
-/* Discover members — 1 col on small phone */
-@media(max-width:480px){
-  .member-cards-grid{grid-template-columns:1fr;}
-  .kpi-grid{grid-template-columns:1fr;}
-  .hero-brand{font-size:2rem;}
-  .comm-tabs{overflow-x:auto;flex-wrap:nowrap;}
-  .comm-tab{flex-shrink:0;font-size:.7rem;padding:10px 14px;}
-  .a11y-row{flex-wrap:wrap;}
-  .post-composer-top{flex-direction:column;}
-  .post-av{display:none;}
-  .jcard{padding:12px 14px;}
-  .jcard-apply{font-size:.68rem;padding:5px 10px;}
-  .match-badge{font-size:.6rem;padding:2px 6px;}
-  .feed-filters{gap:5px;}
-  .feed-filter{font-size:.65rem;padding:4px 10px;}
-  .tts-bar-label{display:none;}
-  #ttsBar{min-width:auto;padding:8px 14px;}
-  .conf-btn{font-size:.65rem;padding:4px 9px;}
-  .disc-filters{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
-  .disc-filter{flex-shrink:0;}
-  .member-card{padding:16px 14px;}
-  .mc-av{width:48px;height:48px;font-size:1.3rem;}
-}
-
-/* ── Small tablet / large phone (481–768px) ─────────────────────── */
-@media(min-width:481px) and (max-width:768px){
-  .member-cards-grid{grid-template-columns:1fr 1fr;}
-  .kpi-grid{grid-template-columns:1fr 1fr;}
-  .charts-grid{grid-template-columns:1fr;}
-  .hero-brand{font-size:clamp(2.5rem,7vw,3.5rem);}
-  .jobs-side{max-height:300px;}
-  .comm-tabs{overflow-x:auto;flex-wrap:nowrap;}
-  .comm-tab{flex-shrink:0;}
-  .steps-grid{grid-template-columns:1fr 1fr;}
-  .feat-grid{grid-template-columns:1fr 1fr;}
-}
-
-/* ── Tablet (769–1023px) ─────────────────────────────────────────── */
-@media(min-width:769px) and (max-width:1023px){
-  .jobs-layout{grid-template-columns:300px 1fr!important;}
-  .jobs-side{max-height:600px;}
-  .member-cards-grid{grid-template-columns:repeat(3,1fr);}
-  .kpi-grid{grid-template-columns:repeat(2,1fr);}
-  .charts-grid{grid-template-columns:1fr 1fr;}
-  .steps-grid{grid-template-columns:repeat(2,1fr);}
-  .feat-grid{grid-template-columns:repeat(2,1fr);}
-  .sdg-grid{grid-template-columns:repeat(3,1fr);}
-  .feed-layout{grid-template-columns:1fr 240px;}
-  .nav-links{display:flex;}
-  #mobileMenuBtn{display:none;}
-}
-
-/* ── Desktop (1024px+) ──────────────────────────────────────────── */
-@media(min-width:1024px){
-  .jobs-layout{grid-template-columns:340px 1fr!important;}
-  .jobs-side{max-height:640px;}
-  .member-cards-grid{grid-template-columns:repeat(4,1fr);}
-  .kpi-grid{grid-template-columns:repeat(4,1fr);}
-  .charts-grid{grid-template-columns:1fr 1fr;}
-  .steps-grid{grid-template-columns:repeat(4,1fr);}
-  .feat-grid{grid-template-columns:repeat(3,1fr);}
-  .feed-layout{grid-template-columns:1fr 280px;}
-  .nav-links{display:flex;}
-  #mobileMenuBtn{display:none;}
-  .hero-cta-row{flex-direction:row;justify-content:center;}
-  .hero-cta-row .btn-pri,.hero-cta-row .btn-sec{width:auto;}
-}
-
-/* ── Large desktop (1440px+) ────────────────────────────────────── */
-@media(min-width:1440px){
-  .container{max-width:1360px;margin-left:auto;margin-right:auto;}
-  .member-cards-grid{grid-template-columns:repeat(4,1fr);}
-}
-
-/* ── Mobile nav button (hamburger) ─────────────────────────────── */
-#mobileMenuBtn{
-  display:flex;align-items:center;justify-content:center;
-  background:none;border:1px solid rgba(255,255,255,.2);border-radius:8px;
-  color:rgba(255,255,255,.8);width:38px;height:38px;cursor:pointer;
-  font-size:1.1rem;flex-shrink:0;
-}
-
-/* ── Touch-friendly tap targets ─────────────────────────────────── */
-@media(hover:none) and (pointer:coarse){
-  .btn-pri,.btn-sec,.jcard-apply,.conf-btn,.post-submit,.mf-btn{
-    min-height:44px;
-  }
-  .comm-tab{min-height:44px;}
-  .a11y-btn{min-height:36px;}
-  .dtab-d{min-height:40px;}
-  .feed-filter{min-height:36px;}
-  .disc-filter{min-height:36px;}
-  .post-type-btn{min-height:36px;}
-}
-
-/* ── Print styles ───────────────────────────────────────────────── */
-@media print{
-  #navbar,#a11yBar,#ttsBar,#installBanner,#offlineBanner,
-  .jcard-apply,.conf-btn,.post-submit{display:none!important;}
-  body{color:#000;background:#fff;}
-  .kpi-v{color:#7B1C1C!important;}
-}
-
-/* ─── Slide-out Sidebar Navigation ─────────────────── */
-#mobileMenuBtn{
-  display:none;flex-direction:column;justify-content:space-between;
+/* ─── Slide-out Sidebar ──────────────── */
+#mobileMenuBtn{display:none;flex-direction:column;justify-content:space-between;
   width:36px;height:36px;background:none;border:none;cursor:pointer;
-  padding:7px 5px;border-radius:6px;transition:background .15s;
-}
+  padding:7px 5px;border-radius:6px;transition:background .15s;}
 #mobileMenuBtn:hover{background:rgba(255,255,255,.1);}
-#mobileMenuBtn span{
-  display:block;height:2px;background:#fff;border-radius:2px;
-  transition:transform .25s,opacity .2s,width .2s;
-}
+#mobileMenuBtn span{display:block;height:2px;background:#fff;border-radius:2px;
+  transition:transform .25s,opacity .2s;}
 #mobileMenuBtn.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
-#mobileMenuBtn.open span:nth-child(2){opacity:0;width:0;}
+#mobileMenuBtn.open span:nth-child(2){opacity:0;}
 #mobileMenuBtn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
 @media(max-width:1023px){#mobileMenuBtn{display:flex;}}
-
-#sidebarBackdrop{
-  display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);
-  z-index:7998;backdrop-filter:blur(2px);
-}
+#sidebarBackdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
+  z-index:7998;backdrop-filter:blur(2px);}
 #sidebarBackdrop.open{display:block;}
-
-#mobileSidebar{
-  position:fixed;top:0;left:-300px;bottom:0;width:280px;
+#mobileSidebar{position:fixed;top:0;left:-290px;bottom:0;width:270px;
   background:var(--slate);border-right:1px solid rgba(201,168,64,.2);
   z-index:7999;display:flex;flex-direction:column;
   transition:left .3s cubic-bezier(.4,0,.2,1);
-  box-shadow:4px 0 32px rgba(0,0,0,.4);
-  overflow-y:auto;
-}
+  box-shadow:4px 0 32px rgba(0,0,0,.4);overflow-y:auto;}
 #mobileSidebar.open{left:0;}
-
-.msb-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 16px;border-bottom:1px solid rgba(255,255,255,.08);
-  flex-shrink:0;
-}
+.msb-header{display:flex;align-items:center;justify-content:space-between;
+  padding:16px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0;}
 .msb-logo{display:flex;align-items:center;gap:10px;}
-.msb-brand{font-family:'Cormorant Garamond',serif;font-size:1.05rem;
-  font-weight:700;color:var(--gold);}
-.msb-sub{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);}
-.msb-close{background:none;border:1px solid rgba(255,255,255,.15);
-  border-radius:6px;color:rgba(255,255,255,.5);width:30px;height:30px;
-  cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}
-.msb-close:hover{color:#fff;background:rgba(255,255,255,.1);}
-
-.msb-user{padding:14px 16px;background:rgba(201,168,64,.06);
-  border-bottom:1px solid rgba(255,255,255,.06);}
-.msb-user-placeholder{font-size:.75rem;color:rgba(255,255,255,.35);text-align:center;}
-
-.msb-nav{padding:12px 10px;flex:1;}
-.msb-section-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(255,255,255,.25);padding:8px 8px 6px;display:block;}
-.msb-link{
-  display:flex;align-items:center;gap:10px;padding:10px 10px;
-  border-radius:8px;color:rgba(255,255,255,.65);text-decoration:none;
-  font-size:.85rem;font-weight:500;transition:background .15s,color .15s;
-  margin-bottom:2px;
-}
-.msb-link:hover{background:rgba(255,255,255,.07);color:#fff;}
-.msb-link.msb-active{background:rgba(201,168,64,.12);color:var(--gold);font-weight:700;}
-.msb-link.msb-action{color:rgba(201,168,64,.8);}
-.msb-link.msb-action:hover{background:rgba(201,168,64,.1);color:var(--gold);}
-.msb-ico{width:20px;text-align:center;font-size:1rem;}
-
-.msb-footer{padding:16px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0;}
-.msb-flags{font-size:1.1rem;letter-spacing:4px;margin-bottom:6px;}
-.msb-copy{font-size:.65rem;color:rgba(255,255,255,.25);}
-
-/* Hide old mobile nav styles */
-#mobileNav{display:none!important;}
-.mnav-close,.mnav-country{display:none!important;}
+.msb-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--gold);}
+.msb-sub{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.msb-close{background:none;border:1px solid rgba(255,255,255,.15);border-radius:6px;
+  color:rgba(255,255,255,.5);width:28px;height:28px;cursor:pointer;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center;}
+.msb-user{padding:12px 14px;background:rgba(201,168,64,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);font-size:.75rem;color:rgba(255,255,255,.35);}
+.msb-nav{padding:10px 8px;flex:1;}
+.msb-sec{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.25);padding:8px 8px 5px;display:block;}
+.msb-a{display:flex;align-items:center;gap:10px;padding:10px 10px;border-radius:8px;
+  color:rgba(255,255,255,.65);text-decoration:none;font-size:.85rem;font-weight:500;
+  transition:background .15s,color .15s;margin-bottom:2px;}
+.msb-a:hover{background:rgba(255,255,255,.07);color:#fff;}
+.msb-a.on{background:rgba(201,168,64,.12);color:var(--gold);font-weight:700;}
+.msb-a.act{color:rgba(201,168,64,.85);}
+.msb-a.act:hover{background:rgba(201,168,64,.1);color:var(--gold);}
+.msb-ico{width:20px;text-align:center;}
+.msb-foot{padding:14px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0;
+  font-size:.65rem;color:rgba(255,255,255,.25);}
+.msb-flags{font-size:1.1rem;letter-spacing:4px;margin-bottom:4px;}
 </style>
-
-<title>Africa Jobs MRU — Blog & Resources</title>
-<meta name="description" content="Career guides, MRU success stories and downloadable resources for youth employment across the Mano River Union">
 </head>
 <body>
+<!-- Slide-out Sidebar -->
+<button id="mobileMenuBtn" onclick="toggleSidebar()" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<div id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+<div id="mobileSidebar" role="dialog" aria-label="Navigation">
+  <div class="msb-header">
+    <div class="msb-logo">
+      <svg viewBox="0 0 40 40" width="30" height="30"><circle cx="20" cy="20" r="18" stroke="#C9A840" stroke-width="1.5" fill="none"/><path d="M20 7L28 33H24L20 19L16 33H12L20 7Z" fill="#C9A840"/></svg>
+      <div><div class="msb-brand">Africa Jobs</div><div class="msb-sub">MRU Platform</div></div>
+    </div>
+    <button class="msb-close" onclick="toggleSidebar()">✕</button>
+  </div>
+  <div class="msb-user" id="msbUserArea">Sign in to access your profile</div>
+  <nav class="msb-nav">
+    <span class="msb-sec">Pages</span>
+    <a href="index.html" class="msb-a"><span class="msb-ico">🏠</span>Home</a>
+    <a href="jobs.html" class="msb-a"><span class="msb-ico">💼</span>Find Jobs</a>
+    <a href="community.html" class="msb-a"><span class="msb-ico">🌊</span>Community</a>
+    <a href="stats.html" class="msb-a"><span class="msb-ico">📊</span>Statistics</a>
+    <a href="blog.html" class="msb-a on"><span class="msb-ico">📖</span>Blog & Resources</a>
+    <span class="msb-sec" style="margin-top:12px;">Actions</span>
+    <a href="#" class="msb-a act" onclick="toggleSidebar();setTimeout(openComm,100);return false;"><span class="msb-ico">⭐</span>Log Activity</a>
+    <a href="#" class="msb-a act" onclick="toggleSidebar();setTimeout(function(){openComm(false)},100);return false;"><span class="msb-ico">🌍</span>Community Feed</a>
+    <a href="#" class="msb-a act" onclick="toggleSidebar();setTimeout(openPrem,100);return false;"><span class="msb-ico">✦</span>Premium Tools</a>
+    <a href="#" class="msb-a act" onclick="toggleSidebar();setTimeout(function(){showCP(null,null,true)},100);return false;"><span class="msb-ico" id="msbFlag">🌍</span><span id="msbCtry">Select Country</span></a>
+  </nav>
+  <div class="msb-foot"><div class="msb-flags">🇸🇱 🇱🇷 🇬🇳 🇨🇮</div>© 2026 Africa Jobs MRU</div>
+</div>
+
+<!-- Floating Read-Aloud Control Bar -->
+<div id="ttsBar" role="toolbar" aria-label="Read aloud controls">
+  <button class="tts-ctrl" id="ttsBarPause" onclick="ttsPause()" aria-label="Pause or resume reading" title="Pause / Resume (Space)">⏸</button>
+  <div class="tts-bar-label"><strong>🔊 Reading</strong><span id="ttsBarLbl"> — press ⏹ to stop</span></div>
+  <div id="ttsProg" title="Reading progress"><div id="ttsProgFill"></div></div>
+  <button class="tts-ctrl tts-ctrl-stop" onclick="ttsStop()" aria-label="Stop reading" title="Stop reading (Esc)">⏹</button>
+</div>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="a11yAnnounce" aria-live="polite" aria-atomic="true" role="status"></div>
+<div id="a11yAlert" aria-live="assertive" aria-atomic="true" role="alert"></div>
+
+<!-- Accessibility Toolbar -->
+<div id="a11yBar" role="complementary" aria-label="Accessibility tools">
+  <button class="a11y-tab" onclick="toggleA11yPanel()" aria-expanded="false" aria-controls="a11yPanel"
+    title="Accessibility Settings">
+    <span style="writing-mode:horizontal-tb;font-size:.9rem;">♿</span>
+  </button>
+</div>
+<div id="a11yPanel" role="dialog" aria-label="Accessibility settings panel" aria-modal="false">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#fff;">
+      ♿ Accessibility
+    </div>
+    <button class="a11y-close" onclick="toggleA11yPanel()" style="width:auto;padding:4px 10px;" aria-label="Close">✕<span class="sr-only">Close</span></button>
+  </div>
+
+  <div class="a11y-section">
+    <span class="a11y-lbl">Text Size</span>
+    <div class="a11y-row">
+      <button class="a11y-btn" onclick="setFontSize('small')" id="a11ySmall" aria-pressed="false">A−</button>
+      <button class="a11y-btn on" onclick="setFontSize('normal')" id="a11yNormal" aria-pressed="true">A</button>
+      <button class="a11y-btn" onclick="setFontSize('large')" id="a11yLarge" aria-pressed="false">A+</button>
+      <button class="a11y-btn" onclick="setFontSize('xlarge')" id="a11yXLarge" aria-pressed="false">A++</button>
+    </div>
+  </div>
+
+  <div class="a11y-section">
+    <span class="a11y-lbl">Contrast &amp; Colour</span>
+    <div class="a11y-row">
+      <button class="a11y-btn" onclick="toggleA11y('high-contrast','a11yContrast')" id="a11yContrast"
+        aria-pressed="false">High Contrast</button>
+      <button class="a11y-btn" onclick="toggleA11y('invert','a11yInvert')" id="a11yInvert"
+        aria-pressed="false">Invert</button>
+    </div>
+  </div>
+
+  <div class="a11y-section">
+    <span class="a11y-lbl">Reading</span>
+    <div class="a11y-row">
+      <button class="a11y-btn" onclick="toggleA11y('dyslexia','a11yDyslexia')" id="a11yDyslexia"
+        aria-pressed="false" title="Switch to dyslexia-friendly font">Dyslexia Font</button>
+      <button class="a11y-btn" onclick="toggleA11y('spacing','a11ySpacing')" id="a11ySpacing"
+        aria-pressed="false">Line Spacing</button>
+    </div>
+  </div>
+
+  <div class="a11y-section">
+    <span class="a11y-lbl">Motion &amp; Focus</span>
+    <div class="a11y-row">
+      <button class="a11y-btn" onclick="toggleA11y('no-motion','a11yMotion')" id="a11yMotion"
+        aria-pressed="false">Reduce Motion</button>
+      <button class="a11y-btn" onclick="toggleA11y('focus-mode','a11yFocus')" id="a11yFocus"
+        aria-pressed="false">Focus Mode</button>
+    </div>
+  </div>
+
+  <div class="a11y-section">
+    <span class="a11y-lbl">🔊 Read Aloud (Text-to-Speech)</span>
+    <div class="a11y-row" style="margin-bottom:6px;">
+      <button class="a11y-btn" id="ttsPlayBtn" onclick="ttsStart()" aria-label="Start reading page aloud">▶ Read Page</button>
+      <button class="a11y-btn" id="ttsPauseBtn" onclick="ttsPause()" style="display:none;" aria-label="Pause reading">⏸ Pause</button>
+      <button class="a11y-btn" id="ttsStopBtn" onclick="ttsStop()" style="display:none;" aria-label="Stop reading">⏹ Stop</button>
+    </div>
+    <div id="ttsStatus" style="font-size:.6rem;color:rgba(255,255,255,.4);min-height:14px;margin-bottom:4px;"></div>
+    <div class="a11y-row" style="margin-bottom:4px;">
+      <span style="font-size:.6rem;color:rgba(255,255,255,.35);">Speed:</span>
+      <button class="a11y-btn" id="ttsSlower" onclick="ttsSetRate(0.8)">0.8×</button>
+      <button class="a11y-btn on" id="ttsNormal" onclick="ttsSetRate(1)">1×</button>
+      <button class="a11y-btn" id="ttsFaster" onclick="ttsSetRate(1.3)">1.3×</button>
+    </div>
+    <select id="ttsVoiceSelect" aria-label="Choose reading voice" style="width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);border-radius:6px;padding:5px 8px;font-size:.68rem;font-family:DM Sans,sans-serif;margin-top:2px;"><option value="">Default voice</option></select>
+  </div>
+  <button class="a11y-close" onclick="resetA11y()">↺ Reset All</button>
+  <div style="font-size:.6rem;color:rgba(255,255,255,.3);margin-top:12px;line-height:1.5;">
+    Settings saved to your browser. Press <kbd style="background:rgba(255,255,255,.1);
+    padding:1px 4px;border-radius:3px;font-size:.6rem;">Esc</kbd> to close.
+  </div>
+</div>
+<!-- ══ NAVBAR ══ -->
 <nav id="navbar" role="navigation" aria-label="Main navigation" role="navigation" aria-label="Main navigation">
   <a class="nav-logo" href="#">
     <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#C9A840" stroke-width="2"/><path d="M30 10 L42 46 H36 L30 28 L24 46 H18 L30 10Z" fill="#C9A840"/><path d="M22 36 H38" stroke="#7B1C1C" stroke-width="2.5"/></svg>
     <div><span class="brand" id="navBrand">Africa Jobs</span><span class="sub">Where Careers Happen</span></div>
   </a>
-  
-<!-- Slide-out Sidebar Navigation -->
-<button id="mobileMenuBtn" onclick="toggleSidebar()" aria-label="Open navigation sidebar" aria-expanded="false">
-  <span></span><span></span><span></span>
-</button>
-<!-- Sidebar overlay backdrop -->
-<div id="sidebarBackdrop" onclick="toggleSidebar()"></div>
-<!-- Sidebar drawer -->
-<div id="mobileSidebar" role="dialog" aria-label="Navigation sidebar">
-  <div class="msb-header">
-    <div class="msb-logo">
-      <svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="20" r="18" stroke="#C9A840" stroke-width="1.5" fill="none"/><path d="M20 7 L28 33 H24 L20 19 L16 33 H12 L20 7Z" fill="#C9A840"/></svg>
-      <div><div class="msb-brand">Africa Jobs</div><div class="msb-sub">MRU Platform</div></div>
-    </div>
-    <button class="msb-close" onclick="toggleSidebar()" aria-label="Close sidebar">✕</button>
-  </div>
-  <div class="msb-user" id="msb-userArea">
-    <div class="msb-user-placeholder">Sign in to access your profile</div>
-  </div>
-  <nav class="msb-nav">
-    <div class="msb-section-label">Navigation</div>
-    <a href="index.html" class="msb-link ">
-      <span class="msb-ico">🏠</span> Home
-    </a>
-    <a href="jobs.html" class="msb-link ">
-      <span class="msb-ico">💼</span> Find Jobs
-    </a>
-    <a href="community.html" class="msb-link ">
-      <span class="msb-ico">🌊</span> Community
-    </a>
-    <a href="stats.html" class="msb-link ">
-      <span class="msb-ico">📊</span> Statistics
-    </a>
-    <a href="blog.html" class="msb-link msb-active">
-      <span class="msb-ico">📖</span> Blog & Resources
-    </a>
-    <div class="msb-section-label" style="margin-top:16px;">Actions</div>
-    <a href="#" onclick="toggleSidebar();openComm();return false;" class="msb-link msb-action">
-      <span class="msb-ico">⭐</span> Log Activity
-    </a>
-    <a href="#" onclick="toggleSidebar();openComm(true);return false;" class="msb-link msb-action">
-      <span class="msb-ico">🌍</span> Community Feed
-    </a>
-    <a href="#" onclick="toggleSidebar();openPrem();return false;" class="msb-link msb-action">
-      <span class="msb-ico">✦</span> Premium Tools
-    </a>
-    <a href="#" onclick="toggleSidebar();showCP(null,null,true);return false;" class="msb-link msb-action">
-      <span class="msb-ico" id="msbFlag">🌍</span> <span id="msbCountry">Select Country</span>
-    </a>
-  </nav>
-  <div class="msb-footer">
-    <div class="msb-flags">🇸🇱 🇱🇷 🇬🇳 🇨🇮</div>
-    <div class="msb-copy">© 2026 Africa Jobs MRU</div>
-  </div>
-</div>
-<div class="nav-links">
-    <a href="index.html#about" id="navAbout">About</a>
-    <a href="jobs.html" id="navJobs">Find Jobs</a>
-    <a href="index.html#how" id="navHow">How It Works</a>
-    <a href="index.html#features" id="navFeat">Features</a>
-    <a href="stats.html" id="navStats">Statistics</a>
-        <a href="community.html" id="navDiscover" href="community.html">Community</a>
-        <a href="blog.html" id="navBlog">Blog</a>
+  <button id="mobileMenuBtn" onclick="toggleSidebar()" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="#about" id="navAbout">About</a>
+    <a href="#jobs" id="navJobs">Find Jobs</a>
+    <a href="#how" id="navHow">How It Works</a>
+    <a href="#features" id="navFeat">Features</a>
+    <a href="#stats" id="navStats">Statistics</a>
+        <a href="#discover" id="navDiscover">Community</a>
+        <a href="#blog" id="navBlog">Blog</a>
     <a href="#" onclick="openPrem();return false;" class="prem">✦ Premium</a>
   </div>
   <div class="nav-right">
@@ -1416,11 +1284,1146 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
   </div>
 </nav>
-<main id="main-content">
 
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<div id="a11yAnnounce" aria-live="polite" aria-atomic="true" role="status"></div>
-<div id="a11yAlert" aria-live="assertive" aria-atomic="true" role="alert"></div>
+<!-- ══ COUNTRY OVERLAY ══ -->
+<div id="cOverlay">
+  <div class="cp">
+    <div class="cp-logo">
+      <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#C9A840" stroke-width="2"/><path d="M30 10 L42 46 H36 L30 28 L24 46 H18 L30 10Z" fill="#C9A840"/><path d="M22 36 H38" stroke="#7B1C1C" stroke-width="2.5"/></svg>
+      <div><span class="brand">Africa Jobs</span><span class="sub">Where Careers Happen</span></div>
+    </div>
+    <h2>Select Your <em>Country</em></h2>
+    <p>Africa Jobs operates across Africa. Choose your country to see jobs, statistics and opportunities tailored to your location.</p>
+    <div class="c-grid" id="cGrid">
+      <div class="c-card" data-code="sl" onclick="selectCC('sl')"><span class="ck">✓</span><span class="cc-flag">🇸🇱</span><div class="cc-name">Sierra Leone</div><div class="cc-url">africajobs.com/sl</div></div>
+      <div class="c-card" data-code="lr" onclick="selectCC('lr')"><span class="ck">✓</span><span class="cc-flag">🇱🇷</span><div class="cc-name">Liberia</div><div class="cc-url">africajobs.com/lr</div></div>
+      <div class="c-card" data-code="gn" onclick="selectCC('gn')"><span class="ck">✓</span><span class="cc-flag">🇬🇳</span><div class="cc-name">Guinea</div><div class="cc-url">africajobs.com/gn</div></div>
+      <div class="c-card" data-code="ci" onclick="selectCC('ci')"><span class="ck">✓</span><span class="cc-flag">🇨🇮</span><div class="cc-name">Côte d'Ivoire</div><div class="cc-url">africajobs.com/ci</div></div>
+    </div>
+    <button class="cp-go" id="cpGo" onclick="confirmCC()">Continue →</button>
+    <span class="cp-skip" onclick="skipCC()">Browse without selecting a country</span>
+  </div>
+</div>
+
+<!-- ══ AUTH OVERLAY ══ -->
+<div class="ovl" id="authOvl">
+  <div class="auth-layout">
+    <div class="auth-left">
+      <div class="al-inner">
+        <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#C9A840" stroke-width="2"/><path d="M30 10 L42 46 H36 L30 28 L24 46 H18 L30 10Z" fill="#C9A840"/><path d="M22 36 H38" stroke="#7B1C1C" stroke-width="2.5"/></svg>
+        <h2>Africa Jobs</h2>
+        <p>Africa's leading platform connecting young talent with opportunity across the continent.</p>
+        <ul class="auth-perks" id="authPerks">
+          <li><span class="pck">✓</span>Browse 500+ jobs across all 16 districts</li>
+          <li><span class="pck">✓</span>Earn Mano Points for community service &amp; events</li>
+          <li><span class="pck">✓</span>AI-powered job matching to your skills</li>
+          <li><span class="pck">✓</span>Redeem Mano Points for workshops &amp; premium access</li>
+          <li><span class="pck">✓</span>Build your verified professional profile</li>
+        </ul>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-box">
+        <button class="auth-close" onclick="closeAuth()" aria-label="Close">✕<span class="sr-only">Close</span></button>
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabSeeker" onclick="switchAType('seeker')">👤 Job Seeker</button>
+          <button class="auth-tab" id="tabOrg" onclick="switchAType('org')">🏢 Organisation</button>
+        </div>
+        <div class="a-msg err" id="aErr"></div>
+        <div class="a-msg ok" id="aOk"></div>
+        <!-- Login panel -->
+        <div class="a-panel active" id="panLogin">
+          <span class="a-badge ab-seek" id="loginBadge">Job Seeker</span>
+          <div class="a-heading" id="loginHd">Welcome Back</div>
+          <div class="a-sub" id="loginSub">Sign in to your Africa Jobs account</div>
+          <form onsubmit="handleLogin(event)">
+            <div class="fg"><label>Email Address</label><input class="ai" type="email" id="lEmail" placeholder="your@email.com" required/></div>
+            <div class="fg"><label>Password</label><input class="ai" type="password" id="lPass" placeholder="Enter your password" required/></div>
+            <div class="rem-row"><label><input type="checkbox"/> Remember me</label><span class="forgot">Forgot password?</span></div>
+            <button type="submit" class="a-submit">Sign In</button>
+          </form>
+          <div class="a-or"><span>or</span></div>
+          <div class="a-toggle">Don't have an account? <span class="a-tlink" onclick="switchAMode('signup')">Create one free →</span></div>
+        </div>
+        <!-- Signup panel -->
+        <div class="a-panel" id="panSignup">
+          <span class="a-badge ab-seek" id="signupBadge">Job Seeker</span>
+          <div class="a-heading" id="signupHd">Create Account</div>
+          <div class="a-sub" id="signupSub">Join thousands of Africans building careers</div>
+          <form onsubmit="handleSignup(event)">
+            <div class="form-row fg">
+              <div><label>First Name</label><input class="ai" type="text" id="sF" placeholder="First name" required/></div>
+              <div><label>Last Name</label><input class="ai" type="text" id="sL" placeholder="Last name" required/></div>
+            </div>
+            <div class="fg"><label>Email Address</label><input class="ai" type="email" id="sE" placeholder="your@email.com" required/></div>
+            <div id="seekerFields">
+              <div class="fg"><label>District / Location</label>
+                <select class="as" id="sDist">
+                  <option value="">Select your district / county…</option>
+                  <optgroup label="🇸🇱 Sierra Leone">
+                  <option>Freetown (Western Area Urban)</option><option>Western Area Rural</option>
+                  <option>Bombali</option><option>Karene</option><option>Koinadugu</option>
+                  <option>Tonkolili</option><option>Falaba</option><option>Kambia</option>
+                  <option>Port Loko</option><option>Bo</option><option>Bonthe</option>
+                  <option>Moyamba</option><option>Pujehun</option><option>Kailahun</option>
+                  <option>Kenema</option><option>Kono</option>
+                  </optgroup>
+                  <optgroup label="🇱🇷 Liberia">
+                  <option>Montserrado</option><option>Nimba</option><option>Bong</option><option>Lofa</option>
+                  <option>Margibi</option><option>Grand Bassa</option><option>Grand Cape Mount</option>
+                  <option>Sinoe</option><option>Maryland</option><option>River Cess</option>
+                  </optgroup>
+                  <optgroup label="🇬🇳 Guinea">
+                  <option>Conakry</option><option>Boké</option><option>Kindia</option><option>Mamou</option>
+                  <option>Labé</option><option>Faranah</option><option>Kankan</option><option>Nzérékoré</option>
+                  </optgroup>
+                  <optgroup label="🇨🇮 Côte d'Ivoire">
+                  <option>Abidjan</option><option>Yamoussoukro</option><option>Bouaké</option>
+                  <option>San Pédro</option><option>Man</option><option>Korhogo</option>
+                  <option>Daloa</option><option>Gagnoa</option><option>Abengourou</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="fg"><label>Field of Interest</label>
+                <select class="as" id="sField">
+                  <option value="">Select a field…</option>
+                  <option>Technology</option><option>Healthcare</option><option>Education</option>
+                  <option>Agriculture</option><option>Finance &amp; Banking</option>
+                  <option>NGO / Development</option><option>Mining &amp; Resources</option>
+                  <option>Government &amp; Public Sector</option><option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div id="orgFields" style="display:none">
+              <div class="fg"><label>Organisation Name</label><input class="ai" type="text" id="sON" placeholder="e.g. Africa Tech Hub"/></div>
+              <div class="fg"><label>Sector</label>
+                <select class="as" id="sOS">
+                  <option value="">Select sector…</option>
+                  <option>Private Sector</option><option>NGO / Development</option>
+                  <option>Government</option><option>Healthcare</option>
+                  <option>Education</option><option>Mining &amp; Resources</option><option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row fg">
+              <div><label>Password</label><input class="ai" type="password" id="sP" placeholder="Min. 6 characters" required minlength="6"/></div>
+              <div><label>Confirm</label><input class="ai" type="password" id="sP2" placeholder="Repeat password" required/></div>
+            </div>
+            <button type="submit" class="a-submit">Create Free Account</button>
+          </form>
+          <div class="a-toggle">Already have an account? <span class="a-tlink" onclick="switchAMode('login')">Sign in →</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COMMUNITY OVERLAY ══ -->
+<div class="ovl full-ovl" id="commOvl">
+  <button class="auth-close" onclick="closeAll()" aria-label="Close">✕<span class="sr-only">Close</span></button>
+  <div class="full-pg">
+    <!-- Community page header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button id="commBackBtn" onclick="commBack()" style="display:flex;align-items:center;gap:6px;
+          background:rgba(123,28,28,.08);border:1px solid rgba(123,28,28,.18);border-radius:20px;
+          padding:7px 16px;font-size:.75rem;font-weight:600;color:var(--burg);cursor:pointer;">← Back</button>
+        <div>
+          <div class="section-tag" style="margin-bottom:2px;">Community Engagement</div>
+          <h1 style="font-family:'Cormorant Garamond',serif;color:var(--burg);font-size:1.9rem;font-weight:600;line-height:1.1;">
+            Africa Jobs Community</h1>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="background:rgba(201,168,64,.1);border:1px solid rgba(201,168,64,.3);border-radius:20px;
+          padding:6px 14px;font-size:.72rem;font-weight:700;color:var(--gold-dk);">
+          🌊 <span id="commPtsNav">0</span> MPs
+        </div>
+        <div style="font-size:.72rem;color:var(--ink-lt);" id="commTierNav">💧 Tributary</div>
+      </div>
+    </div>
+    <!-- Tabs -->
+    <div class="comm-tabs" role="tablist">
+      <button class="comm-tab active" id="ctab1" role="tab" aria-selected="true"
+        onclick="switchCommTab(1)">🌍 Community Feed</button>
+      <button class="comm-tab" id="ctab2" role="tab" aria-selected="false"
+        onclick="switchCommTab(2)">⭐ Log Activity</button>
+      <button class="comm-tab" id="ctab3" role="tab" aria-selected="false"
+        onclick="switchCommTab(3)">📊 My Progress</button>
+    </div>
+    <!-- Tab 1: Community Feed -->
+    <div class="comm-tab-pane active" id="cpane1" role="tabpanel">
+      <!-- Post Composer -->
+      <div class="post-composer">
+        <div class="post-composer-top">
+          <div class="post-av" id="composeAv">👤</div>
+          <textarea class="post-input" id="postInput" placeholder="Share an update, ask a question, or post a resource with your community…" rows="3" aria-label="Write a community post"></textarea>
+        </div>
+        <div class="post-type-row">
+          <span style="font-size:.65rem;color:var(--ink-lt);letter-spacing:.1em;text-transform:uppercase;">Post type:</span>
+          <button class="post-type-btn sel" id="ptype-update" onclick="selectPostType('update',this)">📢 Update</button>
+          <button class="post-type-btn" id="ptype-question" onclick="selectPostType('question',this)">❓ Question</button>
+          <button class="post-type-btn" id="ptype-milestone" onclick="selectPostType('milestone',this)">🏆 Milestone</button>
+          <button class="post-type-btn" id="ptype-resource" onclick="selectPostType('resource',this)">📚 Resource</button>
+          <button class="post-type-btn" id="ptype-job" onclick="selectPostType('job',this)">💼 Job Tip</button>
+          <button class="post-submit" id="postSubmitBtn" onclick="submitPost()" disabled aria-label="Post to community">Post</button>
+        </div>
+      </div>
+      <!-- Feed filters -->
+      <div class="feed-filters" role="group" aria-label="Filter posts">
+        <button class="feed-filter active" onclick="filterFeed('all',this)">All Posts</button>
+        <button class="feed-filter" onclick="filterFeed('question',this)">❓ Questions</button>
+        <button class="feed-filter" onclick="filterFeed('update',this)">📢 Updates</button>
+        <button class="feed-filter" onclick="filterFeed('milestone',this)">🏆 Milestones</button>
+        <button class="feed-filter" onclick="filterFeed('resource',this)">📚 Resources</button>
+      </div>
+      <!-- Feed layout: posts + sidebar -->
+      <div class="feed-layout" style="display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:start;">
+        <div>
+          <div id="commFeed">
+            <!-- Posts rendered here by JS -->
+          </div>
+        </div>
+        <!-- Sidebar -->
+        <div>
+          <div class="comm-sidebar">
+            <div class="comm-sidebar-hd">🌊 Top Members</div>
+            <div id="topMembersEl"></div>
+          </div>
+          <div class="comm-sidebar" id="myConfluencesPanel">
+            <div class="conf-panel-hd">🌊 My Confluences</div>
+            <div class="conf-panel-sub">Members flowing in your direction</div>
+            <div id="myConfluencesList"><div style="font-size:.75rem;color:var(--ink-lt);text-align:center;padding:12px 0;">No confluences yet. Join someone's stream!</div></div>
+          </div>
+          <div class="comm-sidebar">
+            <div class="comm-sidebar-hd">📌 Community Guidelines</div>
+            <ul style="font-size:.75rem;color:var(--ink-mid);line-height:1.9;padding-left:18px;margin:0;">
+              <li>Be respectful to all members</li>
+              <li>Share knowledge generously</li>
+              <li>Tag posts correctly</li>
+              <li>No spam or self-promotion</li>
+              <li>Celebrate each other's wins</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tab 2: Log Activity (existing content moves here) -->
+    <div class="comm-tab-pane" id="cpane2" role="tabpanel">
+        <div class="pts-hero">
+      <div>
+        <div class="pts-lbl">Your Mano Points Balance</div>
+        <div class="pts-bal"><span id="cPts">0</span> <span>pts</span></div>
+        <div class="pts-sub" id="cPtsSub">Keep engaging to earn more Mano Points!</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-icon" id="tIcon">🥉</div>
+        <div class="tier-nm" id="tName">Bronze</div>
+        <div class="tier-rng" id="tRng">0 – 499 MPs</div>
+        <div class="tier-bar"><div class="tier-fill" id="tFill" style="width:0%"></div></div>
+        <div class="tier-nxt" id="tNxt">0 MPs to River</div>
+      </div>
+    </div>
+    <div class="tiers-strip">
+      <div class="tc" id="tcB"><div class="tc-ico">💧</div><div class="tc-nm">Tributary</div><div class="tc-rng">0 – 499 MPs</div></div>
+      <div class="tc" id="tcS"><div class="tc-ico">🌊</div><div class="tc-nm">River</div><div class="tc-rng">500 – 999 MPs</div></div>
+      <div class="tc" id="tcG"><div class="tc-ico">🏞️</div><div class="tc-nm">Delta</div><div class="tc-rng">1,000 – 2,499 MPs</div></div>
+      <div class="tc" id="tcP"><div class="tc-ico">🌍</div><div class="tc-nm">Ocean</div><div class="tc-rng">2,500+ MPs</div></div>
+    </div>
+    <!-- Tier context card -->
+    <div id="tierContextCard" style="background:#fff;border:2px solid rgba(201,168,64,.35);border-radius:14px;padding:24px 28px;margin-top:24px;box-shadow:0 4px 18px rgba(201,168,64,.12);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <span id="tCtxIco" style="font-size:1.8rem;">💧</span>
+        <div>
+          <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:2px;font-weight:700;">🌊 What Your Tier Means</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--burg);" id="tCtxNm">Tributary</div>
+        </div>
+        <div style="margin-left:auto;background:rgba(201,168,64,.12);border:1px solid rgba(201,168,64,.25);border-radius:20px;padding:4px 12px;font-size:.7rem;font-weight:700;color:var(--gold-dk);"><span id="tCtxPts">0</span> MPs</div>
+      </div>
+      <p style="font-size:.83rem;color:var(--ink-mid);line-height:1.7;margin-bottom:10px;" id="tCtxMeaning">A tributary is a small stream that feeds into the Mano River. At this level, you are just beginning your journey — building your profile, exploring jobs and making your first connections across the MRU region.</p>
+      <div style="display:flex;align-items:flex-start;gap:8px;background:rgba(123,28,28,.04);border-radius:8px;padding:10px 12px;">
+        <span style="font-size:.85rem;flex-shrink:0;">🎯</span>
+        <p style="font-size:.78rem;color:var(--burg);line-height:1.6;margin:0;" id="tCtxAction">Log activities, complete your profile and apply for your first job to grow your Mano Points.</p>
+      </div>
+    </div>
+    <div class="comm-grid">
+      <div>
+        <div class="comm-title">Log a New Activity<div class="tl"></div></div>
+        <div class="log-card">
+          <p style="font-size:.85rem;color:var(--ink-mid);margin-bottom:16px;line-height:1.65">Select an activity, fill in the details and earn points instantly. Redeem for events, workshops and premium features.</p>
+          <div class="act-grid" id="actGrid">
+            <div class="act-btn" onclick="selAct(this,'Community Service',75,'🤝')"><div class="aico">🤝</div><div class="albl">Community Service</div><div class="apts">+75 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'Leadership Workshop',100,'🎓')"><div class="aico">🎓</div><div class="albl">Leadership Workshop</div><div class="apts">+100 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'Online Course Completed',150,'💻')"><div class="aico">💻</div><div class="albl">Online Course</div><div class="apts">+150 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'NGO / Volunteering',80,'🌍')"><div class="aico">🌍</div><div class="albl">NGO / Volunteering</div><div class="apts">+80 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'Career Fair Attended',60,'💼')"><div class="aico">💼</div><div class="albl">Career Fair</div><div class="apts">+60 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'Mentorship Session',120,'🧑‍🏫')"><div class="aico">🧑‍🏫</div><div class="albl">Mentorship Session</div><div class="apts">+120 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'Employer Event',80,'🏢')"><div class="aico">🏢</div><div class="albl">Employer Event</div><div class="apts">+80 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'Internship Completed',300,'🏆')"><div class="aico">🏆</div><div class="albl">Internship</div><div class="apts">+300 pts</div></div>
+          </div>
+          <div class="ff"><label>Event / Activity Name</label><input class="fi" type="text" id="actNm" placeholder="e.g. Youth Leadership Summit 2025"/></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="ff"><label>Date</label><input class="fi" type="date" id="actDt"/></div>
+            <div class="ff"><label>Duration / Hours</label><input class="fi" type="text" id="actDur" placeholder="e.g. 3 hours"/></div>
+          </div>
+          <div class="ff"><label>Organisation / Hosted By</label><input class="fi" type="text" id="actOrg" placeholder="e.g. UNICEF Africa"/></div>
+          <div class="ff"><label>What did you learn or contribute?</label><textarea class="fta" id="actDesc" placeholder="Briefly describe your role and impact…"></textarea></div>
+          <!-- Proof of completion -->
+          <div class="ff">
+            <label>Proof of Completion <span style="font-weight:400;opacity:.6;">(optional — earns +20 bonus MPs)</span></label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;">
+              <div>
+                <div style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:5px;">🔗 Link / URL</div>
+                <input class="fi" type="url" id="actProofUrl" placeholder="Certificate, event or post link…"/>
+              </div>
+              <div>
+                <div style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:5px;">📎 Upload File</div>
+                <div style="border:1.5px dashed rgba(0,0,0,.15);border-radius:var(--r);padding:8px 10px;text-align:center;cursor:pointer;font-size:.72rem;color:var(--ink-lt);background:var(--off);" onclick="document.getElementById('actProofFile').click()">Drop or browse</div>
+                <input type="file" id="actProofFile" accept=".pdf,.jpg,.jpeg,.png,.docx" style="display:none" onchange="actProofSelected(this)"/>
+                <div id="actProofName" style="font-size:.65rem;color:#4CAF7D;margin-top:4px;display:none;"></div>
+              </div>
+            </div>
+            <div style="font-size:.67rem;color:var(--ink-lt);margin-top:5px;">💡 Add proof to unlock +20 bonus Mano Points.</div>
+          </div>
+          <div class="pts-prev" id="ptsPrev" style="display:none">
+            <div><div class="pts-plbl">Mano Points you will earn</div><div style="font-size:.68rem;color:var(--ink-lt);margin-top:2px" id="ptsPrevType">—</div></div>
+            <div class="pts-pval" id="ptsPrevVal">+0 MPs</div>
+          </div>
+          <div class="act-err" id="actErr"></div>
+          <button class="sub-btn" onclick="submitAct()">🌊 Log Activity &amp; Earn Mano Points</button>
+        </div>
+      </div>
+      <div>
+        <div class="comm-title">Your Activity History<div class="tl"></div></div>
+        <div id="actLogList"></div>
+      </div>
+    </div>
+    </div><!-- /cpane2 -->
+
+    <!-- Tab 3: My Progress -->
+    <div class="comm-tab-pane" id="cpane3" role="tabpanel">
+      <div id="myProgressContent"></div>
+    </div><!-- /cpane3 -->
+
+  </div><!-- /full-pg -->
+</div>
+
+<!-- ══ REWARDS OVERLAY ══ -->
+<div class="ovl full-ovl" id="rewOvl">
+  <button class="auth-close" onclick="closeAll()" aria-label="Close">✕<span class="sr-only">Close</span></button>
+  <div class="full-pg">
+    <div style="margin-bottom:28px"><div class="section-tag">Mano Points Marketplace</div><h1 style="font-family:'Cormorant Garamond',serif;color:var(--burg);font-size:2.3rem;font-weight:600">Mano Points Store</h1><p style="color:var(--ink-mid);font-size:.9rem;margin-top:7px">Use your earned points to unlock events, workshops, premium features and partner discounts.</p></div>
+    <div class="rw-bar">
+      <div><div class="rw-lbl">Your Points Balance</div><div class="rw-val" id="rwPts">0 pts</div><div class="rw-sub" id="rwTier">Bronze Member</div></div>
+      <button class="rw-earn" onclick="closeAll();setTimeout(openComm,100)">⭐ Earn More Points</button>
+    </div>
+    <div class="rw-tabs">
+      <button class="rw-tab active" onclick="filterRew('all',this)">All Rewards</button>
+      <button class="rw-tab" onclick="filterRew('events',this)">🎟 Events</button>
+      <button class="rw-tab" onclick="filterRew('premium',this)">💎 Premium</button>
+      <button class="rw-tab" onclick="filterRew('workshops',this)">📚 Workshops</button>
+      <button class="rw-tab" onclick="filterRew('merchants',this)">🛍 Merchants</button>
+      <button class="rw-tab" onclick="filterRew('mentorship',this)">🧑‍🏫 Mentorship</button>
+    </div>
+    <div class="rw-grid" id="rewGrid"></div>
+  </div>
+</div>
+
+<!-- ══ SEEKER DASHBOARD ══ -->
+<div class="ovl dash-ovl" id="seekerDash">
+  <button class="auth-close" onclick="closeAll()" aria-label="Close">✕<span class="sr-only">Close</span></button>
+  <div class="dash-pg">
+    <!-- Dashboard top nav -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(0,0,0,.08);flex-wrap:wrap;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button onclick="closeAll()" style="display:flex;align-items:center;gap:6px;background:rgba(123,28,28,.08);border:1px solid rgba(123,28,28,.18);border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;color:var(--burg);cursor:pointer;">← Back to Home</button>
+        <span style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-lt);">My Dashboard</span>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button onclick="openComm()" style="display:flex;align-items:center;gap:5px;background:var(--burg);border:none;border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;color:#fff;cursor:pointer;">🌊 Log Activity</button>
+        <button onclick="openRew()" style="display:flex;align-items:center;gap:5px;background:rgba(201,168,64,.12);border:1px solid rgba(201,168,64,.3);border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;color:var(--gold);cursor:pointer;">🎁 Rewards</button>
+      </div>
+    </div>
+    <div style="margin-bottom:26px"><div class="section-tag">Job Seeker</div><h1 style="font-family:'Cormorant Garamond',serif;color:var(--burg);font-size:2.3rem;font-weight:600">My Dashboard</h1></div>
+    <div class="dash-top">
+      <div class="prof-card">
+        <!-- Profile pic with upload on click -->
+        <div style="position:relative;display:inline-block;margin-bottom:8px;">
+          <div class="prof-av" id="sdAv" style="cursor:pointer;position:relative;overflow:hidden;" onclick="document.getElementById('profPicFile').click()" title="Change profile photo"><span id="sdAvImg">👤</span></div>
+          <div style="position:absolute;bottom:0;right:0;width:22px;height:22px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;cursor:pointer;border:2px solid var(--burg);" onclick="document.getElementById('profPicFile').click()">📷</div>
+          <input type="file" id="profPicFile" accept="image/*" style="display:none" onchange="updateProfPic(this)"/>
+        </div>
+        <div class="prof-nm" id="sdNm">—</div>
+        <div class="prof-fld" id="sdFld">—</div>
+        <div class="prof-loc"><span>📍</span><span id="sdDist">—</span></div>
+        <div class="prof-stats">
+          <div class="pst"><div class="pst-v" id="sdPts">0</div><div class="pst-l">Mano Pts</div></div>
+          <div class="pst"><div class="pst-v" id="sdActs">0</div><div class="pst-l">Activities</div></div>
+          <div class="pst"><div class="pst-v" id="sdApps">0</div><div class="pst-l">Applied</div></div>
+          <div class="pst"><div class="pst-v" id="sdConf">0</div><div class="pst-l">Confluences</div></div>
+          <div class="pst"><div class="pst-v" id="sdTIco">💧</div><div class="pst-l" id="sdTNm">Tributary</div></div>
+        </div>
+        <div class="prof-acts">
+          <button class="pbtn pbtn-g" onclick="openComm(true)" title="Log activities and earn Mano Points">🌊 Log Activity & Earn MPs</button>
+          <button class="pbtn pbtn-g" onclick="openEditProfile()">✏️ Edit Profile</button>
+          <button class="pbtn pbtn-o" onclick="openRew()">🎁 Rewards Store</button>
+          <button class="pbtn pbtn-o" onclick="closeAll();document.getElementById('jobs').scrollIntoView({behavior:'smooth'})">🗺 Browse Jobs</button>
+          <button class="pbtn pbtn-o" onclick="closeAll();document.getElementById('blog').scrollIntoView({behavior:'smooth'})">📖 Blog & Resources</button>
+          <button class="pbtn pbtn-o" onclick="closeAll();document.getElementById('discover').scrollIntoView({behavior:'smooth'})">🌊 Find Confluences</button>
+        </div>
+      </div>
+      <div class="dash-right">
+        <div class="dash-kpis">
+          <div class="dkpi"><div class="dkpi-v" id="sdKP">0</div><div class="dkpi-l">Mano Points</div></div>
+          <div class="dkpi" style="border-left-color:var(--slate-lt)"><div class="dkpi-v" id="sdKA">0</div><div class="dkpi-l">Activities</div></div>
+          <div class="dkpi" style="border-left-color:#4CAF7D"><div class="dkpi-v" id="sdKAp">0</div><div class="dkpi-l">Jobs Applied</div></div>
+          <div class="dkpi" style="border-left-color:#E07B3A"><div class="dkpi-v" id="sdKJ">—</div><div class="dkpi-l">Member Since</div></div>
+        </div>
+        <div>
+          <div class="dash-tabs">
+            <button class="dtab active" onclick="switchDTab('activities',this)">Activity History</button>
+            <button class="dtab" onclick="switchDTab('recommended',this)">Recommended Jobs</button>
+            <button class="dtab" onclick="switchDTab('applied',this)">Applications</button>
+          </div>
+          <div class="dtab-c active" id="dtActivities"><div id="sdActLog"></div></div>
+          <div class="dtab-c" id="dtRecommended"><div id="sdRecJobs"></div></div>
+          <div class="dtab-c" id="dtApplied"><div id="sdAppJobs"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ORG DASHBOARD ══ -->
+<div class="ovl dash-ovl" id="orgDash">
+  <button class="auth-close" onclick="closeAll()" aria-label="Close">✕<span class="sr-only">Close</span></button>
+  <div class="dash-pg">
+    <div class="org-strip">
+      <div>
+        <div class="org-nm" id="odNm">Organisation Name</div>
+        <div class="org-sec" id="odSec">Sector · Africa</div>
+        <div style="margin-top:11px"><span style="background:rgba(201,168,64,.2);border:1px solid var(--gold);border-radius:12px;padding:4px 13px;font-size:.68rem;color:var(--gold);font-weight:600">✓ Verified Employer</span></div>
+      </div>
+      <button class="btn btn-gold" onclick="switchOTab('post',document.querySelectorAll('#orgDash .dtab')[1])">+ Post New Vacancy</button>
+    </div>
+    <div class="org-kpis">
+      <div class="okpi"><div class="okpi-v" id="odJ">0</div><div class="okpi-l">Active Listings</div></div>
+      <div class="okpi" style="border-top-color:var(--gold)"><div class="okpi-v" id="odA" style="color:var(--gold-dk)">0</div><div class="okpi-l">Applications</div></div>
+      <div class="okpi" style="border-top-color:#4CAF7D"><div class="okpi-v" id="odV" style="color:#3A8A5A">0</div><div class="okpi-l">Profile Views</div></div>
+      <div class="okpi" style="border-top-color:#E07B3A"><div class="okpi-v" id="odS" style="color:#B55A20">—</div><div class="okpi-l">Member Since</div></div>
+    </div>
+    <div class="dash-tabs">
+      <button class="dtab active" onclick="switchOTab('listings',this)">My Job Listings</button>
+      <button class="dtab" onclick="switchOTab('post',this)">Post a Vacancy</button>
+    </div>
+    <div class="dtab-c active" id="oTabListings" style="padding-top:22px"><div id="odList"></div></div>
+    <div class="dtab-c" id="oTabPost" style="padding-top:22px">
+      <div class="pj-panel">
+        <h3 style="font-family:'Cormorant Garamond',serif;color:var(--slate);font-size:1.45rem;font-weight:600;margin-bottom:22px">Post a New Job Vacancy</h3>
+        <div class="a-msg err" id="pjErr"></div>
+        <form onsubmit="submitJob(event)">
+          <div class="pj-grid">
+            <div class="ff"><label>Job Title</label><input class="fi" type="text" id="pjT" placeholder="e.g. Programme Officer" required/></div>
+            <div class="ff"><label>District</label>
+              <select class="fs" id="pjD" required><option value="">Select district / county…</option>
+                <optgroup label="🇸🇱 Sierra Leone">
+                <option>Freetown (Western Area Urban)</option><option>Western Area Rural</option>
+                <option>Bombali</option><option>Karene</option><option>Koinadugu</option>
+                <option>Tonkolili</option><option>Falaba</option><option>Kambia</option>
+                <option>Port Loko</option><option>Bo</option><option>Bonthe</option>
+                <option>Moyamba</option><option>Pujehun</option><option>Kailahun</option>
+                <option>Kenema</option><option>Kono</option>
+                </optgroup>
+                <optgroup label="🇱🇷 Liberia">
+                <option>Montserrado</option><option>Nimba</option><option>Bong</option><option>Lofa</option>
+                <option>Margibi</option><option>Grand Bassa</option><option>Grand Cape Mount</option>
+                <option>Sinoe</option><option>Maryland</option><option>River Cess</option>
+                </optgroup>
+                <optgroup label="🇬🇳 Guinea">
+                <option>Conakry</option><option>Boké</option><option>Kindia</option><option>Mamou</option>
+                <option>Labé</option><option>Kankan</option><option>Nzérékoré</option>
+                </optgroup>
+                <optgroup label="🇨🇮 Côte d'Ivoire">
+                <option>Abidjan</option><option>Yamoussoukro</option><option>Bouaké</option>
+                <option>San Pédro</option><option>Man</option><option>Korhogo</option>
+                <option>Daloa</option><option>Gagnoa</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="ff"><label>Sector</label>
+              <select class="fs" id="pjSec" required><option value="">Select sector…</option>
+                <option>Technology</option><option>Healthcare</option><option>Education</option>
+                <option>Agriculture</option><option>Finance &amp; Banking</option>
+                <option>NGO / Development</option><option>Mining &amp; Resources</option><option>Government</option>
+              </select>
+            </div>
+            <div class="ff"><label>Job Type</label>
+              <select class="fs" id="pjType"><option>Full-Time</option><option>Part-Time</option><option>Contract</option><option>Internship</option></select>
+            </div>
+            <div class="ff"><label>Salary / Compensation</label><input class="fi" type="text" id="pjSal" placeholder="e.g. SLE 3,500/mo or Competitive"/></div>
+            <div class="ff"><label>Application Deadline</label><input class="fi" type="date" id="pjDl"/></div>
+          </div>
+          <div class="ff"><label>Job Description</label><textarea class="fta" id="pjDesc" style="min-height:90px" placeholder="Describe the role and responsibilities…" required></textarea></div>
+          <div class="ff"><label>Requirements / Qualifications</label><textarea class="fta" id="pjReqs" placeholder="e.g. Bachelor's degree, 2+ years experience…"></textarea></div>
+          <button type="submit" class="btn btn-slate" style="margin-top:6px">📢 Publish Vacancy</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PREMIUM TOOL OVERLAYS ══ -->
+<!-- ATS -->
+<div class="prem-ovl" id="ovlATS">
+  <div class="prem-panel">
+    <button class="prem-x" onclick="closePT('ATS')" aria-label="Close">✕<span class="sr-only">Close</span></button>
+    <div class="prem-ttl">🎯 ATS Resume Analyzer</div>
+    <div class="prem-sub">Paste your CV text, select your target role and get an instant ATS compatibility score with keyword gaps and improvement tips.</div>
+    <div class="pr">
+      <div>
+        <span class="plbl">Target Role</span>
+        <select class="ps" id="atsRole" onchange="atsRoleToggle(this.value)">
+          <option value="software">Software Engineer / Developer</option>
+          <option value="finance">Finance / Accounting</option>
+          <option value="health">Healthcare / Medical</option>
+          <option value="education">Education / Teaching</option>
+          <option value="marketing">Marketing / Communications</option>
+          <option value="ngo">NGO / Development</option>
+          <option value="admin">Administration / Operations</option>
+          <option value="agri">Agriculture / Environment</option>
+          <option value="custom">✏️ Type my own role…</option>
+        </select>
+        <input class="pi" type="text" id="atsCustomRole" placeholder="e.g. Supply Chain Manager" style="display:none;margin-top:8px;" />
+      </div>
+      <div><span class="plbl">Experience Level</span><select class="ps" id="atsLvl"><option value="entry">Entry Level (0–2 yrs)</option><option value="mid">Mid Level (3–6 yrs)</option><option value="senior">Senior Level (7+ yrs)</option></select></div>
+    </div>
+    <span class="plbl">Upload CV / Resume</span>
+    <div id="atsDropZone" style="border:2px dashed rgba(201,168,64,.35);border-radius:var(--r);padding:18px 16px;margin-bottom:10px;text-align:center;cursor:pointer;transition:border-color .2s;background:rgba(255,255,255,.03);" onclick="document.getElementById('atsFile').click()" ondragover="event.preventDefault();this.style.borderColor='#C9A840'" ondragleave="this.style.borderColor='rgba(201,168,64,.35)'" ondrop="atsHandleDrop(event)"><div style="font-size:1.4rem;margin-bottom:6px;">📄</div><div style="font-size:.78rem;color:rgba(255,255,255,.55);">Drop your CV / resume here or <span style="color:var(--gold);text-decoration:underline;">browse</span></div><div style="font-size:.62rem;color:rgba(255,255,255,.3);margin-top:4px;">PDF, DOCX, TXT — max 5MB</div><div id="atsFileName" style="margin-top:8px;font-size:.72rem;color:var(--gold);display:none;"></div></div>
+    <input type="file" id="atsFile" accept=".pdf,.doc,.docx,.txt" style="display:none" onchange="atsFileSelected(this)"/>
+    <span class="plbl" style="margin-top:8px;display:block;">Or Paste Your CV / Resume Text</span>
+    <textarea class="pta" id="atsCv" placeholder="Paste your full CV or resume text here…" style="min-height:140px"></textarea>
+    <div id="atsInputErr" style="font-size:.75rem;color:#E07070;margin:-4px 0 8px;display:none;">Please upload a file or paste your CV text.</div>
+    <button class="pb" onclick="runATS()">Analyse My CV →</button>
+    <div class="ats-res" id="atsRes">
+      <div class="ats-ring"><svg width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="46" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="9"/><circle cx="54" cy="54" r="46" fill="none" stroke="#C9A840" stroke-width="9" stroke-dasharray="289" stroke-dashoffset="289" id="atsRing" stroke-linecap="round" style="transition:stroke-dashoffset 1.2s ease"/></svg><div class="ats-sv"><span id="atsNum">0</span><small>ATS Score</small></div></div>
+      <div id="atsVerdict" style="text-align:center;font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:20px"></div>
+      <div class="ats-sec">✅ Keywords Found</div><div id="atsFound"></div>
+      <div class="ats-sec">❌ Missing Keywords</div><div id="atsMiss"></div>
+      <div class="ats-sec">💡 Improvement Suggestions</div><div id="atsSugs"></div>
+    </div>
+  </div>
+</div>
+<!-- Cover Letter -->
+<div class="prem-ovl" id="ovlCover">
+  <div class="prem-panel">
+    <button class="prem-x" onclick="closePT('Cover')" aria-label="Close">✕<span class="sr-only">Close</span></button>
+    <div class="prem-ttl">✍️ Cover Letter Generator</div>
+    <div class="prem-sub">Fill in the details below and receive a professionally structured cover letter tailored to your target role.</div>
+    <div class="pr">
+      <div><span class="plbl">Your Full Name</span><input class="pi" id="clNm" placeholder="e.g. Aminata Koroma"/></div>
+      <div><span class="plbl">Job Title Applying For</span><input class="pi" id="clJT" placeholder="e.g. Finance Analyst"/></div>
+    </div>
+    <div class="pr">
+      <div><span class="plbl">Company / Organisation</span><input class="pi" id="clCo" placeholder="e.g. Bank of Sierra Leone"/></div>
+      <div><span class="plbl">Key Skills (comma separated)</span><input class="pi" id="clSk" placeholder="e.g. Excel, data analysis"/></div>
+    </div>
+    <span class="plbl">Years of Experience &amp; Background</span>
+    <textarea class="pta" id="clBg" placeholder="e.g. 3 years in financial reporting at a local NGO, BSc Accounting from FBC…" style="min-height:80px"></textarea>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px">
+      <button class="pb" onclick="genCover()">Generate Cover Letter →</button>
+      <button class="pb" id="clCopy" onclick="copyCover()" style="display:none;background:transparent;border:1.5px solid rgba(201,168,64,.5);color:var(--gold)">📋 Copy</button>
+    </div>
+    <div class="cov-out" id="covOut"></div>
+  </div>
+</div>
+<!-- Job Match -->
+<div class="prem-ovl" id="ovlMatch">
+  <div class="prem-panel">
+    <button class="prem-x" onclick="closePT('Match')" aria-label="Close">✕<span class="sr-only">Close</span></button>
+    <div class="prem-ttl">🤝 AI Job Matching</div>
+    <div class="prem-sub">Enter your skills and experience level. Our engine will rank the best-matched vacancies on the platform for you.</div>
+    <div class="pr">
+      <div><span class="plbl">Primary Sector</span><select class="ps" id="mSec"><option value="">— Any sector —</option><option>Technology</option><option>Finance</option><option>Healthcare</option><option>Education</option><option>NGO / Development</option><option>Agriculture</option><option>Government</option></select></div>
+      <div><span class="plbl">Experience Level</span><select class="ps" id="mLvl"><option>Internship</option><option>Entry Level</option><option>Mid Level</option><option>Senior Level</option></select></div>
+    </div>
+    <span class="plbl">Your Skills (comma separated)</span>
+    <input class="pi" id="mSk" placeholder="e.g. Python, project management, data analysis, communication"/>
+    <button class="pb" onclick="runMatch()" style="margin-bottom:24px">Find My Matches →</button>
+    <div id="matchRes"></div>
+  </div>
+</div>
+<!-- Salary -->
+<div class="prem-ovl" id="ovlSalary">
+  <div class="prem-panel">
+    <button class="prem-x" onclick="closePT('Salary')" aria-label="Close">✕<span class="sr-only">Close</span></button>
+    <div class="prem-ttl">💰 Salary Insights</div>
+    <div class="prem-sub">Real salary ranges across roles and African countries. Know your worth before you negotiate.</div>
+    <div class="pr">
+      <div><span class="plbl">Job Role / Sector</span><select class="ps" id="salRole" onchange="renderSalary()"><option value="software">Software Engineer</option><option value="finance">Finance / Accountant</option><option value="health">Healthcare Professional</option><option value="teacher">Teacher / Educator</option><option value="marketing">Marketing Manager</option><option value="ngo">NGO Programme Officer</option><option value="admin">Administrator</option><option value="engineer">Civil / Mechanical Engineer</option></select></div>
+      <div><span class="plbl">Experience Level</span><select class="ps" id="salLvl" onchange="renderSalary()"><option value="entry">Entry Level</option><option value="mid" selected>Mid Level</option><option value="senior">Senior Level</option></select></div>
+    </div>
+    <div id="salRes"></div>
+  </div>
+</div>
+<!-- Interview -->
+<div class="prem-ovl" id="ovlInterview">
+  <div class="prem-panel">
+    <button class="prem-x" onclick="closePT('Interview')" aria-label="Close">✕<span class="sr-only">Close</span></button>
+    <div class="prem-ttl">🎤 Interview Preparation Guide</div>
+    <div class="prem-sub">Sector-specific interview questions with model answer frameworks. Click any question to reveal guidance.</div>
+    <span class="plbl">Select Your Sector</span>
+    <select class="ps" id="intvSec" onchange="renderIntv()">
+      <option value="tech">Technology</option><option value="finance">Finance &amp; Banking</option>
+      <option value="health">Healthcare</option><option value="ngo">NGO / Development</option>
+      <option value="edu">Education</option><option value="general">General / Any Role</option>
+    </select>
+    <div id="intvQs"></div>
+  </div>
+</div>
+<!-- Career Path -->
+<div class="prem-ovl" id="ovlCareer">
+  <div class="prem-panel">
+    <button class="prem-x" onclick="closePT('Career')" aria-label="Close">✕<span class="sr-only">Close</span></button>
+    <div class="prem-ttl">🗺️ Career Path Planner</div>
+    <div class="prem-sub">Visualise realistic growth paths in your sector. See the roles, skills and certifications on your way to the top.</div>
+    <span class="plbl">Choose Your Career Track</span>
+    <select class="ps" id="carTrack" onchange="renderCareer()">
+      <option value="tech">Technology &amp; Software</option><option value="finance">Finance &amp; Banking</option>
+      <option value="health">Healthcare &amp; Public Health</option><option value="ngo">NGO &amp; International Development</option>
+      <option value="edu">Education &amp; Academia</option>
+    </select>
+    <div id="carOut"></div>
+  </div>
+</div>
+
+<!-- ══ REDEEM MODAL ══ -->
+<div class="modal-bg" id="rdmModal">
+  <div class="rdm-box">
+    <div class="rdm-ico" id="rdmIco">🎟</div>
+    <div class="rdm-ttl" id="rdmTtl">Confirm Redemption</div>
+    <div class="rdm-dsc" id="rdmDsc">Are you sure you want to redeem this reward?</div>
+    <div class="rdm-cst" id="rdmCst">200 pts</div>
+    <div class="rdm-rem" id="rdmRem">You'll have 0 pts remaining.</div>
+    <div class="rdm-btns">
+      <button class="rdm-cancel" onclick="document.getElementById('rdmModal').classList.remove('open')">Cancel</button>
+      <button class="rdm-confirm" onclick="confirmRedeem()">Redeem Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOAST ══ -->
+<div id="toast"><span class="ti">⭐</span><div class="tt"><strong id="toastMsg">Message</strong></div></div>
+
+<!-- ══ FLAG OVERLAY ══ -->
+<div class="flag-ovl" id="flagOvl">
+  <div class="flag-card">
+    <div class="flag-em" id="flagEm">🌍</div>
+    <div class="flag-nm" id="flagNm">Africa</div>
+    <div class="flag-sb">Africa Jobs — Where Careers Happen</div>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<main id="main-content">
+<section id="hero" aria-label="Hero section">
+  <div class="hero-l">
+    <div class="flag-ghost" id="heroFlag"></div>
+    <div class="hero-brand-wrap">
+      <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#C9A840" stroke-width="2"/><path d="M30 10 L42 46 H36 L30 28 L24 46 H18 L30 10Z" fill="#C9A840"/><path d="M22 36 H38" stroke="#7B1C1C" stroke-width="2.5"/></svg>
+      <div class="hero-brand" id="heroBrand">Africa Jobs</div>
+      <div class="hero-tagline" id="heroTagline">Where Careers Happen</div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-content">
+      <div class="hero-ey" id="heroEy">Africa's Premier Youth Employment Platform</div>
+      <h1 class="hero-h" id="heroH">Bridging the Gap Between<br/><em>Talent &amp; Opportunity</em></h1>
+      <p class="hero-desc" id="heroDesc">Africa Jobs connects young professionals and graduates with employers across every district and region — from capital cities to rural communities. Your next career starts here.</p>
+      <div class="hero-btns">
+        <a href="#jobs" class="btn btn-gold" id="heroBtn1">Explore Jobs by Location</a>
+        <a href="#about" class="btn btn-outline-w" id="heroBtn2">Learn More</a>
+      </div>
+      <div class="hero-search">
+        <input type="text" id="searchInp" placeholder="Search jobs, companies or skills…"/>
+        <select id="secFilter"><option value="">All Sectors</option><option>Technology</option><option>Healthcare</option><option>Education</option><option>Agriculture</option><option>Finance &amp; Banking</option><option>NGO / Development</option><option>Mining &amp; Resources</option><option>Government</option></select>
+        <button onclick="doSearch()">Search</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS STRIP ══ -->
+<div id="strip">
+  <div class="st-item"><div class="st-num" id="stripR">16</div><div class="st-lbl" id="stripRL">Districts Covered</div></div>
+  <div class="st-item"><div class="st-num" id="stripJ">500+</div><div class="st-lbl">Active Job Listings</div></div>
+  <div class="st-item"><div class="st-num" id="stripP">200+</div><div class="st-lbl">Partner Organisations</div></div>
+  <div class="st-item"><div class="st-num" id="stripS">10K+</div><div class="st-lbl">Registered Job Seekers</div></div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" aria-labelledby="abHd">
+  <div class="container">
+    <div class="ab-grid">
+      <div class="ab-vis">
+        <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#C9A840" stroke-width="1.5"/><path d="M30 10 L42 46 H36 L30 28 L24 46 H18 L30 10Z" fill="#C9A840"/><path d="M22 36 H38" stroke="#7B1C1C" stroke-width="2"/></svg>
+        <h3>Africa Jobs</h3>
+        <p id="abVis">A pioneering initiative committed to empowering African youth by connecting their professional development with organisations across all sectors and countries.</p>
+      </div>
+      <div>
+        <div class="section-tag" id="abTag">About the Platform</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:var(--burg);line-height:1.15" id="abHd">Empowering Africa's Youth Workforce</h2>
+        <div class="gold-rule"></div>
+        <p style="font-size:.97rem;color:var(--ink-mid);line-height:1.8;max-width:600px" id="abBody">Africa Jobs is the Mano River Union's dedicated youth employment platform — built to tackle the region's most pressing challenge: youth unemployment. Across Sierra Leone, Liberia, Guinea and Côte d'Ivoire, we connect young talent directly to employers, internships and career resources in every district, county and prefecture. One platform. Four nations. Millions of opportunities.</p>
+        <ul class="ab-pts" style="margin-top:26px">
+          <li id="abB1">Unique point system that rewards users for work experience and community engagement</li>
+          <li id="abB2">Full Gender Analytics — tracking male, female and youth employment across all MRU nations</li>
+          <li id="abB3">Localised resources tailored to districts, regions, and provinces across Africa</li>
+          <li id="abB4">Technology 4.0 with AI-powered job matching and personalised career recommendations</li>
+          <li id="abB5">Organisational branding tools helping employers attract top local talent</li>
+          <li id="abB6">Showcase success stories from youth communities across Africa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- MRU Data Partnership Banner -->
+    <div style="background:linear-gradient(135deg,rgba(13,31,45,.97),rgba(17,34,51,.97));border-top:1px solid rgba(201,168,64,.15);border-bottom:1px solid rgba(201,168,64,.15);padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(201,168,64,.12);border:1px solid rgba(201,168,64,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🤝</div>
+        <div>
+          <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:2px;">Official Data Partnership</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.75);font-family:'DM Sans',sans-serif;">Labour market data sourced from <strong style="color:#fff;">Mano River Union</strong> member state statistics — World Bank, ILO, LISGIS, INS Guinée, INS-CI & Statistics Sierra Leone.</div>
+        </div>
+      </div>
+      <a href="https://mru.int/en/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,64,.1);border:1px solid rgba(201,168,64,.3);border-radius:var(--r);padding:8px 16px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap;transition:background .2s;" onmouseover="this.style.background='rgba(201,168,64,.2)'" onmouseout="this.style.background='rgba(201,168,64,.1)'">Visit MRU.int <span>↗</span></a>
+    </div>
+
+<!-- ══ JOBS MAP SECTION ══ -->
+<section id="jobs" aria-label="Find Jobs">
+  <div class="jobs-hdr">
+    <div class="section-tag" style="color:var(--gold)">Interactive Job Map</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:#fff;line-height:1.15">Explore Jobs Across <span id="mapCName">Sierra Leone</span></h2>
+    <div class="gold-rule" style="margin:16px auto 18px"></div>
+    <p style="color:rgba(255,255,255,.62);font-size:.95rem;max-width:600px;margin:0 auto">Select a district tab or region name to view available job vacancies and opportunities.</p>
+    <div id="locGrid"></div>
+    <div class="dist-tabs" id="distTabs"></div>
+    <div class="match-filter-bar" id="matchFilterBar" style="display:none;">
+      <span class="mf-label">Sort by:</span>
+      <button class="mf-btn active" id="mfAll" onclick="setMatchFilter('all',this)">All Jobs</button>
+      <button class="mf-btn" id="mfBest" onclick="setMatchFilter('best',this)">⭐ Best Match</button>
+      <button class="mf-btn" id="mfGood" onclick="setMatchFilter('good',this)">👍 Good Match (60%+)</button>
+      <button class="mf-btn" id="mfRecent" onclick="setMatchFilter('recent',this)">🕐 Most Recent</button>
+      <span id="matchLoginHint" style="font-size:.65rem;color:rgba(255,255,255,.3);margin-left:auto;">Log in to see your match %</span>
+    </div>
+    <div class="map-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#C9A840"></div>Western Area</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#4A90C4"></div>Northern Province</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#7B5EA7"></div>North West Province</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#4CAF7D"></div>Southern Province</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#E07B3A"></div>Eastern Province</div>
+    </div>
+  </div>
+  <div class="jobs-layout">
+    <div class="jobs-side" id="jobsSide">
+      <div id="backToMapBar" style="display:none;padding:10px 16px 0;"><button id="backToMap" onclick="showMapView()"><span style="font-size:.8rem;">←</span> Back to MRU Map</button></div>
+      <div class="side-empty" id="sideEmpty">
+        <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="white" stroke-width="1.5"/><path d="M22 22 L38 38 M38 22 L22 38" stroke="white" stroke-width="1.5"/></svg>
+        <p>Select a district tab above or click a region name to view available jobs.</p>
+      </div>
+      <div id="jobPanels"></div>
+    </div>
+    <div id="mapCanvas" style="padding:0;background:transparent;position:relative;">
+  
+  <div id="mruMapWrap">
+    <div id="mruMapHead">
+      <button id="mruCloseBtn" onclick="showMapView()" title="Close map">×</button>
+      <div>
+        <div class="mru-sub">Mano River Union — Interactive Jobs Map</div>
+        <h3>Explore Opportunities Across the MRU Region</h3>
+      </div>
+      <div id="mapClickLabel" style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);">Click a country</div>
+    </div>
+    <div id="mruMapBody">
+      <div id="mruSvgWrap">
+        <div id="mruTooltip"><div class="tt-ctry" id="ttCtry"></div><div class="tt-jobs" id="ttJobs"></div></div>
+        <!-- SVG Map: West Africa MRU region, schematic representation -->
+        <svg id="mruSvg" viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;min-height:280px;">
+          <defs>
+            <radialGradient id="gSL" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#1976D2" stop-opacity=".95"/>
+              <stop offset="100%" stop-color="#0D47A1" stop-opacity=".85"/>
+            </radialGradient>
+            <radialGradient id="gLR" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#D32F2F" stop-opacity=".95"/>
+              <stop offset="100%" stop-color="#B71C1C" stop-opacity=".85"/>
+            </radialGradient>
+            <radialGradient id="gGN" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#C9A840" stop-opacity=".85"/>
+              <stop offset="100%" stop-color="#8A7025" stop-opacity=".75"/>
+            </radialGradient>
+            <radialGradient id="gCI" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F57C00" stop-opacity=".95"/>
+              <stop offset="100%" stop-color="#E65100" stop-opacity=".85"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Ocean/background -->
+          <rect width="320" height="300" fill="rgba(13,31,45,0)"/>
+
+          <!-- Connecting lines between MRU capitals -->
+          <line class="mru-conn" x1="56" y1="167" x2="52" y2="110"/>
+          <line class="mru-conn" x1="56" y1="167" x2="101" y2="192"/>
+          <line class="mru-conn" x1="101" y1="192" x2="236" y2="178"/>
+          <line class="mru-conn" x1="52" y1="110" x2="236" y2="178"/>
+
+          <!-- GUINEA (GN) — largest, top/center-left -->
+          <g class="mru-country" id="ctryGN" data-code="gn" onclick="mruSelect('gn')" onmouseenter="mruTip(event,'gn')" onmouseleave="mruHide()">
+            <path d="M55,55 L185,52 L215,65 L220,95 L200,115 L185,125 L165,120 L140,130 L120,125 L95,130 L75,120 L55,105 L40,90 L45,70 Z"
+                  fill="url(#gGN)" stroke="rgba(201,168,64,.5)" stroke-width="1.5"/>
+            <text class="mru-lbl" x="128" y="92" text-anchor="middle">GUINEA</text>
+            <text class="mru-flag-txt" x="128" y="108" text-anchor="middle">🇬🇳</text>
+          </g>
+
+          <!-- SIERRA LEONE (SL) — bottom-left of Guinea -->
+          <g class="mru-country" id="ctrySL" data-code="sl" onclick="mruSelect('sl')" onmouseenter="mruTip(event,'sl')" onmouseleave="mruHide()">
+            <path d="M55,128 L95,128 L115,135 L118,155 L108,175 L90,185 L68,180 L50,168 L44,150 L48,135 Z"
+                  fill="url(#gSL)" stroke="rgba(100,180,255,.5)" stroke-width="1.5"/>
+            <text class="mru-lbl" x="82" y="158" text-anchor="middle">SIERRA LEONE</text>
+            <text class="mru-flag-txt" x="82" y="172" text-anchor="middle">🇸🇱</text>
+          </g>
+
+          <!-- LIBERIA (LR) — below Sierra Leone, right -->
+          <g class="mru-country" id="ctryLR" data-code="lr" onclick="mruSelect('lr')" onmouseenter="mruTip(event,'lr')" onmouseleave="mruHide()">
+            <path d="M118,148 L148,140 L170,148 L178,165 L172,185 L158,200 L140,210 L118,205 L100,192 L96,175 L105,158 Z"
+                  fill="url(#gLR)" stroke="rgba(255,100,100,.5)" stroke-width="1.5"/>
+            <text class="mru-lbl" x="137" y="174" text-anchor="middle">LIBERIA</text>
+            <text class="mru-flag-txt" x="137" y="188" text-anchor="middle">🇱🇷</text>
+          </g>
+
+          <!-- CÔTE D'IVOIRE (CI) — right side, large -->
+          <g class="mru-country" id="ctryCI" data-code="ci" onclick="mruSelect('ci')" onmouseenter="mruTip(event,'ci')" onmouseleave="mruHide()">
+            <path d="M185,55 L275,58 L295,80 L290,120 L278,155 L258,175 L235,188 L210,185 L190,175 L175,158 L172,135 L185,118 L205,108 L218,90 L215,68 Z"
+                  fill="url(#gCI)" stroke="rgba(255,160,60,.5)" stroke-width="1.5"/>
+            <text class="mru-lbl" x="232" y="120" text-anchor="middle">CÔTE D'IVOIRE</text>
+            <text class="mru-flag-txt" x="232" y="136" text-anchor="middle">🇨🇮</text>
+          </g>
+
+          <!-- Capital city dots — positioned clearly within each country -->
+          <!-- Freetown: SL west coast, well inside SL polygon -->
+          <g class="cap-label" data-cap="sl">
+            <circle class="mru-dot-ring" cx="56" cy="167" r="3"/>
+            <circle class="mru-dot" cx="56" cy="167" r="3.5"/>
+            <text style="font-size:7px;fill:rgba(255,255,255,.85);font-family:DM Sans,sans-serif;font-weight:600;" x="62" y="165">Freetown</text>
+          </g>
+
+          <!-- Conakry: GN far south-west — ABOVE Sierra Leone border (y=128), inside Guinea -->
+          <g class="cap-label" data-cap="gn">
+            <circle class="mru-dot-ring" cx="52" cy="110" r="3" style="animation-delay:1.2s"/>
+            <circle class="mru-dot" cx="52" cy="110" r="3.5" style="animation-delay:1.2s"/>
+            <text style="font-size:7px;fill:rgba(255,255,255,.85);font-family:DM Sans,sans-serif;font-weight:600;" x="58" y="108">Conakry</text>
+          </g>
+
+          <!-- Monrovia: LR west coast -->
+          <g class="cap-label" data-cap="lr">
+            <circle class="mru-dot-ring" cx="101" cy="192" r="3" style="animation-delay:.6s"/>
+            <circle class="mru-dot" cx="101" cy="192" r="3.5" style="animation-delay:.6s"/>
+            <text style="font-size:7px;fill:rgba(255,255,255,.85);font-family:DM Sans,sans-serif;font-weight:600;" x="107" y="190">Monrovia</text>
+          </g>
+
+          <!-- Abidjan: CI south coast -->
+          <g class="cap-label" data-cap="ci">
+            <circle class="mru-dot-ring" cx="236" cy="178" r="3" style="animation-delay:1.8s"/>
+            <circle class="mru-dot" cx="236" cy="178" r="3.5" style="animation-delay:1.8s"/>
+            <text style="font-size:7px;fill:rgba(255,255,255,.85);font-family:DM Sans,sans-serif;font-weight:600;" x="186" y="177">Abidjan</text>
+          </g>
+
+          <!-- MRU label -->
+          <text style="font-size:8px;fill:rgba(201,168,64,.5);font-family:DM Sans,sans-serif;letter-spacing:.15em;text-transform:uppercase;" x="160" y="240" text-anchor="middle">MANO RIVER UNION</text>
+          <line x1="80" y1="245" x2="140" y2="245" stroke="rgba(201,168,64,.2)" stroke-width=".5"/>
+          <line x1="180" y1="245" x2="240" y2="245" stroke="rgba(201,168,64,.2)" stroke-width=".5"/>
+
+          <!-- Atlantic Ocean label -->
+          <text style="font-size:7px;fill:rgba(255,255,255,.2);font-family:DM Sans,sans-serif;font-style:italic;" x="30" y="258">Atlantic Ocean</text>
+
+          <!-- Compass rose -->
+          <g transform="translate(288,48)">
+            <circle cx="0" cy="0" r="10" fill="rgba(0,0,0,.3)" stroke="rgba(201,168,64,.2)" stroke-width=".8"/>
+            <text style="font-size:7px;fill:rgba(201,168,64,.6);font-family:DM Sans,sans-serif;font-weight:700;" x="0" y="-4" text-anchor="middle">N</text>
+            <line x1="0" y1="-8" x2="0" y2="8" stroke="rgba(201,168,64,.4)" stroke-width=".8"/>
+            <line x1="-8" y1="0" x2="8" y2="0" stroke="rgba(201,168,64,.2)" stroke-width=".5"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Side info panel -->
+      <div id="mruInfoPanel">
+        <div>
+          <div class="mip-hd">Selected Country</div>
+          <div class="mip-ctry" id="mipCtry">Click a country</div>
+          <div class="mip-stat" id="mipStat">on the map to explore</div>
+        </div>
+        <div class="mip-jobs" id="mipJobsBox" style="display:none;">
+          <div class="mip-jobs-n" id="mipJobsN">0</div>
+          <div class="mip-jobs-l">Active Job Listings</div>
+        </div>
+        <div class="mip-regions" id="mipRegions"></div>
+        <button class="mip-btn" id="mipBtn" style="display:none;" onclick="mruGo()">View All Jobs →</button>
+
+        <!-- MRU Stats always visible at bottom -->
+        <div style="margin-top:auto;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);">
+          <div class="mip-hd">MRU Region Totals</div>
+          <div style="font-size:.7rem;color:rgba(255,255,255,.5);line-height:1.8;">
+            <div>🇸🇱 SL · <span style="color:#64B5F6;">500+</span> jobs</div>
+            <div>🇱🇷 LR · <span style="color:#EF9A9A;">180+</span> jobs</div>
+            <div>🇬🇳 GN · <span style="color:var(--gold);">220+</span> jobs</div>
+            <div>🇨🇮 CI · <span style="color:#FFCC80;">380+</span> jobs</div>
+          </div>
+          <div style="margin-top:8px;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);">Source: Africa Jobs Platform · 2026</div>
+        </div>
+      </div>
+    </div>
+    <div id="mruLegend">
+      <div class="leg-item"><div class="leg-dot" style="background:#1976D2;"></div>Sierra Leone</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#D32F2F;"></div>Liberia</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#C9A840;"></div>Guinea</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#F57C00;"></div>Côte d'Ivoire</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border-radius:50%;width:6px;height:6px;"></div>Capital City</div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const MRU_META={
+      sl:{name:'Sierra Leone',flag:'🇸🇱',jobs:'500+',regions:[
+        {n:'Freetown / Western Area',j:75},{n:'Bo',j:28},{n:'Kenema',j:22},
+        {n:'Kono',j:18},{n:'Port Loko',j:16},{n:'Bombali',j:14}]},
+      lr:{name:'Liberia',flag:'🇱🇷',jobs:'180+',regions:[
+        {n:'Greater Monrovia',j:75},{n:'Nimba',j:28},{n:'Bong',j:22},
+        {n:'Lofa',j:18},{n:'Margibi',j:16}]},
+      gn:{name:'Guinée',flag:'🇬🇳',jobs:'220+',regions:[
+        {n:'Conakry',j:95},{n:'Boké',j:28},{n:'Nzérékoré',j:22},
+        {n:'Kankan',j:20},{n:'Labé',j:18}]},
+      ci:{name:"Côte d'Ivoire",flag:'🇨🇮',jobs:'380+',regions:[
+        {n:'Abidjan',j:200},{n:'Bouaké',j:28},{n:'San Pédro',j:22},
+        {n:'Yamoussoukro',j:20},{n:'Korhogo',j:16}]}
+    };
+    let curMru=null;
+    window.mruSelect=function(code){
+      const m=MRU_META[code]; if(!m)return;
+      // Highlight on map
+      document.querySelectorAll('.mru-country').forEach(el=>el.classList.remove('active-ctry'));
+      const el=document.getElementById('ctry'+code.toUpperCase()); if(el)el.classList.add('active-ctry');
+      // Update side panel
+      document.getElementById('mipCtry').textContent=m.flag+' '+m.name;
+      document.getElementById('mipStat').textContent='Mano River Union member';
+      document.getElementById('mipJobsN').textContent=m.jobs;
+      document.getElementById('mipJobsBox').style.display='block';
+      document.getElementById('mipBtn').style.display='block';
+      curMru=code;
+      // Render region rows — each row jumps to its tab by index
+      const rEl=document.getElementById('mipRegions');
+      rEl.innerHTML='<div class="mip-hd" style="margin-top:4px;">Locations</div>'+
+        m.regions.map(function(reg,i){
+          return '<div class="mip-reg" onclick="mruJumpToRegion('+i+')">'+
+                 '<span>'+reg.n+'</span><span class="mip-reg-n">'+reg.j+'</span></div>';
+        }).join('');
+      // Show × close button and reset button in map header
+      var clickLbl=document.getElementById('mapClickLabel');
+      var closeBtn=document.getElementById('mruCloseBtn');
+      if(clickLbl)clickLbl.style.display='none';
+      if(closeBtn)closeBtn.style.display='flex';
+      // Show only this country capital, hide others
+      document.querySelectorAll('.cap-label').forEach(function(g){
+        g.style.opacity = g.dataset.cap === code ? '1' : '0.15';
+      });
+      // Switch whole platform to this country (rebuilds district tabs & loc grid)
+      if(typeof applyCountry==='function'){
+        applyCountry(code);
+        // Collapse map, show location grid, scroll to jobs
+        setTimeout(function(){
+          var layout=document.querySelector('.jobs-layout');
+          if(layout)layout.classList.add('map-collapsed');
+          // Build location card grid
+          buildLocGrid(code);
+          var jobsSection=document.getElementById('jobs');
+          if(jobsSection)jobsSection.scrollIntoView({behavior:'smooth',block:'start'});
+        },200);
+      }
+    };
+    window.mruGo=function(){
+      if(curMru&&typeof applyCountry==='function'){
+        applyCountry(curMru);
+        setTimeout(function(){
+          document.getElementById('jobs').scrollIntoView({behavior:'smooth',block:'start'});
+          setTimeout(function(){const t=document.querySelector('#distTabs .dtab-d');if(t)t.click();},400);
+        },200);
+      }
+    };
+    window.mruRegionGo=function(code){
+      if(typeof applyCountry==='function')applyCountry(code);
+      setTimeout(function(){
+        document.getElementById('jobs').scrollIntoView({behavior:'smooth',block:'start'});
+        setTimeout(function(){const t=document.querySelector('#distTabs .dtab-d');if(t)t.click();},400);
+      },200);
+    };
+    window.mruJumpToRegion=function(idx){
+      // Scroll to jobs section then click the Nth tab
+      var jobsSection=document.getElementById('jobs');
+      if(jobsSection)jobsSection.scrollIntoView({behavior:'smooth',block:'start'});
+      setTimeout(function(){
+        var tabs=document.querySelectorAll('#distTabs .dtab-d');
+        if(tabs[idx])tabs[idx].click();
+        setTimeout(function(){
+          var panel=document.querySelector('.dist-panel.active');
+          if(panel)panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+        },300);
+      },350);
+    };
+    window.buildLocGrid=function(code){
+      var grid=document.getElementById('locGrid');
+      if(!grid)return;
+      var cards='';
+      var ctry=typeof COUNTRIES!=='undefined'?COUNTRIES[code]:null;
+      var regions=ctry&&ctry.regions?ctry.regions:[];
+      if(code==='sl'&&typeof DISTRICTS!=='undefined'){
+        DISTRICTS.forEach(function(d,i){
+          var jobs=d.jobs||[];
+          cards+='<div class="loc-card" onclick="mruJumpToRegion('+i+')">'+
+            '<div class="loc-card-name">'+d.name.split(' (')[0]+'</div>'+
+            '<div class="loc-card-region">'+d.prov+'</div>'+
+            '<div class="loc-card-jobs">'+
+              '<div><div class="loc-card-n">'+jobs.length+'</div><div class="loc-card-lbl">vacancies</div></div>'+
+              '<div class="loc-card-btn">View →</div>'+
+            '</div></div>';
+        });
+      } else {
+        regions.forEach(function(r,i){
+          var jobs=r.jobs||[];
+          cards+='<div class="loc-card" onclick="mruJumpToRegion('+i+')">'+
+            '<div class="loc-card-name">'+r.name+'</div>'+
+            '<div class="loc-card-region">'+(ctry?ctry.name:'')+'</div>'+
+            '<div class="loc-card-jobs">'+
+              '<div><div class="loc-card-n">'+jobs.length+'</div><div class="loc-card-lbl">vacancies</div></div>'+
+              '<div class="loc-card-btn">View →</div>'+
+            '</div></div>';
+        });
+      }
+      grid.innerHTML=cards;
+    };
+    window.showMapView=function(){
+      // Restore grid layout — map slides back in
+      var layout=document.querySelector('.jobs-layout');
+      if(layout)layout.classList.remove('map-collapsed');
+      // Restore all capital labels to full opacity
+      document.querySelectorAll('.cap-label').forEach(function(g){g.style.opacity='1';});
+      // Remove active highlight from all countries
+      document.querySelectorAll('.mru-country').forEach(function(el){el.classList.remove('active-ctry');});
+      // Clear the location grid
+      var grid=document.getElementById('locGrid');
+      if(grid)grid.innerHTML='';
+      // Clear active district tab and panel
+      document.querySelectorAll('.dtab-d').forEach(function(t){t.classList.remove('active');});
+      document.querySelectorAll('.dist-panel').forEach(function(p){p.classList.remove('active');});
+      // Show the empty state placeholder
+      var se=document.getElementById('sideEmpty');
+      if(se)se.style.display='block';
+      // Reset map side panel to default state
+      document.getElementById('mipCtry').textContent='Click a country';
+      document.getElementById('mipStat').textContent='on the map to explore';
+      var jb=document.getElementById('mipJobsBox');
+      if(jb)jb.style.display='none';
+      var mb=document.getElementById('mipBtn');
+      if(mb)mb.style.display='none';
+      var re=document.getElementById('mipRegions');
+      if(re)re.innerHTML='';
+      // Hide × close button and reset button, show click label
+      var clickLbl=document.getElementById('mapClickLabel');
+      var closeBtn=document.getElementById('mruCloseBtn');
+      if(clickLbl)clickLbl.style.display='block';
+      if(closeBtn)closeBtn.style.display='none';
+      // Scroll up smoothly to show the map
+      var mapWrap=document.getElementById('mruMapWrap');
+      if(mapWrap)mapWrap.scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    window.mruTip=function(e,code){
+      const m=MRU_META[code]; if(!m)return;
+      const tt=document.getElementById('mruTooltip');
+      document.getElementById('ttCtry').textContent=m.flag+' '+m.name;
+      document.getElementById('ttJobs').textContent=m.jobs+' active jobs on platform';
+      const wrap=document.getElementById('mruSvgWrap').getBoundingClientRect();
+      const ex=e.clientX-wrap.left, ey=e.clientY-wrap.top;
+      tt.style.left=(ex+12)+'px'; tt.style.top=(ey-10)+'px'; tt.style.opacity='1';
+    };
+    window.mruHide=function(){document.getElementById('mruTooltip').style.opacity='0';};
+    // Auto-highlight the currently selected country
+    document.addEventListener('DOMContentLoaded',function(){
+      const saved=localStorage.getItem('aj_country');
+      if(saved&&MRU_META[saved]){
+        const el=document.getElementById('ctry'+saved.toUpperCase());
+        if(el)el.classList.add('active-ctry');
+      }
+    });
+  })();
+  </script>
+</div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section id="how">
+  <div class="container">
+    <div class="section-tag" id="howTag">Getting Started</div>
+    <h2 id="howHd" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:var(--burg);line-height:1.15">How Africa Jobs Works</h2>
+    <div class="gold-rule"></div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-n">01</div><div class="step-t" id="howT1">Create Your Profile</div><p class="step-d" id="howD1">Sign up and build your professional profile. Showcase academic achievements, community activities and skills. Earn points for every contribution.</p></div>
+      <div class="step-card"><div class="step-n">02</div><div class="step-t" id="howT2">Explore Your District</div><p class="step-d" id="howD2">Use our interactive map to find job vacancies, internships and externship opportunities in your district, region or province.</p></div>
+      <div class="step-card"><div class="step-n">03</div><div class="step-t" id="howT3">Connect with Employers</div><p class="step-d" id="howD3">Organisations browse profiles and reach out with opportunities. Our AI-powered matching surfaces the most relevant candidates for each role.</p></div>
+      <div class="step-card"><div class="step-n">04</div><div class="step-t" id="howT4">Launch Your Career</div><p class="step-d" id="howD4">From externships to full-time employment, Africa Jobs supports every step. Track your journey, build your network and celebrate your success.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURES ══ -->
+<section id="features">
+  <div class="container">
+    <div class="section-tag" style="color:var(--gold)" id="featTag">Platform Features</div>
+    <h2 id="featHd" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:#fff;line-height:1.15">What Makes Us Different</h2>
+    <div class="gold-rule"></div>
+    <p id="featSub" style="font-size:.97rem;color:rgba(255,255,255,.65);line-height:1.78;max-width:680px">Africa Jobs is built for Africa's youth — with features that understand local context, community values and the unique aspirations of young people across the continent.</p>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-ico">⭐</div><div class="feat-t" id="ftT1">Unique Point System</div><p class="feat-d" id="ftD1">Earn points for community activities, profile completion and platform engagement. Redeem rewards and unlock premium features as you grow.</p></div>
+      <div class="feat-card"><div class="feat-ico">🗺️</div><div class="feat-t" id="ftT2">District-Level Job Search</div><p class="feat-d" id="ftD2">Find opportunities across every district, region and province. Our interactive map makes it easy to discover local jobs wherever you are in Africa.</p></div>
+      <div class="feat-card"><div class="feat-ico">♀️</div><div class="feat-t" id="ftT3">Full Gender Analytics</div><p class="feat-d" id="ftD3">Comprehensive gender data tracking male and female labour participation, youth employment rates and wage gaps across all four MRU member states — ensuring equitable policy and targeted support for all.</p></div>
+      <div class="feat-card"><div class="feat-ico">🤝</div><div class="feat-t" id="ftT4">Community Engagement</div><p class="feat-d" id="ftD4">Connect with peers, mentors and industry professionals. Share knowledge, organise events and build a stronger Africa together.</p></div>
+      <div class="feat-card"><div class="feat-ico">🤖</div><div class="feat-t" id="ftT5">Technology 4.0 Matching</div><p class="feat-d" id="ftD5">AI-powered job matching aligns your skills with vacancies. Machine learning improves recommendations the more you engage with the platform.</p></div>
+      <div class="feat-card"><div class="feat-ico">📖</div><div class="feat-t" id="ftT6">Success Stories &amp; Resources</div><p class="feat-d" id="ftD6">Learn from Africans who succeeded. Access blogs, webinars, e-books and expert mentorship to accelerate your professional journey.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SDGs ══ -->
+<section id="sdgs" aria-label="Sustainable Development Goals">
+  <div class="container">
+    <div class="section-tag" id="sdgTag">Sustainable Development</div>
+    <h2 id="sdgHd" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:var(--burg);line-height:1.15">Aligned with the Global Goals</h2>
+    <div class="gold-rule"></div>
+    <p id="sdgSub" style="font-size:.97rem;color:var(--ink-mid);line-height:1.78;max-width:680px">Africa Jobs aligns with five UN Sustainable Development Goals — driving measurable impact for youth employment, gender equality and inclusive economic growth across the Mano River Union's four member states.</p>
+    <div class="sdg-grid">
+      <div class="sdg-card"><a href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noopener"><img class="sdg-img" src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-04.jpg" alt="SDG 4 - Quality Education" loading="lazy"/><div class="sdg-l">Quality Education</div><div class="sdg-desc">Connecting youth to vocational training, internships and lifelong learning pathways across all 4 MRU nations.</div></a></div>
+      <div class="sdg-card"><a href="https://sdgs.un.org/goals/goal5" target="_blank" rel="noopener"><img class="sdg-img" src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-05.jpg" alt="SDG 5 - Gender Equality" loading="lazy"/><div class="sdg-l">Gender Equality</div><div class="sdg-desc">Full gender analytics tracking male and female participation across Sierra Leone, Liberia, Guinea and Côte d'Ivoire.</div></a></div>
+      <div class="sdg-card"><a href="https://sdgs.un.org/goals/goal8" target="_blank" rel="noopener"><img class="sdg-img" src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-08.jpg" alt="SDG 8 - Decent Work" loading="lazy"/><div class="sdg-l">Decent Work &amp; Economic Growth</div><div class="sdg-desc">Driving formal employment and economic opportunity for MRU youth — the region's fastest-growing demographic.</div></a></div>
+      <div class="sdg-card"><a href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener"><img class="sdg-img" src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-10.jpg" alt="SDG 10 - Reduced Inequalities" loading="lazy"/><div class="sdg-l">Reduced Inequalities</div><div class="sdg-desc">Bridging the gap between rural and urban job access across the Mano River Union region.</div></a></div>
+      <div class="sdg-card"><a href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener"><img class="sdg-img" src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-17.jpg" alt="SDG 17 - Partnerships for the Goals" loading="lazy"/><div class="sdg-l">Partnerships for the Goals</div><div class="sdg-desc">Aligned with MRU Secretariat, ECOWAS, World Bank, ILO, AfDB and Mastercard Foundation partnerships.</div></a></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BLOG & RESOURCES ══ -->
 <section id="blog" aria-label="Blog and Resources" aria-label="Blog and Resources" style="background:var(--cream);padding:96px 0;">
   <div class="container">
     <div class="section-tag">Knowledge Hub</div>
@@ -1597,7 +2600,183 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
+<!-- Blog Post Modal -->
+<div class="prem-ovl" id="blogPostOvl" style="display:none;align-items:flex-start;padding-top:60px;">
+  <div style="background:#fff;border-radius:16px;width:100%;max-width:680px;margin:0 auto;
+    padding:40px;position:relative;max-height:80vh;overflow-y:auto;">
+    <button onclick="closeBlogPost()" style="position:absolute;top:16px;right:16px;width:32px;height:32px;
+      border-radius:50%;background:rgba(0,0,0,.06);border:none;font-size:1rem;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;" aria-label="Close">✕<span class="sr-only">Close</span></button>
+    <div id="blogPostContent" style="font-family:'DM Sans',sans-serif;"></div>
+  </div>
+</div>
 
+
+<!-- ══ DISCOVER MEMBERS ══ -->
+<section id="discover" aria-label="Discover Members">
+  <div class="container">
+    <div class="section-tag">Our Community</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);
+      font-weight:600;color:var(--burg);line-height:1.15;">
+      Discover &amp; Confluence with Members
+    </h2>
+    <div class="gold-rule"></div>
+    <p style="font-size:.97rem;color:var(--ink-mid);line-height:1.78;max-width:680px;">
+      Connect with young professionals across Sierra Leone, Liberia, Guinea and Côte d'Ivoire.
+      Join their stream — become a <strong>Confluence</strong>.
+    </p>
+    <!-- Filter bar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:12px;margin-top:24px;margin-bottom:8px;">
+      <div class="disc-filters" id="discFilters">
+        <button class="disc-filter active" onclick="discFilter('all',this)">🌍 All Members</button>
+        <button class="disc-filter" onclick="discFilter('sl',this)">🇸🇱 Sierra Leone</button>
+        <button class="disc-filter" onclick="discFilter('lr',this)">🇱🇷 Liberia</button>
+        <button class="disc-filter" onclick="discFilter('gn',this)">🇬🇳 Guinea</button>
+        <button class="disc-filter" onclick="discFilter('ci',this)">🇨🇮 Côte d'Ivoire</button>
+      </div>
+      <div style="font-size:.72rem;color:var(--ink-lt);" id="discCount">Showing all members</div>
+    </div>
+    <!-- Member cards grid -->
+    <div class="member-cards-grid" id="discGrid"></div>
+    <div style="text-align:center;margin-top:32px;">
+      <button onclick="openComm()" style="background:transparent;border:2px solid rgba(123,28,28,.25);
+        color:var(--burg);border-radius:var(--r);padding:11px 28px;font-family:'DM Sans',sans-serif;
+        font-size:.82rem;font-weight:700;cursor:pointer;letter-spacing:.06em;
+        transition:all .2s;" onmouseover="this.style.background='rgba(123,28,28,.06)'"
+        onmouseout="this.style.background='transparent'">
+        See All Members in Community →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATISTICS ══ -->
+<section id="stats" aria-label="Employment Statistics" aria-label="Employment Statistics">
+  <div class="container">
+    <div class="section-tag" style="color:var(--gold)" id="statsTag">Employment Data</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:#fff;line-height:1.15" id="statsHd">Sierra Leone Labour Market Statistics</h2>
+    <div class="gold-rule"></div>
+    <p style="font-size:.97rem;color:rgba(255,255,255,.62);line-height:1.78;max-width:680px" id="statsSub">Real-time indicators drawn from World Bank, ILO and Statistics Sierra Leone data to keep you informed about the employment landscape.</p>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-l" id="klU">Official Unemployment Rate</div><div class="kpi-v kv-red" id="kvU">4.2%</div><div class="kpi-n" id="knU">World Bank 2024 estimate</div><div class="kpi-t kt-dn" id="ktU">▼ 0.3% vs 2023</div></div>
+      <div class="kpi"><div class="kpi-l" id="klY">Youth Unemployment (15–35)</div><div class="kpi-v kv-red" id="kvY">62%</div><div class="kpi-n" id="knY">ILO / NASSIT 2024 estimate</div><div class="kpi-t kt-wn" id="ktY">⚠ Critical priority</div></div>
+      <div class="kpi"><div class="kpi-l" id="klUn">Underemployment Rate</div><div class="kpi-v kv-red" id="kvUn">71%</div><div class="kpi-n" id="knUn">Informal economy dominant</div><div class="kpi-t kt-wn" id="ktUn">⚠ Structural challenge</div></div>
+      <div class="kpi"><div class="kpi-l" id="klF">♀ Female Labour Participation</div><div class="kpi-v kv-blue" id="kvF">66%</div><div class="kpi-n" id="knF">World Bank 2024</div><div class="kpi-t kt-up" id="ktF">▲ +2% vs 2022</div></div>
+      <div class="kpi"><div class="kpi-l" id="klM">♂ Male Labour Participation</div><div class="kpi-v kv-blue" id="kvM">78%</div><div class="kpi-n" id="knM">World Bank 2024</div><div class="kpi-t kt-up" id="ktM">▲ +1% vs 2022</div></div>
+      <div class="kpi"><div class="kpi-l" id="klG">GDP Growth Rate</div><div class="kpi-v kv-green" id="kvG">3.7%</div><div class="kpi-n" id="knG">World Bank 2024 projection</div><div class="kpi-t kt-up" id="ktG">▲ Recovery trend</div></div>
+      <div class="kpi"><div class="kpi-l" id="klFo">Formal Sector Employment</div><div class="kpi-v kv-gold" id="kvFo">18%</div><div class="kpi-n" id="knFo">Of total labour force</div><div class="kpi-t kt-up" id="ktFo">▲ Platform target sector</div></div>
+      <div class="kpi"><div class="kpi-l" id="klPJ">Active Jobs on Platform</div><div class="kpi-v kv-gold" id="kvPJ">500+</div><div class="kpi-n" id="knPJ">Updated daily</div><div class="kpi-t kt-up" id="ktPJ">▲ 16 districts covered</div></div>
+      <div class="kpi"><div class="kpi-l" id="klSk">Registered Job Seekers</div><div class="kpi-v kv-green" id="kvSk">10K+</div><div class="kpi-n" id="knSk">Africa Jobs platform</div><div class="kpi-t kt-up" id="ktSk">▲ Growing monthly</div></div>
+    </div>
+    <!-- ♿ Disability & Inclusion statistics row -->
+    <div style="margin-bottom:40px;">
+      <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;display:flex;align-items:center;gap:8px;">♿ Disability &amp; Inclusive Employment — MRU Region (ILO / WHO 2024)</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+        <div class="kpi" style="border-top-color:#AA90CC;"><div class="kpi-l">People with Disabilities</div><div class="kpi-v" style="color:#AA90CC;">15–20%</div><div class="kpi-n">of working-age MRU population</div><div class="kpi-t" style="background:rgba(170,144,204,.15);color:#AA90CC;">ILO / WHO Estimate</div></div>
+        <div class="kpi" style="border-top-color:#EEA06A;"><div class="kpi-l">PWD Employment Rate</div><div class="kpi-v" style="color:#EEA06A;">38%</div><div class="kpi-n">vs 78% for non-disabled adults</div><div class="kpi-t kt-wn">⚠ Significant gap</div></div>
+        <div class="kpi" style="border-top-color:#EEA06A;"><div class="kpi-l">Informal Sector Share</div><div class="kpi-v" style="color:#EEA06A;">85%</div><div class="kpi-n">of employed PWDs in informal work</div><div class="kpi-t kt-wn">⚠ Structural challenge</div></div>
+        <div class="kpi" style="border-top-color:#7EE8A2;"><div class="kpi-l">Inclusive Employers</div><div class="kpi-v" style="color:#7EE8A2;">47</div><div class="kpi-n">Verified inclusive employers on platform</div><div class="kpi-t kt-up">▲ Growing</div></div>
+        <div class="kpi" style="border-top-color:#82C4F0;"><div class="kpi-l">Platform Accessibility</div><div class="kpi-v" style="color:#82C4F0;font-size:1.4rem;">WCAG 2.1</div><div class="kpi-n">AA compliant · Screen reader tested</div><div class="kpi-t" style="background:rgba(130,196,240,.15);color:#82C4F0;">♿ Accessible</div></div>
+      </div>
+    </div>
+    <div class="charts-grid">
+      <div class="chart-card"><div class="ch-t" id="chTT">Unemployment Rate Trend</div><div class="ch-s" id="chTS">Sierra Leone official unemployment, 2015–2024 (World Bank / ILO)</div><div class="ch-wrap"><canvas id="chTrend"></canvas></div></div>
+      <div class="chart-card"><div class="ch-t" id="chST">Jobs by Sector on Platform</div><div class="ch-s" id="chSS">Current distribution of active Africa Jobs SL listings</div><div class="ch-wrap"><canvas id="chSector"></canvas></div></div>
+    </div>
+    <div class="charts-row2">
+      <div class="chart-card"><div class="ch-t" id="chDT">Job Vacancies by District</div><div class="ch-s" id="chDS">Number of active listings per district on Africa Jobs SL</div><div class="ch-wrap" style="height:270px"><canvas id="chDistrict"></canvas></div></div>
+      <div class="chart-card"><div class="ch-t" id="chCT">MRU Youth Unemployment Comparison</div><div class="ch-s" id="chCS">Youth unemployment across the 4 MRU member states, 2024 (ILO)</div><div class="ch-wrap"><canvas id="chCompare"></canvas></div></div>
+    </div>
+    <div class="st-src" id="statsSrc">Sources: <a href="https://data.worldbank.org/country/sierra-leone" target="_blank">World Bank Open Data</a> · <a href="https://ilostat.ilo.org/" target="_blank">ILO ILOSTAT</a> · <a href="http://www.statistics.sl/" target="_blank">Statistics Sierra Leone</a> · Africa Jobs platform data. Last updated: March 2026.</div>
+  </div>
+</section>
+
+<!-- ══ PREMIUM ══ -->
+<section id="premium">
+  <div class="container">
+    <div class="prem-hdr">
+      <span class="prem-ey">✦ Unlock Your Career Potential</span>
+      <h2>Africa Jobs Premium</h2>
+      <p>Powerful AI-driven tools designed specifically for Africa's job market — from ATS resume scoring to salary benchmarks across every country.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-name">Free</div>
+        <div class="price-amt">$0 <span>/ mo</span></div>
+        <div class="price-desc">Get started, no credit card needed</div>
+        <ul class="price-feats"><li>Browse all job listings</li><li>Basic profile creation</li><li>Community points &amp; rewards</li><li>District job map</li><li class="lkd">ATS Resume Analyzer</li><li class="lkd">Cover Letter Generator</li><li class="lkd">AI Job Matching</li><li class="lkd">Salary Insights</li></ul>
+        <button class="price-btn pbtn-o" onclick="showAuth('seeker','signup')">Get Started Free</button>
+      </div>
+      <div class="price-card feat">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-name">Professional</div>
+        <div class="price-amt">$4.99 <span>/ mo</span></div>
+        <div class="price-desc">For serious job seekers ready to stand out</div>
+        <ul class="price-feats"><li>Everything in Free</li><li>ATS Resume Analyzer (unlimited)</li><li>Cover Letter Generator</li><li>AI Job Matching dashboard</li><li>Salary Insights by role &amp; country</li><li>Interview Preparation Guide</li><li>Career Path Planner</li><li>Priority application badge</li></ul>
+        <button class="price-btn pbtn-g" onclick="openPT('ATS')">Try Premium Tools</button>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Enterprise</div>
+        <div class="price-amt">$29 <span>/ mo</span></div>
+        <div class="price-desc">For organisations hiring across Africa</div>
+        <ul class="price-feats"><li>Everything in Professional</li><li>Unlimited job postings</li><li>Applicant tracking system</li><li>Bulk CV screening with AI</li><li>Branded employer page</li><li>Analytics &amp; reporting</li><li>Dedicated account manager</li><li>API access for integrations</li></ul>
+        <button class="price-btn pbtn-o" onclick="showAuth('org','signup')">Contact Sales</button>
+      </div>
+    </div>
+    <div class="pt-hdr">Premium Tools &amp; Features</div>
+    <div class="pt-grid">
+      <div class="pt-card" onclick="openPT('ATS')"><div class="pt-ico">🎯</div><div class="pt-nm">ATS Resume Analyzer</div><div class="pt-ds">Upload your CV and get an instant ATS compatibility score, missing keywords and actionable improvement tips tailored to your target role.</div><span class="pt-bgt ptb-pro">Pro</span></div>
+      <div class="pt-card" onclick="openPT('Cover')"><div class="pt-ico">✍️</div><div class="pt-nm">Cover Letter Generator</div><div class="pt-ds">Generate a professional, personalised cover letter in seconds. Choose your job, add your skills and get a polished template ready to send.</div><span class="pt-bgt ptb-pro">Pro</span></div>
+      <div class="pt-card" onclick="openPT('Match')"><div class="pt-ico">🤝</div><div class="pt-nm">AI Job Matching</div><div class="pt-ds">Our matching engine analyses your profile and skills to surface the most relevant opportunities across all countries and sectors.</div><span class="pt-bgt ptb-pro">Pro</span></div>
+      <div class="pt-card" onclick="openPT('Salary')"><div class="pt-ico">💰</div><div class="pt-nm">Salary Insights</div><div class="pt-ds">Benchmark your worth with real salary data across roles, sectors and African countries. Know your value before you negotiate.</div><span class="pt-bgt ptb-pro">Pro</span></div>
+      <div class="pt-card" onclick="openPT('Interview')"><div class="pt-ico">🎤</div><div class="pt-nm">Interview Prep Guide</div><div class="pt-ds">Sector-specific interview questions with model answers. Practice the most common questions for your exact role and industry.</div><span class="pt-bgt ptb-pro">Pro</span></div>
+      <div class="pt-card" onclick="openPT('Career')"><div class="pt-ico">🗺️</div><div class="pt-nm">Career Path Planner</div><div class="pt-ds">Visualise your growth trajectory. See which skills to build, certifications to earn and roles to target on the path to your dream career.</div><span class="pt-bgt ptb-free">Free Preview</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="container">
+    <div class="section-tag" style="color:var(--gold)" id="ctaTag">Join Africa Jobs</div>
+    <h2 id="ctaHd" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:#fff;line-height:1.15">Ready to Start Your Career Journey?</h2>
+    <div class="gold-rule" style="margin:16px auto 22px"></div>
+    <p id="ctaSub" style="font-size:.97rem;color:rgba(255,255,255,.72);line-height:1.78;max-width:600px;margin:0 auto">Whether you're a job seeker, employer or organisation — Africa Jobs is the platform built for Africa's future. Join thousands of youth already using the platform.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn btn-gold" onclick="showAuth('seeker','signup');return false">Create Free Account</a>
+      <a href="#" class="btn btn-outline-w" onclick="showAuth('org','signup');return false">Post a Vacancy</a>
+      <a href="#" class="btn btn-outline-w">Partner with Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+</main>
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-nm">Africa Jobs</div>
+        <span class="ft-tg">Where Careers Happen</span>
+        <p>Africa's leading youth employment platform connecting talented people with organisations across every country we serve. Empowering a generation through dignified and fulfilling work.</p>
+        <div class="ft-soc">
+          <a href="https://www.facebook.com/africajbs" class="soc-btn" title="Facebook">f</a>
+          <a href="https://www.instagram.com/africa_jobs/" class="soc-btn" title="Instagram">ig</a>
+          <a href="#" class="soc-btn" title="LinkedIn">in</a>
+          <a href="#" class="soc-btn" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="ft-col"><h4>For Job Seekers</h4><ul><li><a href="#">Browse All Jobs</a></li><li><a href="#">Jobs by District</a></li><li><a href="#">Internships</a></li><li><a href="#">Graduate Roles</a></li><li><a href="#">Career Resources</a></li><li><a href="#">Success Stories</a></li></ul></div>
+      <div class="ft-col"><h4>For Employers</h4><ul><li><a href="#">Post a Vacancy</a></li><li><a href="#">Browse Candidates</a></li><li><a href="#">Premium Listings</a></li><li><a href="#">Employer Branding</a></li><li><a href="#">Partner with Us</a></li><li><a href="#">Employer Login</a></li></ul></div>
+      <div class="ft-col"><h4>Platform</h4><ul><li><a href="#about">About Us</a></li><li><a href="#how">How It Works</a></li><li><a href="#features">Features</a></li><li><a href="#sdgs">Our Impact</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Contact Us</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <div>© 2026 <span>Africa Jobs</span>. All rights reserved. africajobs.com</div>
+      <div>Built with ❤️ for <span>Africa's Youth</span></div>
+    </div>
+  </div>
+</footer>
 
 <!-- ══ CHATBOT ══ -->
 <button id="chatBtn" onclick="toggleChat()" aria-label="Open Job Buddy chat">💬<span class="ch-notif" id="chatNotif"></span></button>
@@ -2234,32 +3413,6 @@ function confirmRedeem(){
 }
 </script>
 
-
-</main>
-<footer>
-  <div class="ft-inner">
-    <div class="ft-grid">
-      <div class="ft-brand">
-        <div class="ft-nm">Africa Jobs</div>
-        <span class="ft-tg">Where Careers Happen</span>
-        <p>Africa's leading youth employment platform connecting talented people with organisations across every country we serve. Empowering a generation through dignified and fulfilling work.</p>
-        <div class="ft-soc">
-          <a href="https://www.facebook.com/africajbs" class="soc-btn" title="Facebook">f</a>
-          <a href="https://www.instagram.com/africa_jobs/" class="soc-btn" title="Instagram">ig</a>
-          <a href="#" class="soc-btn" title="LinkedIn">in</a>
-          <a href="#" class="soc-btn" title="Twitter/X">𝕏</a>
-        </div>
-      </div>
-      <div class="ft-col"><h4>For Job Seekers</h4><ul><li><a href="#">Browse All Jobs</a></li><li><a href="#">Jobs by District</a></li><li><a href="#">Internships</a></li><li><a href="#">Graduate Roles</a></li><li><a href="#">Career Resources</a></li><li><a href="#">Success Stories</a></li></ul></div>
-      <div class="ft-col"><h4>For Employers</h4><ul><li><a href="#">Post a Vacancy</a></li><li><a href="#">Browse Candidates</a></li><li><a href="#">Premium Listings</a></li><li><a href="#">Employer Branding</a></li><li><a href="#">Partner with Us</a></li><li><a href="#">Employer Login</a></li></ul></div>
-      <div class="ft-col"><h4>Platform</h4><ul><li><a href="#about">About Us</a></li><li><a href="#how">How It Works</a></li><li><a href="#features">Features</a></li><li><a href="#sdgs">Our Impact</a></li><li><a href="#">Blog &amp; Resources</a></li><li><a href="#">Contact Us</a></li></ul></div>
-    </div>
-    <div class="ft-bot">
-      <div>© 2026 <span>Africa Jobs</span>. All rights reserved. africajobs.com</div>
-      <div>Built with ❤️ for <span>Africa's Youth</span></div>
-    </div>
-  </div>
-</footer>
 <script>
 /* ═══ STATISTICS CHARTS ══════════════════════════════ */
 const STATS_DATA={sl:{hd:'Sierra Leone Labour Market Statistics',sub:'Real-time indicators drawn from World Bank, ILO and Statistics Sierra Leone data.',chCT:"MRU Youth Unemployment Comparison",chCS:"Youth unemployment across the 4 MRU member states, 2024 (ILO)",chTT:"Unemployment Rate Trend",chTS:"Sierra Leone official unemployment, 2015–2024 (World Bank / ILO)",chST:"Jobs by Sector on Platform",chSS:"Current distribution of active Africa Jobs SL listings",chDT:"Job Vacancies by District",chDS:"Number of active listings per district on Africa Jobs SL",
@@ -3940,113 +5093,7 @@ function showiOSInstallHint(){
 }
 document.addEventListener('DOMContentLoaded',showiOSInstallHint);
 
-// ── Mobile Navigation ─────────────────────────────────────────────
-function toggleMobileNav(){
-  var nav=document.getElementById('mobileNav');
-  var btn=document.getElementById('mobileMenuBtn');
-  if(!nav||!btn)return;
-  var open=nav.classList.toggle('open');
-  btn.setAttribute('aria-expanded',open.toString());
-  btn.textContent=open?'✕':'☰';
-  document.body.style.overflow=open?'hidden':'';
-  // Highlight current page
-  var page=window.location.pathname.split('/').pop()||'index.html';
-  nav.querySelectorAll('a').forEach(function(a){
-    a.classList.toggle('nav-active', a.getAttribute('href')===page);
-  });
-}
-// Close mobile nav on Esc
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'){
-    var nav=document.getElementById('mobileNav');
-    if(nav&&nav.classList.contains('open'))toggleMobileNav();
-  }
-});
-// Update mobile nav country display when country changes
-var _origApplyCountry=typeof applyCountry==='function'?applyCountry:null;
-document.addEventListener('DOMContentLoaded',function(){
-  var u=localStorage.getItem('aj_country')||'sl';
-  var C={'sl':{flag:'🇸🇱',name:'Sierra Leone'},'lr':{flag:'🇱🇷',name:'Liberia'},
-         'gn':{flag:'🇬🇳',name:'Guinea'},'ci':{flag:'🇨🇮',name:"Côte d'Ivoire"}};
-  var f=document.getElementById('mNavFlag');
-  var n=document.getElementById('mNavCountry');
-  if(f&&C[u])f.textContent=C[u].flag;
-  if(n&&C[u])n.textContent=C[u].name;
-});
-
-
-// Admin sync — reads posts and resources from admin panel
-function loadAdminContent(){
-  var adminPosts=JSON.parse(localStorage.getItem("aj_blog_posts")||"[]");
-  var published=adminPosts.filter(function(p){return p.status==="published";});
-  if(published.length){
-    var blogSection=document.getElementById("blog");
-    if(!blogSection)return;
-    var existing=document.getElementById("adminPostsContainer");
-    if(!existing){
-      existing=document.createElement("div");
-      existing.id="adminPostsContainer";
-      existing.style.marginBottom="40px";
-      var grid=blogSection.querySelector(".blog-grid");
-      if(grid)grid.parentNode.insertBefore(existing,grid);
-      else blogSection.querySelector(".container").appendChild(existing);
-    }
-    existing.innerHTML="<div style=\"font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;"
-      +"color:var(--burg);font-weight:700;margin-bottom:18px;\">Latest Posts</div>"
-      +"<div style=\"display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;\">"
-      +published.map(function(p){
-        return "<div class=\"blog-card\" data-pid=\""+p.id+"\" onclick=\"openAdminPost(this.dataset.pid)\" style=\"cursor:pointer;\">"
-          +"<div class=\"blog-card-tag\">"+( p.tag||"📋 Article")+"</div>"
-          +"<h3 class=\"blog-card-title\">"+p.title+"</h3>"
-          +"<p class=\"blog-card-excerpt\">"+(p.summary||"")+"</p>"
-          +"<div class=\"blog-card-footer\">"
-          +"<div class=\"blog-card-meta\">"+(p.author||"")+" · "+(p.date||"")+"</div>"
-          +"<button class=\"blog-card-btn\">Read →</button>"
-          +"</div></div>";
-      }).join("")+"</div>";
-  }
-  var adminRes=JSON.parse(localStorage.getItem("aj_resources")||"[]");
-  if(adminRes.length){
-    var resGrid=document.querySelector('[style*="res-card"]')||document.querySelector(".res-grid");
-    if(resGrid){
-      var adminResHtml=adminRes.map(function(r){
-        return "<div class=\"res-card\">"
-          +"<div class=\"res-icon\">"+(r.icon||"📄")+"</div>"
-          +"<div class=\"res-title\">"+r.title+"</div>"
-          +"<div class=\"res-desc\">"+(r.desc||"")+"</div>"
-          +(r.fileData
-            ?"<a class=\"res-btn\" href=\""+r.fileData+"\" download=\""+( r.fileName||r.title)+"\" >Download "+(r.fileType||"File")+"</a>"
-            :r.linkUrl
-              ?"<a class=\"res-btn\" href=\""+r.linkUrl+"\" target=\"_blank\" rel=\"noopener\">Open Link</a>"
-              :"<button class=\"res-btn\" disabled>Coming Soon</button>")
-          +"</div>";
-      }).join("");
-      resGrid.insertAdjacentHTML("afterbegin",adminResHtml);
-    }
-  }
-}
-function openAdminPost(id){
-  var posts=JSON.parse(localStorage.getItem("aj_blog_posts")||"[]");
-  var post=posts.find(function(p){return p.id===id;});
-  if(!post)return;
-  var ovl=document.getElementById("blogPostOvl");
-  if(!ovl)return;
-  var content="<div style=\"font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;"
-    +"color:var(--burg);margin-bottom:8px;\">"+(post.tag||"")+" · "+(post.readTime||"")+"</div>"
-    +"<h2 style=\"font-family:Cormorant Garamond,serif;font-size:1.8rem;font-weight:700;"
-    +"color:var(--burg);margin-bottom:12px;\">"+post.title+"</h2>"
-    +"<div style=\"font-size:.78rem;color:var(--ink-lt);margin-bottom:20px;\">"
-    +"By "+(post.author||"")+" · "+(post.date||"")+"</div>"
-    +(post.content||"<p>Content coming soon.</p>");
-  var bodyEl=ovl.querySelector("#blogPostBody")||ovl.querySelector(".blog-post-body")||ovl;
-  if(bodyEl)bodyEl.innerHTML=content;
-  ovl.classList.add("active");
-  document.body.style.overflow="hidden";
-}
-document.addEventListener("DOMContentLoaded",loadAdminContent);
-
-
-// ── Slide-out Sidebar ─────────────────────────────────────────────
+// ── Slide-out Sidebar ──────────────────────────────────────────
 function toggleSidebar(){
   var sb=document.getElementById('mobileSidebar');
   var bd=document.getElementById('sidebarBackdrop');
@@ -4054,55 +5101,107 @@ function toggleSidebar(){
   if(!sb)return;
   var open=sb.classList.toggle('open');
   if(bd)bd.classList.toggle('open',open);
-  if(btn)btn.classList.toggle('open',open);
-  btn&&btn.setAttribute('aria-expanded',open.toString());
+  if(btn){btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));}
   document.body.style.overflow=open?'hidden':'';
   if(open){
-    // Update sidebar user info
     var u=typeof getSession==='function'?getSession():null;
-    var ua=document.getElementById('msb-userArea');
-    if(ua&&u){
-      ua.innerHTML='<div style="display:flex;align-items:center;gap:10px;">'
-        +'<div style="width:36px;height:36px;border-radius:50%;background:var(--burg);'
-        +'display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">👤</div>'
-        +'<div><div style="font-size:.85rem;font-weight:700;color:#fff;">'+u.name+'</div>'
-        +'<div style="font-size:.7rem;color:var(--gold);">'+u.points+' MPs · '+(u.field||'')+'</div>'
-        +'</div></div>';
-    }
-    // Update country display
+    var ua=document.getElementById('msbUserArea');
+    if(ua&&u){ua.innerHTML='<div style="font-weight:700;color:#fff;font-size:.85rem;">'+u.name+'</div>'
+      +'<div style="color:var(--gold);font-size:.72rem;">'+u.points+' MPs</div>';}
     var code=localStorage.getItem('aj_country')||'sl';
-    var ctryMap={sl:{flag:'🇸🇱',name:'Sierra Leone'},lr:{flag:'🇱🇷',name:'Liberia'},
-                 gn:{flag:'🇬🇳',name:'Guinea'},ci:{flag:'🇨🇮',name:"Côte d'Ivoire"}};
-    var msbF=document.getElementById('msbFlag');
-    var msbC=document.getElementById('msbCountry');
-    if(msbF&&ctryMap[code])msbF.textContent=ctryMap[code].flag;
-    if(msbC&&ctryMap[code])msbC.textContent=ctryMap[code].name;
+    var CM={sl:{f:'🇸🇱',n:'Sierra Leone'},lr:{f:'🇱🇷',n:'Liberia'},gn:{f:'🇬🇳',n:'Guinea'},ci:{f:'🇨🇮',n:"Côte d'Ivoire"}};
+    var mf=document.getElementById('msbFlag');var mc=document.getElementById('msbCtry');
+    if(mf&&CM[code])mf.textContent=CM[code].f;
+    if(mc&&CM[code])mc.textContent=CM[code].n;
   }
 }
-// Keep Esc closing sidebar
 document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'){
-    var sb=document.getElementById('mobileSidebar');
-    if(sb&&sb.classList.contains('open'))toggleSidebar();
-  }
+  if(e.key==='Escape'){var sb=document.getElementById('mobileSidebar');if(sb&&sb.classList.contains('open'))toggleSidebar();}
 });
-// Alias old function name in case it's called anywhere
-function toggleMobileNav(){toggleSidebar();}
 
-// Open premium overlay from any page
 function openPrem(){
   var u=typeof getSession==='function'?getSession():null;
   if(!u){if(typeof showAuth==='function')showAuth('seeker','login');return;}
+  // Try ATS overlay first
   var ovl=document.getElementById('premOvl')||document.getElementById('atsOvl');
-  if(ovl){ovl.style.display='flex';document.body.style.overflow='hidden';}
+  if(ovl){ovl.style.display='flex';document.body.style.overflow='hidden';return;}
+  // Try opening premium section / first premium tool
+  var el=document.getElementById('premium')||document.getElementById('ats');
+  if(el)el.scrollIntoView({behavior:'smooth'});
   else{
-    // Navigate to premium section if overlay not found
-    var el=document.getElementById('premium');
-    if(el)el.scrollIntoView({behavior:'smooth'});
-    else if(window.location.pathname.indexOf('index')===-1)
-      window.location.href='index.html#premium';
+    // Open the premium tool from nav
+    var btns=document.querySelectorAll('.prem-btn, [onclick*="openATS"], [onclick*="prem"]');
+    if(btns.length)btns[0].click();
   }
 }
+// Auto-scroll to blog section on page load
+document.addEventListener('DOMContentLoaded', function(){
+  setTimeout(function(){
+    var el = document.getElementById('blog');
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 350);
+});
 </script>
+
+<!-- ══ EDIT PROFILE OVERLAY ══ -->
+<div class="ovl full-ovl" id="editProfileOvl" style="display:none;">
+  <button class="auth-close" onclick="closeEditProfile()" aria-label="Close">✕<span class="sr-only">Close</span></button>
+  <div class="full-pg" style="max-width:640px;">
+    <div style="margin-bottom:28px;">
+      <div class="section-tag">Account Settings</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;color:var(--burg);font-size:2.3rem;font-weight:600;">Edit Your Profile</h1>
+    </div>
+    <!-- Profile pic -->
+    <div style="display:flex;align-items:center;gap:20px;margin-bottom:28px;background:var(--off);border:1px solid rgba(0,0,0,.08);border-radius:var(--r);padding:20px;">
+      <div style="position:relative;flex-shrink:0;">
+        <div id="epAvatar" style="width:72px;height:72px;border-radius:50%;background:var(--burg);display:flex;align-items:center;justify-content:center;font-size:2rem;overflow:hidden;border:3px solid var(--gold);cursor:pointer;" onclick="document.getElementById('epPicFile').click()">👤</div>
+        <div style="position:absolute;bottom:0;right:0;width:22px;height:22px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;cursor:pointer;border:2px solid #fff;" onclick="document.getElementById('epPicFile').click()">📷</div>
+        <input type="file" id="epPicFile" accept="image/*" style="display:none" onchange="epPicSelected(this)"/>
+      </div>
+      <div>
+        <div style="font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:4px;">Profile Photo</div>
+        <div style="font-size:.72rem;color:var(--ink-lt);margin-bottom:10px;">Click the photo to upload a new image. JPG, PNG — max 2MB.</div>
+        <button onclick="document.getElementById('epPicFile').click()" style="font-size:.7rem;font-weight:600;color:var(--burg);background:transparent;border:1.5px solid rgba(123,28,28,.25);border-radius:var(--r);padding:5px 14px;cursor:pointer;">Upload Photo</button>
+      </div>
+    </div>
+    <!-- Edit fields -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div class="ff"><label>First Name</label><input class="fi" type="text" id="epFirst" placeholder="First name"/></div>
+      <div class="ff"><label>Last Name</label><input class="fi" type="text" id="epLast" placeholder="Last name"/></div>
+    </div>
+    <div class="ff" style="margin-bottom:14px;"><label>Email Address</label><input class="fi" type="email" id="epEmail" placeholder="your@email.com" readonly style="opacity:.6;cursor:not-allowed;"/></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div class="ff"><label>Field / Profession</label><input class="fi" type="text" id="epField" placeholder="e.g. Software Engineering"/></div>
+      <div class="ff"><label>District / Location</label>
+        <select class="as" id="epDist">
+          <option value="">Select location…</option>
+          <optgroup label="🇸🇱 Sierra Leone"><option>Freetown (Western Area Urban)</option><option>Western Area Rural</option><option>Bombali</option><option>Bo</option><option>Kenema</option><option>Kono</option><option>Port Loko</option><option>Tonkolili</option><option>Moyamba</option><option>Pujehun</option><option>Kailahun</option></optgroup>
+          <optgroup label="🇱🇷 Liberia"><option>Montserrado</option><option>Nimba</option><option>Bong</option><option>Lofa</option><option>Margibi</option></optgroup>
+          <optgroup label="🇬🇳 Guinea"><option>Conakry</option><option>Boké</option><option>Kankan</option><option>Nzérékoré</option><option>Labé</option></optgroup>
+          <optgroup label="🇨🇮 Côte d'Ivoire"><option>Abidjan</option><option>Bouaké</option><option>Yamoussoukro</option><option>San Pédro</option><option>Korhogo</option></optgroup>
+        </select>
+      </div>
+    </div>
+    <div class="ff" style="margin-bottom:14px;"><label>Bio / Short Description</label><textarea class="fta" id="epBio" placeholder="Tell employers a little about yourself, your skills and career goals…" style="min-height:80px;"></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div class="ff"><label>LinkedIn URL</label><input class="fi" type="url" id="epLinkedIn" placeholder="https://linkedin.com/in/…"/></div>
+      <div class="ff"><label>Portfolio / Website</label><input class="fi" type="url" id="epPortfolio" placeholder="https://yoursite.com"/></div>
+    </div>
+    <!-- Change password section -->
+    <div style="border-top:1px solid rgba(0,0,0,.08);padding-top:18px;margin-top:6px;margin-bottom:18px;">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:12px;">Change Password (optional)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="ff"><label>New Password</label><input class="fi" type="password" id="epPwd" placeholder="Leave blank to keep current"/></div>
+        <div class="ff"><label>Confirm Password</label><input class="fi" type="password" id="epPwd2" placeholder="Repeat new password"/></div>
+      </div>
+    </div>
+    <div class="act-err" id="epErr" style="margin-bottom:12px;"></div>
+    <div style="display:flex;gap:12px;">
+      <button onclick="saveProfile()" style="flex:1;background:var(--burg);border:none;padding:13px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;border-radius:var(--r);cursor:pointer;letter-spacing:.06em;">Save Changes</button>
+      <button onclick="closeEditProfile()" style="padding:13px 24px;background:transparent;border:1.5px solid rgba(0,0,0,.15);border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--ink);">Cancel</button>
+    </div>
+    <div id="epOk" style="display:none;margin-top:12px;padding:10px 14px;background:rgba(76,175,77,.12);border:1px solid rgba(76,175,77,.3);border-radius:var(--r);font-size:.82rem;color:#2E7D32;">✓ Profile updated successfully!</div>
+  </div>
+</div>
 </body>
 </html>
