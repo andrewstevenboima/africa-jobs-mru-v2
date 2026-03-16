@@ -1057,121 +1057,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   transition:transform .35s cubic-bezier(.34,1.4,.64,1),opacity .3s;
 }
 
-/* ─── Premium Page ───────────────────────────── */
-#premiumPageOvl{display:none;position:fixed;inset:0;z-index:6000;background:linear-gradient(135deg,#0a0a14 0%,#1a0a0a 40%,#0d1520 100%);overflow-y:auto;}
-#premiumPageOvl.active{display:block;}
-.prem-page-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid rgba(201,168,64,.15);position:sticky;top:0;z-index:10;background:rgba(10,10,20,.95);backdrop-filter:blur(12px);}
-.prem-page-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:10px;}
-.prem-page-logo .pp-sub{font-size:.62rem;color:rgba(255,255,255,.3);letter-spacing:.15em;text-transform:uppercase;display:block;line-height:1;}
-.prem-back-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
-.prem-back-btn:hover{background:rgba(255,255,255,.12);color:#fff;}
-.pp-hero{text-align:center;padding:64px 24px 40px;max-width:760px;margin:0 auto;}
-.pp-eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px;}
-.pp-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px;}
-.pp-hero p{font-size:1rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:560px;margin:0 auto 32px;}
-.trial-banner{background:linear-gradient(135deg,rgba(201,168,64,.2),rgba(201,168,64,.08));border:1.5px solid rgba(201,168,64,.4);border-radius:16px;padding:20px 28px;margin:0 auto 40px;max-width:720px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.trial-badge{background:var(--gold);color:var(--burg-dk);border-radius:20px;padding:6px 16px;font-size:.78rem;font-weight:800;letter-spacing:.06em;white-space:nowrap;flex-shrink:0;}
-.trial-text{flex:1;color:rgba(255,255,255,.8);font-size:.88rem;line-height:1.5;}
-.trial-text strong{color:#fff;}
-.trial-cta-btn{background:var(--gold);color:var(--burg-dk);border:none;border-radius:24px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:800;cursor:pointer;letter-spacing:.04em;transition:all .18s;white-space:nowrap;flex-shrink:0;}
-.trial-cta-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,64,.4);}
-.trial-active-badge{background:rgba(46,125,50,.2);border:1px solid rgba(46,125,50,.4);color:#81C784;border-radius:20px;padding:8px 18px;font-size:.82rem;font-weight:700;display:inline-flex;align-items:center;gap:6px;}
-.pp-tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;max-width:1100px;margin:0 auto;padding:0 24px 64px;}
-.pp-tool-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 24px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;}
-.pp-tool-card:hover{border-color:rgba(201,168,64,.3);transform:translateY(-2px);}
-.pp-tool-card.locked-tool{opacity:.45;}
-.pp-tool-ico{font-size:2rem;margin-bottom:14px;}
-.pp-tool-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:6px;}
-.pp-tool-desc{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:16px;}
-.pp-tool-tag{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;}
-.pp-tool-tag.free-tag{background:rgba(255,255,255,.07);color:rgba(255,255,255,.4);}
-.pp-tool-tag.prem-tag{background:rgba(201,168,64,.15);color:var(--gold);}
-.pp-tool-tag.unlocked-tag{background:rgba(46,125,50,.15);color:#81C784;}
-.pp-tool-btn{display:block;width:100%;margin-top:12px;background:rgba(201,168,64,.15);border:1px solid rgba(201,168,64,.3);color:var(--gold);border-radius:var(--r);padding:10px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .15s;text-align:center;}
-.pp-tool-btn:hover{background:rgba(201,168,64,.25);}
-.pp-tool-btn.locked-btn{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.3);cursor:not-allowed;}
-.trial-countdown{text-align:center;padding:20px;font-size:.82rem;color:rgba(255,255,255,.35);border-top:1px solid rgba(255,255,255,.06);}
-.trial-countdown strong{color:var(--gold);}
-/* ─── Rewards Overlay Fixes ─────────────────── */
-#rewOvl .rw-tabs{display:flex!important;gap:7px;margin-bottom:28px;flex-wrap:wrap;padding-bottom:4px;border-bottom:2px solid rgba(201,168,64,.15);}
-#rewOvl .rw-tab{padding:8px 18px;border:1.5px solid rgba(123,28,28,.18);border-radius:20px;font-size:.72rem;font-weight:600;color:var(--ink-mid);cursor:pointer;background:#fff;transition:all .2s;font-family:'DM Sans',sans-serif;display:inline-block!important;}
-#rewOvl .rw-tab:hover,#rewOvl .rw-tab.active{background:var(--burg);border-color:var(--burg);color:#fff;}
-#rewOvl .rw-bar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--burg-dk),var(--burg));border-radius:14px;padding:24px 28px;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
-
-/* ─── Activity Proof Verification Badge ─────────────── */
-.verified-badge{
-  display:inline-flex;align-items:center;gap:4px;
-  background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);
-  color:#2E7D32;border-radius:20px;padding:2px 8px;
-  font-size:.62rem;font-weight:700;letter-spacing:.05em;
-  white-space:nowrap;
-}
-.unverified-badge{
-  display:inline-flex;align-items:center;gap:4px;
-  background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);
-  color:#999;border-radius:20px;padding:2px 8px;
-  font-size:.62rem;font-weight:600;white-space:nowrap;
-}
-.proof-link{
-  font-size:.7rem;color:var(--burg);text-decoration:none;
-  display:inline-flex;align-items:center;gap:3px;
-  border-bottom:1px dashed rgba(123,28,28,.3);
-  transition:border-color .15s;
-}
-.proof-link:hover{border-bottom-color:var(--burg);}
-/* Activity entry enhanced */
-.act-entry{position:relative;}
-.ae-badges{display:flex;align-items:center;gap:6px;margin-top:5px;flex-wrap:wrap;}
-.ae-proof-tip{
-  display:none;position:absolute;left:0;top:100%;z-index:100;
-  background:var(--slate);color:#fff;border:1px solid rgba(201,168,64,.2);
-  border-radius:8px;padding:8px 12px;font-size:.72rem;line-height:1.5;
-  max-width:260px;box-shadow:0 4px 16px rgba(0,0,0,.25);
-}
-.act-entry:hover .ae-proof-tip{display:block;}
-/* Partner-facing verification indicator */
-.partner-verify-row{
-  display:flex;align-items:center;gap:8px;
-  padding:8px 12px;background:rgba(46,125,50,.06);
-  border:1px solid rgba(46,125,50,.18);border-radius:8px;
-  margin-top:6px;font-size:.75rem;color:#2E7D32;
-}
-.partner-verify-score{
-  margin-left:auto;font-weight:700;font-size:.82rem;color:#2E7D32;
-}
-
-/* ─── Overlay Sticky Header Fix ─────────────── */
-.ovl{display:none;position:fixed;inset:0;z-index:3000;overflow-y:auto;}
-.ovl.active,.ovl[style*="display:flex"]{display:flex!important;flex-direction:column;}
-.full-ovl.active,.dash-ovl.active{display:flex!important;flex-direction:column;}
-/* Ensure sticky bars work inside overlays */
-.ovl > div[style*="position:sticky"]{position:sticky!important;top:0!important;}
-/* Remove top padding from full-pg when preceded by sticky bar */
-.ovl > div[style*="sticky"] + .full-pg{padding-top:32px!important;}
-
-/* ─── Overlay layout: flex-column for sticky headers ─── */
-.ovl{
-  display:none;position:fixed;inset:0;z-index:3000;
-  flex-direction:column;overflow-y:auto;
-}
-.ovl.active{display:flex!important;flex-direction:column!important;}
-.ovl[style*="display:flex"]{flex-direction:column!important;}
-.full-ovl.active,.dash-ovl.active{
-  display:flex!important;flex-direction:column!important;
-}
-/* Sticky bar always on top */
-.ovl-sticky-bar{
-  position:sticky!important;top:0!important;z-index:20!important;
-  flex-shrink:0!important;
-}
-/* Remove top padding from full-pg when sticky bar precedes it */
-.ovl-sticky-bar + .full-pg,
-.ovl-sticky-bar + .dash-pg{
-  padding-top:32px!important;
-}
-/* Hide old auth-close buttons replaced by sticky bar */
-.auth-close{display:none!important;}
-
 /* ─── Tier Page Overlays (Free / Premium / Enterprise) ──────── */
 .tier-page{
   display:none;position:fixed;inset:0;z-index:5500;
@@ -1319,6 +1204,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .tp-stats{gap:20px;}
   .tp-trial-bar{flex-direction:column;text-align:center;}
 }
+
+.act-section-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(123,28,28,.5);font-weight:700;padding:10px 0 6px;grid-column:1/-1;border-top:1px solid rgba(0,0,0,.06);margin-top:6px;}
+.informal-act{border-color:rgba(201,168,64,.25)!important;background:rgba(201,168,64,.04)!important;}
+.informal-act:hover,.informal-act.sel{border-color:var(--gold)!important;background:rgba(201,168,64,.15)!important;}
+
+.cb-country-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:24px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.7);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;transition:all .15s;}
+.cb-country-btn:hover,.cb-country-btn.active{border-color:var(--gold);background:rgba(201,168,64,.12);color:var(--gold);}
+#waOvl{background:linear-gradient(135deg,#0a1a0a 0%,#0d1a14 60%,#091510 100%);}
 
 /* ─── Slide-out Sidebar ──────────────── */
 #mobileMenuBtn{display:none;flex-direction:column;justify-content:space-between;
@@ -1500,7 +1393,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <a href="#stats" id="navStats">Statistics</a>
         <a href="#discover" id="navDiscover">Community</a>
         <a href="#blog" id="navBlog">Blog</a>
-    <a href="#" onclick="openPremiumPage();return false;" class="prem">✦ Premium</a>
+    <a href="#" onclick="openPrem();return false;" class="prem">✦ Premium</a>
   </div>
   <div class="nav-right">
     <!-- Language switcher -->
@@ -1683,11 +1576,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 
 <!-- ══ COMMUNITY OVERLAY ══ -->
 <div class="ovl full-ovl" id="commOvl">
-  <div style="position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:1px solid rgba(201,168,64,.15);padding:11px 28px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
-    <button onclick="commBack()" aria-label="Go back" style="display:flex;align-items:center;gap:6px;background:rgba(123,28,28,.08);border:1.5px solid rgba(123,28,28,.2);border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;color:var(--burg);cursor:pointer;font-family:'DM Sans',sans-serif;">← Back</button>
-    <span style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:700;">🌊 Community</span>
-    <button onclick="closeAll()" aria-label="Close" style="margin-left:auto;background:none;border:none;font-size:1.3rem;color:var(--ink-lt);cursor:pointer;padding:4px 8px;border-radius:6px;transition:color .15s;" onmouseover="this.style.color='var(--burg)'" onmouseout="this.style.color='var(--ink-lt)'">✕</button>
-  </div>
+  <button class="auth-close" onclick="closeAll()" aria-label="Close">✕<span class="sr-only">Close</span></button>
   <div class="full-pg">
     <!-- Community page header -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;">
@@ -1826,7 +1715,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
             <div class="act-btn" onclick="selAct(this,'Career Fair Attended',60,'💼')"><div class="aico">💼</div><div class="albl">Career Fair</div><div class="apts">+60 pts</div></div>
             <div class="act-btn" onclick="selAct(this,'Mentorship Session',120,'🧑‍🏫')"><div class="aico">🧑‍🏫</div><div class="albl">Mentorship Session</div><div class="apts">+120 pts</div></div>
             <div class="act-btn" onclick="selAct(this,'Employer Event',80,'🏢')"><div class="aico">🏢</div><div class="albl">Employer Event</div><div class="apts">+80 pts</div></div>
-            <div class="act-btn" onclick="selAct(this,'Internship Completed',300,'🏆')"><div class="aico">🏆</div><div class="albl">Internship</div><div class="apts">+300 pts</div></div>
+            <div class="act-btn" onclick="selAct(this,'Internship Completed',300,'🏆')"><div class="aico">🏆</div>
+            <div class="act-section-label">&#128722; Informal Economy &#8212; Your work counts</div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Market Trader / Seller',60,'&#128722;')"><div class="aico">&#128722;</div><div class="albl">Market Trader</div><div class="apts">+60 pts</div></div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Artisan / Craftwork',70,'&#128296;')"><div class="aico">&#128296;</div><div class="albl">Artisan / Craft</div><div class="apts">+70 pts</div></div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Transport Work',65,'&#128663;')"><div class="aico">&#128663;</div><div class="albl">Transport Work</div><div class="apts">+65 pts</div></div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Farming / Agriculture',70,'&#127806;')"><div class="aico">&#127806;</div><div class="albl">Farming / Agri</div><div class="apts">+70 pts</div></div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Community Leader',80,'&#128081;')"><div class="aico">&#128081;</div><div class="albl">Community Leader</div><div class="apts">+80 pts</div></div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Apprenticeship Completed',90,'&#128295;')"><div class="aico">&#128295;</div><div class="albl">Apprenticeship</div><div class="apts">+90 pts</div></div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Mobile Money Agent',65,'&#128241;')"><div class="aico">&#128241;</div><div class="albl">Mobile Money</div><div class="apts">+65 pts</div></div>
+            <div class="act-btn informal-act" onclick="selAct(this,'Catering / Food Business',60,'&#127868;')"><div class="aico">&#127868;</div><div class="albl">Catering / Food</div><div class="apts">+60 pts</div></div><div class="albl">Internship</div><div class="apts">+300 pts</div></div>
           </div>
           <div class="ff"><label>Event / Activity Name</label><input class="fi" type="text" id="actNm" placeholder="e.g. Youth Leadership Summit 2025"/></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
@@ -1877,13 +1775,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 
 <!-- ══ REWARDS OVERLAY ══ -->
 <div class="ovl full-ovl" id="rewOvl">
-  <div style="position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:1px solid rgba(201,168,64,.15);padding:12px 32px;display:flex;align-items:center;gap:14px;">
-    <button onclick="closeAll()" aria-label="Back to site" style="display:flex;align-items:center;gap:6px;background:rgba(123,28,28,.08);border:1.5px solid rgba(123,28,28,.2);border-radius:20px;padding:8px 18px;font-size:.78rem;font-weight:600;color:var(--burg);cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;">← Back</button>
-    <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:700;">🎁 Mano Points Marketplace</div>
-    <button onclick="closeAll()" aria-label="Close" style="margin-left:auto;background:none;border:none;font-size:1.3rem;color:var(--ink-lt);cursor:pointer;padding:4px 8px;border-radius:6px;">✕</button>
-  </div>
-  <div class="full-pg" style="padding-top:36px;">
-    </div>
+  <button class="auth-close" onclick="closeAll()" aria-label="Close">✕<span class="sr-only">Close</span></button>
+  <div class="full-pg">
     <div style="margin-bottom:28px"><div class="section-tag">Mano Points Marketplace</div><h1 style="font-family:'Cormorant Garamond',serif;color:var(--burg);font-size:2.3rem;font-weight:600">Mano Points Store</h1><p style="color:var(--ink-mid);font-size:.9rem;margin-top:7px">Use your earned points to unlock events, workshops, premium features and partner discounts.</p></div>
     <div class="rw-bar">
       <div><div class="rw-lbl">Your Points Balance</div><div class="rw-val" id="rwPts">0 pts</div><div class="rw-sub" id="rwTier">Bronze Member</div></div>
@@ -1901,32 +1794,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 
-
-<!-- ══ PREMIUM PAGE OVERLAY ══ -->
-<div class="ovl" id="premiumPageOvl" role="dialog" aria-label="Africa Jobs Premium">
-  <div class="prem-page-nav">
-    <div class="prem-page-logo">
-      <svg viewBox="0 0 40 40" width="30" height="30"><circle cx="20" cy="20" r="18" stroke="#C9A840" stroke-width="1.5" fill="none"/><path d="M20 7L28 33H24L20 19L16 33H12L20 7Z" fill="#C9A840"/></svg>
-      Africa Jobs <span style="color:var(--gold);margin-left:4px;">Premium</span>
-      <span class="pp-sub">Mano River Union</span>
-    </div>
-    <button class="prem-back-btn" onclick="closePremiumPage()">← Back to Site</button>
-  </div>
-  <div class="pp-hero">
-    <div class="pp-eyebrow">✦ Africa Jobs Premium</div>
-    <h1>Your Career Supercharged</h1>
-    <p>Six AI-powered tools built for the MRU job market — ATS scoring, cover letters, salary insights and more.</p>
-  </div>
-  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
-    <div class="trial-banner" id="trialBanner">
-      <span class="trial-badge">&#127873; FREE TRIAL</span>
-      <div class="trial-text"><strong>Try all Premium tools free for 7 days.</strong><br>No credit card required. Full access to every AI tool.</div>
-      <button class="trial-cta-btn" onclick="startFreeTrial()">Start Free Trial &#8594;</button>
-    </div>
-  </div>
-  <div class="pp-tools-grid" id="premToolsGrid"></div>
-  <div class="trial-countdown" id="trialCountdown" style="display:none;"></div>
-</div>
 
 <!-- ══ FREE TIER PAGE ══ -->
 <div class="tier-page" id="freePageOvl" role="dialog" aria-label="Africa Jobs Free Plan">
@@ -2119,13 +1986,59 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="tp-cta-note">For individual job seekers — <button onclick="closeTierPage('enterprise');openTierPage('free')" style="background:none;border:none;color:#4A90C4;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.75rem;">see the Free plan</button></div>
   </div>
 </div>
+
+<!-- Cross-Border MRU Mobility -->
+<div class="ovl" id="crossBorderOvl" role="dialog" aria-label="Cross-Border MRU Jobs">
+  <div class="full-pg">
+    <div style="margin-bottom:28px;">
+      <div class="section-tag">&#127758; Cross-Border MRU Mobility</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;color:#fff;font-size:1.8rem;font-weight:700;margin-top:4px;">Jobs Across the MRU<br><span style="color:var(--gold);">That Match Your Skills</span></h1>
+      <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:8px;max-width:560px;line-height:1.65;">The Mano River Union is a free movement zone. Explore opportunities in all 4 member states matched to your skills.</p>
+    </div>
+    <div id="cbMySkills" style="background:rgba(201,168,64,.08);border:1px solid rgba(201,168,64,.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+      <button class="cb-country-btn active" onclick="filterCBJobs('all',this)">&#127758; All MRU Nations</button>
+      <button class="cb-country-btn" onclick="filterCBJobs('lr',this)">&#127473;&#127479; Liberia</button>
+      <button class="cb-country-btn" onclick="filterCBJobs('gn',this)">&#127468;&#127475; Guinea</button>
+      <button class="cb-country-btn" onclick="filterCBJobs('ci',this)">&#127464;&#127470; Cote d'Ivoire</button>
+      <button class="cb-country-btn" onclick="filterCBJobs('sl',this)">&#127480;&#127473; Sierra Leone</button>
+    </div>
+    <div style="background:rgba(74,144,196,.1);border:1px solid rgba(74,144,196,.2);border-radius:10px;padding:12px 18px;margin-bottom:20px;font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6;">
+      &#129309; <strong style="color:rgba(255,255,255,.8);">MRU Free Movement:</strong> Citizens of Sierra Leone, Liberia, Guinea and Cote d'Ivoire can travel and work across member states. Mano Points verified activities are recognised by partner employers across all 4 nations.
+    </div>
+    <div id="cbJobsList"></div>
+  </div>
+</div>
+
+<!-- WhatsApp Bot Interface -->
+<div class="ovl" id="waOvl" role="dialog" aria-label="WhatsApp Bot">
+  <div class="full-pg" style="max-width:700px;margin:0 auto;">
+    <div style="margin-bottom:36px;">
+      <div class="section-tag" style="color:#25D366;">&#128241; WhatsApp Access</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;color:#fff;font-size:1.8rem;font-weight:700;margin-top:6px;">Africa Jobs MRU<br><span style="color:#25D366;">on WhatsApp</span></h1>
+      <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:10px;line-height:1.7;">No browser needed. Access jobs, earn Mano Points and get career support directly in WhatsApp.</p>
+      <a href="https://wa.me/23276000000?text=Hello%20Africa%20Jobs%20MRU!" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.25);color:#25D366;border-radius:20px;padding:7px 14px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;margin-top:16px;">&#128242; Open in WhatsApp &#8594;</a>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(37,211,102,.15);border-radius:14px;padding:24px;margin-bottom:24px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#25D366;margin-bottom:16px;">&#128203; WhatsApp Bot Commands</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">
+        <div style="padding:10px;background:rgba(255,255,255,.04);border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.7);"><strong style="color:#25D366;">JOBS SL/LR/GN/CI</strong><br>Latest jobs by country</div>
+        <div style="padding:10px;background:rgba(255,255,255,.04);border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.7);"><strong style="color:#25D366;">POINTS</strong><br>Check your Mano Points</div>
+        <div style="padding:10px;background:rgba(255,255,255,.04);border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.7);"><strong style="color:#25D366;">CV</strong><br>Get AI feedback on your CV</div>
+        <div style="padding:10px;background:rgba(255,255,255,.04);border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.7);"><strong style="color:#25D366;">SALARY [role]</strong><br>Salary benchmarks</div>
+        <div style="padding:10px;background:rgba(255,255,255,.04);border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.7);"><strong style="color:#25D366;">LOG [activity]</strong><br>Log activity &amp; earn MPs</div>
+        <div style="padding:10px;background:rgba(255,255,255,.04);border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.7);"><strong style="color:#25D366;">APPLY [job]</strong><br>Apply to a job</div>
+      </div>
+    </div>
+    <div style="background:rgba(201,168,64,.06);border:1px solid rgba(201,168,64,.18);border-radius:12px;padding:20px;">
+      <div style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px;">&#128279; Powered by Student Companion AI</div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.65;margin:0;">Connects to the same Claude API infrastructure behind Student Companion AI. Africa Jobs MRU users get intelligent career support through WhatsApp &#8212; no app download required.</p>
+    </div>
+  </div>
+</div>
 <!-- ══ SEEKER DASHBOARD ══ -->
 <div class="ovl dash-ovl" id="seekerDash">
-  <div style="position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:1px solid rgba(201,168,64,.15);padding:11px 28px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
-    <button onclick="closeAll()" aria-label="Go back" style="display:flex;align-items:center;gap:6px;background:rgba(123,28,28,.08);border:1.5px solid rgba(123,28,28,.2);border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;color:var(--burg);cursor:pointer;font-family:'DM Sans',sans-serif;">← Back</button>
-    <span style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:700;">🏠 My Dashboard</span>
-    <button onclick="closeAll()" aria-label="Close" style="margin-left:auto;background:none;border:none;font-size:1.3rem;color:var(--ink-lt);cursor:pointer;padding:4px 8px;border-radius:6px;transition:color .15s;" onmouseover="this.style.color='var(--burg)'" onmouseout="this.style.color='var(--ink-lt)'">✕</button>
-  </div>
+  <button class="auth-close" onclick="closeAll()" aria-label="Close">✕<span class="sr-only">Close</span></button>
   <div class="dash-pg">
     <!-- Dashboard top nav -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(0,0,0,.08);flex-wrap:wrap;gap:12px;">
@@ -2363,19 +2276,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <div class="prem-ovl" id="ovlInterview">
   <div class="prem-panel">
     <button class="prem-x" onclick="closePT('Interview')" aria-label="Close">✕<span class="sr-only">Close</span></button>
-    <div class="prem-ttl">🎤 Interview Coach</div>
-    <div class="prem-sub">AI-powered interview questions tailored to your role and sector. Click any question to reveal the model answer framework.</div>
-    <div class="pr">
-      <div><span class="plbl">Your Target Role</span><input class="pi" id="intvRole" placeholder="e.g. Finance Analyst, Software Developer"/></div>
-      <div><span class="plbl">Sector</span><select class="ps" id="intvSec">
+    <div class="prem-ttl">🎤 Interview Preparation Guide</div>
+    <div class="prem-sub">Sector-specific interview questions with model answer frameworks. Click any question to reveal guidance.</div>
+    <div class="pr" style="margin-bottom:14px;"><div><span class="plbl">Your Target Role</span><input class="pi" id="intvRole" placeholder="e.g. Finance Analyst"/></div><div><span class="plbl">Sector</span><select class="ps" id="intvSecInput" onchange="document.getElementById('intvSec').value=this.value"><option value="tech">Technology</option><option value="finance">Finance & Banking</option><option value="health">Healthcare</option><option value="edu">Education</option><option value="ngo">NGO/Development</option><option value="general">General</option></select></div></div><div style="display:flex;gap:10px;margin-bottom:14px;"><button class="pb" onclick="genInterviewQs()">✦ Generate AI Questions →</button><button class="pb" onclick="renderIntv()" style="background:transparent;border:1.5px solid rgba(201,168,64,.4);color:var(--gold);">Standard Questions</button></div><span class="plbl">Select Your Sector</span>
+    <select class="ps" id="intvSec" onchange="renderIntv()">
       <option value="tech">Technology</option><option value="finance">Finance &amp; Banking</option>
       <option value="health">Healthcare</option><option value="ngo">NGO / Development</option>
       <option value="edu">Education</option><option value="general">General / Any Role</option>
-    </select></div>
-    </div>
-    <button class="pb" onclick="genInterviewQs()" style="margin-bottom:16px;">✦ Generate AI Questions →</button>
-    <button class="pb" onclick="renderIntv()" style="background:transparent;border:1.5px solid rgba(201,168,64,.4);color:var(--gold);margin-bottom:16px;">Show Standard Questions</button>
-
+    </select>
     <div id="intvQs"></div>
   </div>
 </div>
@@ -2385,17 +2293,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
     <button class="prem-x" onclick="closePT('Career')" aria-label="Close">✕<span class="sr-only">Close</span></button>
     <div class="prem-ttl">🗺️ Career Path Planner</div>
     <div class="prem-sub">Visualise realistic growth paths in your sector. See the roles, skills and certifications on your way to the top.</div>
-    <div class="pr">
-      <div><span class="plbl">Your Current Role (optional)</span><input class="pi" id="carCurrent" placeholder="e.g. Junior Accountant"/></div>
-      <div><span class="plbl">Your 5-Year Goal (optional)</span><input class="pi" id="carGoal" placeholder="e.g. CFO of an NGO"/></div>
-    </div>
-    <span class="plbl">Career Track</span>
-    <select class="ps" id="carTrack" onchange="">
+    <div class="pr" style="margin-bottom:14px;"><div><span class="plbl">Your Current Role (optional)</span><input class="pi" id="carCurrent" placeholder="e.g. Junior Accountant"/></div><div><span class="plbl">Your 5-Year Goal (optional)</span><input class="pi" id="carGoal" placeholder="e.g. CFO of an NGO"/></div></div><div style="display:flex;gap:10px;margin-bottom:14px;"><button class="pb" onclick="genCareerPath()">✦ Generate AI Path →</button><button class="pb" onclick="renderCareer()" style="background:transparent;border:1.5px solid rgba(201,168,64,.4);color:var(--gold);">Standard Path</button></div><span class="plbl">Career Track</span>
+    <select class="ps" id="carTrack" onchange="renderCareer()">
       <option value="tech">Technology &amp; Software</option><option value="finance">Finance &amp; Banking</option>
       <option value="health">Healthcare &amp; Public Health</option><option value="ngo">NGO &amp; International Development</option>
       <option value="edu">Education &amp; Academia</option>
     </select>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;"><button class="pb" onclick="genCareerPath()">✦ Generate AI Path →</button><button class="pb" onclick="renderCareer()" style="background:transparent;border:1.5px solid rgba(201,168,64,.4);color:var(--gold);">Standard Path</button></div>
     <div id="carOut"></div>
   </div>
 </div>
@@ -3727,9 +3630,9 @@ function handleSignup(e){
   if(pass.length<6){showAErr('Password must be at least 6 characters.');return;}
   const users=getUsers();
   if(users.find(u=>u.email===email)){showAErr('An account with this email already exists.');return;}
-  const newUser={name:fname+' '+lname,email,password:pass,type:curAuthType,points:50,activities:[{type:'Profile Created',pts:50,icon:'👤',name:'Welcome Bonus',org:'—',date:new Date().toLocaleDateString('en-GB')}],district:curAuthType==='seeker'?($('sDist').value||'Not specified'):'',field:curAuthType==='seeker'?($('sField').value||'Not specified'):'',orgName:curAuthType==='org'?($('sON').value||''):'',sector:curAuthType==='org'?($('sOS').value||''):'',postedJobs:[],joinDate:new Date().toLocaleDateString('en-GB')};
+  const newUser={name:fname+' '+lname,email,password:pass,type:curAuthType,points:100,activities:[{type:'Profile Created',pts:100,icon:'👤',name:'Welcome Bonus',org:'—',date:new Date().toLocaleDateString('en-GB')}],district:curAuthType==='seeker'?($('sDist').value||'Not specified'):'',field:curAuthType==='seeker'?($('sField').value||'Not specified'):'',orgName:curAuthType==='org'?($('sON').value||''):'',sector:curAuthType==='org'?($('sOS').value||''):'',postedJobs:[],joinDate:new Date().toLocaleDateString('en-GB')};
   users.push(newUser);saveUsers(users);
-  showAOk('🎉 Account created! You earned 50 Mano Points welcome bonus.');
+  showAOk('🎉 Account created! You earned 100 Mano Points welcome bonus.');
   claimReferralBonus(email);
   setTimeout(()=>loginSuccess(newUser),1500);
 }
@@ -3762,7 +3665,7 @@ function renderSeekerDash(u){
   $('sdTIco').textContent=tier.ico;$('sdTNm').textContent=tier.nm;
   $('sdKP').textContent=pts.toLocaleString();$('sdKA').textContent=acts;$('sdKAp').textContent=3;$('sdKJ').textContent=u.joinDate||'—';
   const allActs=u.activities||[];
-  $('sdActLog').innerHTML=allActs.length===0?`<div class="empty"><div class="empty-ico">📋</div><p>No activities yet. <button class="pbtn pbtn-g" style="margin-top:10px" onclick="openComm()">⭐ Log Your First Activity</button></p></div>`:`<div class="act-log">${allActs.map(a=>`<div class="act-entry"><div class="act-circle">${ACT_ICONS[a.type]||'📌'}</div><div style="flex:1;min-width:0"><div class="ae-title">${a.name||a.type}</div><div class="ae-meta">${a.type} · ${a.org!=='—'?a.org+' · ':''}${a.date||''}</div><div class="ae-badges">${a.verified?'<span class="verified-badge">✅ Verified'+( a.proofUrl?'&nbsp;·&nbsp;<a href="'+a.proofUrl+'" target="_blank" class="proof-link">Proof ↗</a>':(a.proofFile?'&nbsp;·&nbsp;📎 '+a.proofFile:''))+'</span>':(!a.automated?'<span class="unverified-badge">○ No proof</span>':'')}${a.automated?'<span style="font-size:.58rem;color:#aaa;padding:2px 6px;background:rgba(0,0,0,.04);border-radius:10px;">auto</span>':''}</div></div><div class="ae-pts" style="color:${a.pts<0?'#E07070':'var(--gold-dk)'};font-family:'Cormorant Garamond',serif;">${a.pts>0?'+':''}${a.pts} MPs${a.verified?'<div style="font-size:.58rem;color:#2E7D32;">✓ proof</div>':''}</div></div>`).join('')}</div>`;
+  $('sdActLog').innerHTML=allActs.length===0?`<div class="empty"><div class="empty-ico">📋</div><p>No activities yet. <button class="pbtn pbtn-g" style="margin-top:10px" onclick="openComm()">⭐ Log Your First Activity</button></p></div>`:`<div class="act-log">${allActs.map(a=>`<div class="act-entry"><div class="act-circle">${ACT_ICONS[a.type]||'📌'}</div><div style="flex:1"><div class="ae-title">${a.name||a.type}</div><div class="ae-meta">${a.type} · ${a.org!=='—'?a.org+' · ':''}${a.date||''}</div></div><div class="ae-pts" style="color:${a.pts<0?'#E07070':'var(--gold-dk)'}">${a.pts>0?'+':''}${a.pts} pts</div></div>`).join('')}</div>`;
   const field=(u.field||'').toLowerCase();
   const matches=DISTRICTS.flatMap(d=>d.jobs.filter(j=>field&&(j.sector.toLowerCase().includes(field.split('/')[0].trim())||j.title.toLowerCase().includes(field.split(' ')[0].trim()))).slice(0,2).map(j=>({...j,dn:d.name.split(' (')[0]})));
   $('sdRecJobs').innerHTML=matches.length===0?`<p style="color:var(--ink-lt);padding:20px 0;font-size:.88rem">Update your field of interest to get personalised job recommendations.</p>`:`<table class="jtbl"><thead><tr><th>Role</th><th>Organisation</th><th>District</th><th>Type</th></tr></thead><tbody>${matches.slice(0,6).map(j=>`<tr><td><strong>${j.title}</strong></td><td>${j.org}</td><td>📍 ${j.dn}</td><td>${j.type}</td></tr>`).join('')}</tbody></table>`;
@@ -3858,7 +3761,7 @@ function renderComm(u){
   TIERS.forEach(t=>{const el=$(t.id);if(el)el.classList.toggle('cur',t.nm===tier.nm);});
   const log=u.activities||[],logEl=$('actLogList');
   if(!log.length){logEl.innerHTML=`<div class="empty"><div class="empty-ico">📋</div><p>No activities logged yet. Start by selecting a type on the left!</p></div>`;return;}
-  logEl.innerHTML=`<div class="act-log">${log.slice(0,20).map(a=>`<div class="act-entry"><div class="act-circle">${ACT_ICONS[a.type]||'📌'}</div><div style="flex:1;min-width:0"><div class="ae-title">${a.name||a.type}</div><div class="ae-meta">${a.type} · ${a.org!=='—'?a.org+' · ':''}${a.date}</div><div class="ae-badges">${a.verified?'<span class="verified-badge">✅ Verified'+(a.proofUrl?'&nbsp;·&nbsp;<a href="'+a.proofUrl+'" target="_blank" class="proof-link">Proof ↗</a>':(a.proofFile?'&nbsp;·&nbsp;📎 '+a.proofFile:''))+'</span>':(!a.automated?'<span class="unverified-badge">○ No proof</span>':'')}${a.automated?'<span style="font-size:.58rem;color:#aaa;">auto</span>':''}</div></div><div class="ae-pts" style="font-family:'Cormorant Garamond',serif;">+${a.pts} MPs${a.verified?'<div style="font-size:.58rem;color:#2E7D32;">✓ proof</div>':''}</div></div>`).join('')}</div>`;
+  logEl.innerHTML=`<div class="act-log">${log.slice(0,20).map(a=>`<div class="act-entry"><div class="act-circle">${ACT_ICONS[a.type]||'📌'}</div><div style="flex:1;min-width:0"><div class="ae-title">${a.name||a.type}</div><div class="ae-meta">${a.type} · ${a.org!=='—'?a.org+' · ':''}${a.date}</div></div><div class="ae-pts">+${a.pts} pts</div></div>`).join('')}</div>`;
 }
 
 /* ═══ REWARDS ═════════════════════════════════════════ */
@@ -4318,7 +4221,7 @@ function submitAct(){
   var proofUrl=($('actProofUrl')&&$('actProofUrl').value.trim())||'';
   var proofFile=$('actProofFile')&&$('actProofFile').files[0]?$('actProofFile').files[0].name:'';
   var hasProof=proofUrl||proofFile;
-  var bonusPts=hasProof?15:0;
+  var bonusPts=hasProof?20:0;
   var totalPts=selAct_data.pts+bonusPts;
   var entry={type:selAct_data.type,pts:totalPts,icon:selAct_data.icon,name:name,
     org:$('actOrg').value.trim()||'—',date:$('actDt').value||new Date().toISOString().split('T')[0],
@@ -4950,15 +4853,9 @@ function renderMyProgress(){
         +'<div class="act-circle">'+(ACT_ICONS[a.type]||'📌')+'</div>'
         +'<div style="flex:1;min-width:0">'
         +'<div class="ae-title">'+(a.name||a.type)+'</div>'
-        +'<div class="ae-meta">'+a.type+' · '+(a.org!=='—'?a.org+' · ':'')+a.date+'</div>'
-        +'<div class="ae-badges">'
-        +(a.verified
-          ?'<span class="verified-badge">✅ Verified'+(a.proofUrl?'&nbsp;·&nbsp;<a href="'+a.proofUrl+'" target="_blank" class="proof-link">Proof ↗</a>':(a.proofFile?'&nbsp;·&nbsp;📎 '+a.proofFile:''))+'</span>'
-          :(a.automated?''  :'<span class="unverified-badge">○ No proof</span>'))
-        +(a.automated?'<span style="font-size:.58rem;color:#aaa;padding:2px 6px;background:rgba(0,0,0,.04);border-radius:10px;">auto</span>':'')
-        +'</div></div>'
-        +'<div class="ae-pts">+'+(a.pts)+'<span style="font-size:.65rem;display:block;color:'+(a.verified?'#2E7D32':'var(--ink-lt)')+';">MPs'+(a.verified?' ✓':'')
-        +'</span></div></div>';
+        +'<div class="ae-meta">'+a.type+' · '+(a.org!=='—'?a.org+' · ':'')+a.date
+        +(a.verified?' · ✅ Verified':'')+'</div></div>'
+        +'<div class="ae-pts">+'+a.pts+' MPs</div></div>';
     }).join('')+'</div>'
     :'<div class="feed-empty"><div class="feed-empty-ico">📋</div><p>No activities logged yet. Go to the Log Activity tab to get started!</p></div>')
     +'</div>';
@@ -5104,7 +5001,7 @@ function toggleConfluence(userId,userName,btn){
       var users=getUsers();var i=users.findIndex(function(x){return x.email===u.email;});
       if(i>=0){users[i]=u;saveUsers(users);}
       updateNavUser(u);
-      showToast('Confluence with '+userName+'! +10 bonus MPs for your first confluence 🌊');
+      showToast('Confluence with '+userName+'! +15 bonus MPs for your first confluence 🌊');
     } else {
       showToast('Now in confluence with '+userName+' 🌊');
     }
@@ -5604,237 +5501,20 @@ function showiOSInstallHint(){
 }
 document.addEventListener('DOMContentLoaded',showiOSInstallHint);
 
-// ── Premium Page & 7-Day Trial ─────────────────────────────────
-var PREM_TOOLS=[
-  {id:'ATS',    ico:'&#127919;',name:'ATS Resume Analyzer',   desc:'Score your CV against ATS systems used by MRU employers. Get keyword gaps and improvement tips instantly.',free:true},
-  {id:'Cover',  ico:'&#9997;&#65039;',name:'Cover Letter Generator',  desc:'AI-crafted cover letters tailored to any MRU job listing. Paste a job description, get a professional letter in seconds.',free:false},
-  {id:'Match',  ico:'&#129309;',name:'AI Job Matching',     desc:'Smart engine scoring every job against your profile and CV. Find your perfect-fit roles instantly across all 4 MRU nations.',free:false},
-  {id:'Salary', ico:'&#128176;',name:'Salary Insights',    desc:'Benchmark salaries by role, sector and country across Sierra Leone, Liberia, Guinea and Côte d\'Ivoire.',free:false},
-  {id:'Interview',ico:'&#127908;',name:'Interview Coach', desc:'AI-generated interview questions for your target role. Practice answers and walk into any interview confident.',free:false},
-  {id:'Career', ico:'&#128506;&#65039;',name:'Career Path Planner',desc:'Map your journey across the MRU. Get a personalised roadmap from your current role to your 5-year goal.',free:false},
-];
-function getTrialStatus(){try{return JSON.parse(localStorage.getItem('aj_trial')||'null');}catch(e){return null;}}
-function isTrialActive(){var t=getTrialStatus();if(!t||!t.startDate)return false;return Date.now()<(t.startDate+(7*24*60*60*1000));}
-function getTrialDaysLeft(){var t=getTrialStatus();if(!t)return 0;return Math.max(0,Math.ceil(((t.startDate+(7*24*60*60*1000))-Date.now())/(1000*60*60*24)));}
-function startFreeTrial(){
-  var u=getSession();if(!u){showAuth('seeker','login');closePremiumPage();return;}
-  if(getTrialStatus()&&getTrialStatus().startDate&&isTrialActive()){showToast('Trial already active — '+getTrialDaysLeft()+' days left!');renderPremiumPage();return;}
-  localStorage.setItem('aj_trial',JSON.stringify({startDate:Date.now(),email:u.email,name:u.name}));
-  showToast('7-day Premium trial activated! All tools unlocked.');
-  renderPremiumPage();
-}
-function openPremiumPage(){openTierPage('premium');}
-function closePremiumPage(){
-  var ovl=document.getElementById('premiumPageOvl');
-  if(ovl){ovl.classList.remove('active');document.body.style.overflow='';}
-}
-function openPremTool(id){var t=PREM_TOOLS.find(function(x){return x.id===id;});if(t)openPT(id);}
-function renderPremiumPage(){
-  var unlocked=isTrialActive();var days=getTrialDaysLeft();
-  var banner=document.getElementById('trialBanner');
-  if(banner){
-    if(unlocked){
-      banner.innerHTML='<span class="trial-active-badge">&#10003; Trial Active &mdash; '+days+' day'+(days!==1?'s':'')+' left</span>'
-        +'<div class="trial-text"><strong>All 6 Premium tools are unlocked.</strong><br>Enjoy full access until your trial ends.</div>';
-    } else {
-      banner.innerHTML='<span class="trial-badge">&#127873; FREE TRIAL</span>'
-        +'<div class="trial-text"><strong>Try all Premium tools free for 7 days.</strong><br>No credit card needed.</div>'
-        +'<button class="trial-cta-btn" onclick="startFreeTrial()">Start Free Trial &rarr;</button>';
-    }
-  }
-  var grid=document.getElementById('premToolsGrid');
-  if(!grid)return;
-  grid.innerHTML=PREM_TOOLS.map(function(tool){
-    var canUse=tool.free||unlocked;
-    var tag=tool.free?'<span class="pp-tool-tag free-tag">&#10003; Always Free</span>'
-      :unlocked?'<span class="pp-tool-tag unlocked-tag">&#10003; Trial Unlocked</span>'
-      :'<span class="pp-tool-tag prem-tag">&#10022; Premium</span>';
-    var btn=canUse
-      ?'<button class="pp-tool-btn" data-tid="'+tool.id+'" onclick="openPremTool(this.dataset.tid)">Open Tool &rarr;</button>'
-      :'<button class="pp-tool-btn locked-btn" onclick="startFreeTrial()">Start Free Trial to Unlock</button>';
-    return '<div class="pp-tool-card'+(canUse?'':' locked-tool')+'">'
-      +'<div class="pp-tool-ico">'+tool.ico+'</div>'
-      +'<div class="pp-tool-name">'+tool.name+'</div>'
-      +'<div class="pp-tool-desc">'+tool.desc+'</div>'
-      +tag+btn+'</div>';
-  }).join('');
-  var cd=document.getElementById('trialCountdown');
-  if(cd){cd.style.display=unlocked?'block':'none';
-    if(unlocked)cd.innerHTML='Trial ends in <strong>'+days+' day'+(days!==1?'s':'')+'</strong>. Upgrade to keep access.';}
-}
-function openPrem(){openTierPage('premium');}
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'){var o=document.getElementById('premiumPageOvl');if(o&&o.classList.contains('active'))closePremiumPage();}
-});
-
-// ═══════════════════════════════════════════════════════════════
-// ADMIN CONTENT READER
-// Reads posts & resources created in admin.html and injects
-// them into the blog section on any page
-// ═══════════════════════════════════════════════════════════════
-function loadAdminContent(){
-  // ── Blog posts ─────────────────────────────────────────────
-  var adminPosts=[];
-  try{adminPosts=JSON.parse(localStorage.getItem('aj_blog_posts')||'[]');}
-  catch(e){adminPosts=[];}
-  var published=adminPosts.filter(function(p){return p.status==='published';});
-
-  if(published.length){
-    var blogSection=document.getElementById('blog');
-    if(blogSection&&!document.getElementById('adminPostsRow')){
-      // Find the first blog card row to insert before it
-      var firstCard=blogSection.querySelector('.blog-card');
-      if(firstCard){
-        var wrap=firstCard.closest('div[style*="grid"]')||firstCard.parentElement;
-        var adminRow=document.createElement('div');
-        adminRow.id='adminPostsRow';
-        adminRow.style.cssText='margin-bottom:40px;';
-        adminRow.innerHTML='<div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;'
-          +'color:var(--burg);font-weight:700;margin-bottom:16px;">&#128336; Latest Posts</div>'
-          +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">'
-          +published.map(function(p){
-            return '<div class="blog-card" style="cursor:pointer;" data-postid="'+p.id+'" onclick="openAdminPost(this.dataset.postid)">'
-              +'<div class="blog-card-tag" style="background:rgba(123,28,28,.1);color:var(--burg);">'+(p.tag||'&#128203; Article')+'</div>'
-              +'<h4 class="blog-card-title">'+p.title+'</h4>'
-              +'<p class="blog-card-excerpt">'+(p.summary||'')+'</p>'
-              +'<div class="blog-card-footer">'
-              +'<div class="blog-card-meta">'+(p.author||'')+(p.date?' &middot; '+p.date:'')+(p.readTime?' &middot; '+p.readTime:'')+'</div>'
-              +'</div></div>';
-          }).join('')+'</div>';
-        if(wrap&&wrap.parentNode)wrap.parentNode.insertBefore(adminRow,wrap);
-        else blogSection.querySelector('.container').insertBefore(adminRow,firstCard.parentElement);
-      }
-    }
-  }
-
-  // ── Resources ───────────────────────────────────────────────
-  var adminRes=[];
-  try{adminRes=JSON.parse(localStorage.getItem('aj_resources')||'[]');}
-  catch(e){adminRes=[];}
-
-  if(adminRes.length&&!document.getElementById('adminResRow')){
-    // Find the resources grid (contains res-card elements)
-    var resGrid=document.querySelector('[style*="res-card"]');
-    if(!resGrid){
-      // Find by looking for the first .res-card
-      var firstResCard=document.querySelector('.res-card');
-      if(firstResCard)resGrid=firstResCard.parentElement;
-    }
-    if(resGrid){
-      var adminResHtml=adminRes.map(function(r){
-        var dlBtn='';
-        if(r.fileData){
-          dlBtn='<a class="res-btn" href="'+r.fileData+'" download="'+(r.fileName||r.title)+'" '
-            +'style="display:block;text-align:center;text-decoration:none;">'
-            +'&#11015; Download '+(r.fileType||'File')+'</a>';
-        } else if(r.linkUrl){
-          dlBtn='<a class="res-btn" href="'+r.linkUrl+'" target="_blank" rel="noopener" '
-            +'style="display:block;text-align:center;text-decoration:none;">Open Link</a>';
-        } else {
-          dlBtn='<button class="res-btn" disabled>Coming Soon</button>';
-        }
-        return '<div class="res-card" id="adminres-'+r.id+'">'
-          +'<div class="res-icon">'+(r.icon||'&#128196;')+'</div>'
-          +'<div class="res-title">'+r.title+'</div>'
-          +'<div class="res-desc">'+(r.desc||'')+'</div>'
-          +dlBtn+'</div>';
-      }).join('');
-      resGrid.insertAdjacentHTML('afterbegin',adminResHtml);
-      resGrid.id=resGrid.id||'adminResRow'; // mark so we don't double-inject
-    }
-  }
-}
-
-// Open admin blog post in the existing blog post modal
-function openAdminPost(id){
-  var posts=[];
-  try{posts=JSON.parse(localStorage.getItem('aj_blog_posts')||'[]');}catch(e){}
-  var post=posts.find(function(p){return p.id===id;});
-  if(!post)return;
-  // Build content
-  var html='<div style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--burg);margin-bottom:8px;">'
-    +(post.tag||'')+(post.readTime?' &middot; '+post.readTime:'')+'</div>'
-    +'<h2 style="font-family:Cormorant Garamond,serif;font-size:1.8rem;font-weight:700;color:var(--burg);margin-bottom:12px;">'+post.title+'</h2>'
-    +'<div style="font-size:.78rem;color:var(--ink-lt);margin-bottom:20px;">By '+(post.author||'')+(post.date?' &middot; '+post.date:'')+'</div>'
-    +(post.content||'<p style="color:var(--ink-mid);">Content coming soon.</p>');
-  // Find the blog post overlay
-  var ovl=document.getElementById('blogPostOvl');
-  if(!ovl)return;
-  // Find the body container inside it
-  var body=ovl.querySelector('#blogPostBody')
-    ||ovl.querySelector('.blog-post-body')
-    ||ovl.querySelector('.full-pg');
-  if(body)body.innerHTML=html;
-  ovl.classList.add('active');
-  document.body.style.overflow='hidden';
-}
-
-// Run on page load
-document.addEventListener('DOMContentLoaded',function(){
-  // Small delay so hardcoded content renders first
-  setTimeout(loadAdminContent,300);
-});
-
-// Also re-run if localStorage changes (e.g. admin panel in another tab)
-window.addEventListener('storage',function(e){
-  if(e.key==='aj_blog_posts'||e.key==='aj_resources'){
-    // Remove existing admin injections so they don't duplicate
-    var existing=document.getElementById('adminPostsRow');
-    if(existing)existing.remove();
-    document.querySelectorAll('[id^="adminres-"]').forEach(function(el){el.remove();});
-    setTimeout(loadAdminContent,100);
-  }
-});
-
 // ═══════════════════════════════════════════════════════════════════
 // ENHANCED MANO POINTS SYSTEM v2
 // ═══════════════════════════════════════════════════════════════════
 
 var MP_CONFIG = {
-  // ── One-time onboarding ───────────────────────────────
-  WELCOME_BONUS:50,        // Reduced: earning should come from real actions
-  PROFILE_COMPLETE:50,     // Once: completing name/field/district
-  PROFILE_PHOTO:15,        // Once: adding profile photo
-  CV_UPLOAD:30,            // Once: running ATS analyzer
-  FIRST_JOB_APPLY:10,      // Once: first ever job application
-  FIRST_POST:10,           // Once: first community post
-  FIRST_CONFLUENCE:10,     // Once: first confluence with a member
-
-  // ── Daily platform engagement (small signals) ─────────
-  DAILY_LOGIN:3,           // Tiny — login should not be the main earner
-  DAILY_POST:5,            // 1 post per day max
-  DAILY_COMMENT:2,         // 2 comments per day max
-  DAILY_LIKE:1,            // 5 likes per day max
-
-  // ── Career actions ─────────────────────────────────────
-  JOB_APPLY:3,             // Per unique job application
-  JOB_APPLY_WEEKLY_MAX:30, // Cap: max 30 MPs/week from applying
-  SAVE_JOB:1,              // Saving a job for later
-
-  // ── Social ─────────────────────────────────────────────
-  POST_GETS_LIKED:1,       // When your post is liked (max 10/post)
-  POST_GETS_COMMENT:2,     // When your post gets a comment
-  CONFLUENCE_JOIN:5,       // Each new confluence (not just first)
-  CONFLUENCE_WEEKLY_MAX:20,// Cap: max 20 MPs/week from confluences
-
-  // ── Referrals ──────────────────────────────────────────
-  REFER_FRIEND:30,         // Per friend who registers via your link
-
-  // ── Login streaks (bonus on top of daily) ─────────────
-  STREAK_3_DAYS:15,        // 3-day streak bonus
-  STREAK_7_DAYS:50,        // 7-day streak bonus
-  STREAK_30_DAYS:150,      // 30-day streak bonus (rare, valuable)
-
-  // ── Tier milestone bonuses ────────────────────────────
-  REACH_RIVER:50,          // Crossing into River tier
-  REACH_DELTA:100,         // Crossing into Delta tier
-  REACH_OCEAN:200,         // Crossing into Ocean tier
-
-  // ── Real-world activities (primary earners — UNCHANGED) ─
-  // Internship: 300, Online Course: 150, Mentorship: 120
-  // Workshop: 100, NGO/Volunteer: 80, Employer Event: 80
-  // Community Service: 75, Career Fair: 60
-  // +15 bonus for verified proof on any activity
+  WELCOME_BONUS:100, PROFILE_COMPLETE:75, PROFILE_PHOTO:25, CV_UPLOAD:50,
+  DAILY_LOGIN:10, DAILY_POST:15, DAILY_COMMENT:5, DAILY_LIKE:2,
+  JOB_APPLY:5, JOB_APPLY_WEEKLY_MAX:50, SAVE_JOB:3,
+  POST_GETS_LIKED:3, POST_GETS_COMMENT:5,
+  CONFLUENCE_JOIN:15, CONFLUENCE_WEEKLY_MAX:45,
+  FIRST_JOB_APPLY:20, FIRST_POST:25, FIRST_CONFLUENCE:15,
+  REACH_RIVER:100, REACH_DELTA:250, REACH_OCEAN:500,
+  REFER_FRIEND:50,
+  STREAK_3_DAYS:30, STREAK_7_DAYS:100, STREAK_30_DAYS:300,
 };
 
 function getMPTracker(){try{return JSON.parse(localStorage.getItem('aj_mp_tracker')||'{}');}catch(e){return {};}}
@@ -5885,7 +5565,7 @@ function showTierCelebration(tierName,ico,bonus){
     +'<div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:700;">Tier Unlocked!</div>'
     +'<div style="font-family:Cormorant Garamond,serif;font-size:2rem;font-weight:700;color:#fff;margin-bottom:8px;">'+tierName+' Level</div>'
     +'<div style="font-size:.9rem;color:rgba(255,255,255,.7);margin-bottom:20px;line-height:1.6;">You earned a <span style="color:var(--gold);font-weight:700;">+'+bonus+' MPs</span> milestone bonus!</div>'
-    +'<button onclick="document.getElementById(\"tierCelebModal\").remove()" style="background:var(--gold);color:var(--burg-dk);border:none;border-radius:24px;padding:12px 32px;font-family:DM Sans,sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;">Keep Going 🌊</button>'
+    +'<button onclick="document.getElementById(&quot;tierCelebModal&quot;).remove()" style="background:var(--gold);color:var(--burg-dk);border:none;border-radius:24px;padding:12px 32px;font-family:DM Sans,sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;">Keep Going 🌊</button>'
     +'</div>';
   document.body.appendChild(m);
   setTimeout(function(){if(m.parentNode)m.remove();},6000);
@@ -6011,7 +5691,7 @@ function renderMyProgress(){
     var guide=document.createElement('div');guide.style.cssText='background:#fff;border:1px solid rgba(201,168,64,.2);border-radius:14px;padding:22px;margin-top:16px;';
     guide.innerHTML='<div style="font-family:Cormorant Garamond,serif;font-size:1.05rem;font-weight:700;color:var(--burg);margin-bottom:14px;">🌊 How to Earn Mano Points</div>'
       +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:.76rem;">'
-      +[['🎉','Welcome Bonus','+50 (once)'],['🔑','Daily Login','+3/day'],['📝','Post to Feed','+5 (1/day)'],['💬','Comment','+2 (max 2/day)'],['❤️','Like a Post','+1 (max 5/day)'],['💼','Apply for Job','+3 per job'],['🤝','Confluence','+5 each'],['📄','ATS CV Scan','+30 (once)'],['👤','Complete Profile','+50 (once)'],['📸','Add Photo','+15 (once)'],['🔥','3-Day Streak','+15 bonus'],['🔥🔥','7-Day Streak','+50 bonus'],['🔥🔥🔥','30-Day Streak','+150 bonus'],['🌊','Reach River Tier','+50 bonus'],['🏞️','Reach Delta Tier','+100 bonus'],['🌍','Reach Ocean Tier','+200 bonus'],['🎁','Refer a Friend','+30 each'],['💼','Internship','+300'],['📚','Online Course','+150'],['🧑‍🏫','Mentorship Session','+120']]
+      +[['🔑','Daily Login','+10/day'],['📝','Post to Feed','+15 (1st/day)'],['💬','Comment','+5 (max 3/day)'],['❤️','Like a Post','+2 (max 10/day)'],['💼','Apply for Job','+5 per job'],['🤝','Confluence','+15 (1st bonus)'],['📄','ATS CV Scan','+50 (once)'],['👤','Complete Profile','+75 (once)'],['📸','Add Photo','+25 (once)'],['🔥','3-Day Streak','+30 bonus'],['🔥🔥','7-Day Streak','+100 bonus'],['🌊','Reach River','+100 bonus'],['🏞️','Reach Delta','+250 bonus'],['🌍','Reach Ocean','+500 bonus'],['🎁','Refer a Friend','+50 per referral']]
       .map(function(r){return '<div style="display:flex;align-items:center;gap:7px;padding:5px 7px;background:rgba(0,0,0,.02);border-radius:6px;"><span>'+r[0]+'</span><span style="flex:1;color:var(--ink);">'+r[1]+'</span><span style="font-weight:700;color:var(--gold-dk);">'+r[2]+'</span></div>';}).join('')
       +'</div>';
     el.appendChild(guide);
@@ -6022,359 +5702,6 @@ function renderMyProgress(){
       el.appendChild(rp);
     }
   },200);
-}
-
-// ── Partner Verification Score ─────────────────────────────────
-// Calculates how much of a user's points are from verified sources
-// Useful for partners deciding which users get rewards
-function getPartnerScore(user){
-  var u = user || getSession();
-  if(!u || !u.activities) return {score:0, verified:0, total:0, pct:0};
-  var acts = u.activities.filter(function(a){ return !a.automated; });
-  var verifiedPts = acts.filter(function(a){ return a.verified; })
-    .reduce(function(sum,a){ return sum + (a.pts||0); }, 0);
-  var totalActivityPts = acts.reduce(function(sum,a){ return sum + (a.pts||0); }, 0);
-  var pct = totalActivityPts > 0 ? Math.round((verifiedPts/totalActivityPts)*100) : 0;
-  return {
-    verifiedPts: verifiedPts,
-    totalActivityPts: totalActivityPts,
-    pct: pct,
-    verifiedCount: acts.filter(function(a){ return a.verified; }).length,
-    totalCount: acts.length,
-    label: pct >= 80 ? 'Highly Verified' : pct >= 50 ? 'Partially Verified' : pct > 0 ? 'Low Verification' : 'Unverified',
-    color: pct >= 80 ? '#2E7D32' : pct >= 50 ? '#E65100' : '#999',
-    ico: pct >= 80 ? '✅' : pct >= 50 ? '⚠️' : '○',
-  };
-}
-
-// Show partner score in My Progress tab
-var _origRenderMyProgress_score = typeof renderMyProgress==='function' ? renderMyProgress : null;
-function renderMyProgress(){
-  if(_origRenderMyProgress_score) _origRenderMyProgress_score();
-  setTimeout(function(){
-    var el = document.getElementById('myProgressContent');
-    if(!el) return;
-    var u = getSession();
-    if(!u) return;
-    var score = getPartnerScore(u);
-    var existing = document.getElementById('partnerScoreCard');
-    if(existing) existing.remove();
-    var card = document.createElement('div');
-    card.id = 'partnerScoreCard';
-    card.style.cssText = 'background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:22px;margin-top:14px;';
-    card.innerHTML =
-      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">'
-      + '<div>'
-      + '<div style="font-family:Cormorant Garamond,serif;font-size:1.05rem;font-weight:700;color:var(--burg);">🏅 Partner Verification Score</div>'
-      + '<div style="font-size:.72rem;color:var(--ink-lt);margin-top:2px;">Shown to partner organisations when you redeem rewards</div>'
-      + '</div>'
-      + '<div style="display:flex;align-items:center;gap:8px;">'
-      + '<div style="font-family:Cormorant Garamond,serif;font-size:2rem;font-weight:700;color:'+score.color+';">'+score.pct+'%</div>'
-      + '<div style="font-size:.75rem;font-weight:700;color:'+score.color+';">'+score.label+'</div>'
-      + '</div></div>'
-      // Progress bar
-      + '<div style="height:8px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;margin-bottom:16px;">'
-      + '<div style="height:100%;width:'+score.pct+'%;background:'+score.color+';border-radius:4px;transition:width .6s;"></div>'
-      + '</div>'
-      // Stats row
-      + '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;">'
-      + [
-          {v: score.verifiedCount, l:'Verified Activities', c:'#2E7D32'},
-          {v: score.totalCount,    l:'Total Activities',    c:'var(--burg)'},
-          {v: score.verifiedPts,   l:'Verified MPs',        c:'var(--gold-dk)'},
-        ].map(function(s){
-          return '<div style="text-align:center;padding:10px;background:rgba(0,0,0,.02);border-radius:8px;">'
-            + '<div style="font-family:Cormorant Garamond,serif;font-size:1.4rem;font-weight:700;color:'+s.c+';">'+s.v+'</div>'
-            + '<div style="font-size:.67rem;color:var(--ink-lt);font-weight:600;text-transform:uppercase;letter-spacing:.06em;">'+s.l+'</div>'
-            + '</div>';
-        }).join('')
-      + '</div>'
-      // What partners see
-      + '<div style="background:rgba(46,125,50,.05);border:1px solid rgba(46,125,50,.15);border-radius:10px;padding:14px;">'
-      + '<div style="font-size:.72rem;font-weight:700;color:#2E7D32;margin-bottom:8px;">🤝 What Partners See When You Redeem</div>'
-      + '<div style="font-size:.75rem;color:var(--ink-mid);line-height:1.7;">'
-      + '✅ <strong>'+score.verifiedCount+' verified activities</strong> with proof documents or links<br>'
-      + (score.pct >= 50
-          ? '✅ <strong>Eligible</strong> for all partner reward categories'
-          : '⚠️ <strong>To unlock all partner rewards</strong>, add proof to more activities (+15 bonus MPs each)')
-      + '</div></div>'
-      // How to improve
-      + (score.pct < 80
-          ? '<div style="margin-top:12px;font-size:.73rem;color:var(--ink-lt);line-height:1.6;">'
-          + '💡 <strong>Improve your score:</strong> When logging activities, always attach a certificate, '
-          + 'LinkedIn post, or event confirmation link as proof. Each verified entry earns +15 bonus MPs '
-          + 'and increases your partner credibility score.</div>'
-          : '')
-    ;
-    el.insertBefore(card, el.lastElementChild);
-  }, 250);
-}
-
-// ═══════════════════════════════════════════════════════════════
-// OVERLAY STICKY HEADERS — injected via JS on every page
-// Ensures ← Back button, title and ✕ close on every overlay
-// ═══════════════════════════════════════════════════════════════
-
-var OVL_HEADERS = [
-  {id:'rewOvl',      label:'Mano Points Store',   ico:'🎁',  closeFn:'closeAll()'},
-  {id:'commOvl',     label:'Community',            ico:'🌊',  closeFn:'closeAll()'},
-  {id:'seekerDash',  label:'My Dashboard',         ico:'🏠',  closeFn:'closeAll()'},
-  {id:'editProfileOvl',label:'Edit Profile',       ico:'✏️',  closeFn:'closeAll()'},
-  {id:'blogPostOvl', label:'Article',              ico:'📖',  closeFn:"document.getElementById('blogPostOvl').classList.remove('active');document.body.style.overflow=''"},
-  {id:'premiumPageOvl',label:'Africa Jobs Premium',ico:'✦',   closeFn:'closePremiumPage()'},
-  {id:'authOvl',     label:'Sign In / Register',   ico:'👤',  closeFn:'closeAll()'},
-];
-
-function buildOvlHeader(cfg){
-  var bar = document.createElement('div');
-  bar.className = 'ovl-sticky-bar';
-  bar.setAttribute('data-for', cfg.id);
-  bar.style.cssText = [
-    'position:sticky','top:0','z-index:20',
-    'background:var(--cream)','border-bottom:2px solid rgba(201,168,64,.18)',
-    'padding:10px 24px','display:flex','align-items:center','gap:12px',
-    'flex-shrink:0','box-shadow:0 2px 8px rgba(0,0,0,.06)',
-  ].join(';');
-
-  // ← Back button
-  var backBtn = document.createElement('button');
-  backBtn.innerHTML = '&#8592; Back';
-  backBtn.setAttribute('aria-label','Go back');
-  backBtn.style.cssText = [
-    'display:flex','align-items:center','gap:6px',
-    'background:rgba(123,28,28,.08)','border:1.5px solid rgba(123,28,28,.2)',
-    'border-radius:20px','padding:7px 16px','font-size:.75rem','font-weight:600',
-    "color:var(--burg)","cursor:pointer","font-family:'DM Sans',sans-serif",
-    'transition:background .15s','white-space:nowrap',
-  ].join(';');
-  backBtn.onmouseover = function(){this.style.background='rgba(123,28,28,.15)';};
-  backBtn.onmouseout  = function(){this.style.background='rgba(123,28,28,.08)';};
-  backBtn.onclick = function(){ try{ eval(cfg.closeFn); }catch(e){ closeAll(); } };
-
-  // Title
-  var title = document.createElement('span');
-  title.textContent = cfg.ico + ' ' + cfg.label;
-  title.style.cssText = [
-    'font-size:.62rem','letter-spacing:.18em','text-transform:uppercase',
-    'color:var(--gold-dk)','font-weight:700','flex:1',
-  ].join(';');
-
-  // ✕ Close button
-  var closeBtn = document.createElement('button');
-  closeBtn.innerHTML = '&#10005;';
-  closeBtn.setAttribute('aria-label','Close');
-  closeBtn.style.cssText = [
-    'background:none','border:none','font-size:1.2rem',
-    'color:var(--ink-lt)','cursor:pointer','padding:4px 8px',
-    'border-radius:6px','transition:color .15s','flex-shrink:0',
-  ].join(';');
-  closeBtn.onmouseover = function(){this.style.color='var(--burg)';};
-  closeBtn.onmouseout  = function(){this.style.color='var(--ink-lt)';};
-  closeBtn.onclick = function(){ try{ eval(cfg.closeFn); }catch(e){ closeAll(); } };
-
-  bar.appendChild(backBtn);
-  bar.appendChild(title);
-  bar.appendChild(closeBtn);
-  return bar;
-}
-
-function injectOvlHeaders(){
-  OVL_HEADERS.forEach(function(cfg){
-    var ovl = document.getElementById(cfg.id);
-    if(!ovl) return;
-    // Don't inject twice
-    if(ovl.querySelector('[data-for="'+cfg.id+'"]')) return;
-    // Remove any existing auth-close buttons to avoid duplicates
-    var oldClose = ovl.querySelector('.auth-close');
-    if(oldClose) oldClose.style.display = 'none'; // hide, don't remove (may have event listeners)
-    // Remove existing sticky bars that were hardcoded (may be incomplete)
-    var existingBar = ovl.querySelector('[style*="position:sticky"]');
-    if(existingBar && !existingBar.getAttribute('data-for')){
-      existingBar.remove();
-    }
-    // Inject the new consistent sticky bar as FIRST child
-    var bar = buildOvlHeader(cfg);
-    ovl.insertBefore(bar, ovl.firstChild);
-  });
-}
-
-// Run on DOM ready
-document.addEventListener('DOMContentLoaded', function(){
-  injectOvlHeaders();
-});
-
-// Also run when overlays are opened (in case of dynamic content)
-var _ovlObserver = new MutationObserver(function(mutations){
-  mutations.forEach(function(m){
-    if(m.type === 'attributes' && 
-      (m.attributeName === 'class' || m.attributeName === 'style')){
-      var el = m.target;
-      if(el.classList && el.classList.contains('active')){
-        // An overlay just opened — ensure header is there
-        var cfg = OVL_HEADERS.find(function(o){ return o.id === el.id; });
-        if(cfg && !el.querySelector('[data-for="'+cfg.id+'"]')){
-          var bar = buildOvlHeader(cfg);
-          el.insertBefore(bar, el.firstChild);
-        }
-      }
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function(){
-  // Observe all overlays for class/style changes
-  OVL_HEADERS.forEach(function(cfg){
-    var el = document.getElementById(cfg.id);
-    if(el) _ovlObserver.observe(el, {attributes:true});
-  });
-});
-
-// ── Cover Letter Generator ────────────────────────────────────
-async function genCover(){
-  var name=$('clNm').value.trim();
-  var jobTitle=$('clJT').value.trim();
-  var company=$('clCo').value.trim();
-  var skills=$('clSk').value.trim();
-  var bg=$('clBg').value.trim();
-  var out=$('covOut');
-  if(!name||!jobTitle||!company){
-    out.innerHTML='<div style="color:#E07070;padding:12px;background:rgba(224,112,112,.1);border-radius:8px;">⚠️ Please fill in your name, job title and company name.</div>';
-    return;
-  }
-  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">'
-    +'<div style="font-size:1.5rem;margin-bottom:8px;animation:spin 1s linear infinite;">⚙️</div>'
-    +'Generating your personalised cover letter…</div>';
-  document.getElementById('clCopy').style.display='none';
-  try{
-    var prompt=[
-      'Write a professional, warm and concise cover letter for a job application in an African context.',
-      'Applicant: '+name,
-      'Applying for: '+jobTitle+' at '+company,
-      (skills?'Key skills: '+skills:''),
-      (bg?'Background: '+bg:''),
-      'Instructions:',
-      '- 3 paragraphs: opening (why this role/company), middle (key skills with 1-2 examples), closing (call to action)',
-      '- Professional but warm tone appropriate for MRU employers (Sierra Leone, Liberia, Guinea, Cote d\'Ivoire)',
-      '- Address it to Dear Hiring Manager',
-      '- Sign off with Yours sincerely followed by the applicant name',
-      '- Keep it under 300 words',
-      '- Write the complete letter with no placeholder text',
-    ].filter(Boolean).join('\n');
-    var resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
-        messages:[{role:'user',content:prompt}]})
-    });
-    var data=await resp.json();
-    var letter=(data.content&&data.content[0]&&data.content[0].text)||'';
-    if(!letter)throw new Error('No response');
-    out.innerHTML='<div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,64,.2);'
-      +'border-radius:12px;padding:24px;font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.85);'
-      +'white-space:pre-wrap;font-family:Georgia,serif;">'+letter+'</div>';
-    document.getElementById('clCopy').style.display='inline-flex';
-    // Award MPs for first CV/cover letter use
-    if(!hasEarnedEver('cover_gen')){markEarnedEver('cover_gen');awardMP(20,'Cover Letter Generated ✍️',false);}
-  }catch(err){
-    out.innerHTML='<div style="color:#E07070;padding:12px;background:rgba(224,112,112,.1);border-radius:8px;">'
-      +'⚠️ Could not generate letter — please check your connection and try again.</div>';
-  }
-}
-function copyCover(){
-  var txt=document.getElementById('covOut').innerText;
-  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){showToast('Cover letter copied to clipboard! 📋');});}
-  else{var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();showToast('Copied!');}
-}
-
-// ── AI Interview Coach (Claude-powered questions) ─────────────
-async function genInterviewQs(){
-  var sec=$('intvSec').value;
-  var role=$('intvRole')?$('intvRole').value:'';
-  var out=$('intvQs');
-  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">'
-    +'<div style="font-size:1.5rem;">🤔</div>Generating tailored questions…</div>';
-  try{
-    var sectorLabel={'tech':'Technology','finance':'Finance & Banking','health':'Healthcare',
-      'edu':'Education','ngo':'NGO/Development','general':'General Professional'};
-    var prompt=[
-      'Generate 6 realistic interview questions for a '+(sectorLabel[sec]||sec)+' role'+(role?' for a '+role+' position':''),
-      'in the Mano River Union (Sierra Leone, Liberia, Guinea, Cote d\'Ivoire).',
-      'For each question provide: the question itself, and a 2-3 sentence model answer framework.',
-      'Format as a JSON array: [{q:"question text",a:"framework text"}]',
-      'Return only the JSON array with no other text.',
-    ].join(' ');
-    var resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
-        messages:[{role:'user',content:prompt}]})
-    });
-    var data=await resp.json();
-    var raw=(data.content&&data.content[0]&&data.content[0].text)||'[]';
-    raw=raw.replace(/```json|```/g,'').trim();
-    var qs=JSON.parse(raw);
-    out.innerHTML=qs.map(function(q,i){
-      return '<div class="iq" onclick="this.classList.toggle(\'open\')">'
-        +'<div class="iq-q">Q'+(i+1)+'. '+q.q+'</div>'
-        +'<div class="iq-a">💡 <strong>Approach:</strong><br>'+q.a+'</div></div>';
-    }).join('');
-    if(!hasEarnedEver('interview_use')){markEarnedEver('interview_use');awardMP(15,'Interview Coach Used 🎤',false);}
-  }catch(err){
-    // Fallback to hardcoded questions on error
-    renderIntv();
-  }
-}
-
-// ── AI Career Path Planner (Claude-powered) ───────────────────
-async function genCareerPath(){
-  var track=$('carTrack').value;
-  var current=$('carCurrent')?$('carCurrent').value.trim():'';
-  var goal=$('carGoal')?$('carGoal').value.trim():'';
-  var out=$('carOut');
-  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">'
-    +'<div style="font-size:1.5rem;">🗺️</div>Mapping your career path…</div>';
-  var trackLabel={'tech':'Technology & Software','finance':'Finance & Banking',
-    'health':'Healthcare','edu':'Education','ngo':'NGO/Development','govt':'Government & Public Sector'};
-  try{
-    var prompt=[
-      'Create a realistic 5-stage career progression path for the '+(trackLabel[track]||track)+' sector in the Mano River Union (West Africa).',
-      (current?'Current role: '+current:''),
-      (goal?'Career goal: '+goal:''),
-      'For each stage: level label (e.g. Entry 0-2yrs), typical role title, 3-4 key skills, and one realistic milestone.',
-      'Format as JSON array of 5 objects: [{level:"label",role:"title",skills:["s1","s2","s3"],milestone:"text"}]',
-      'Return only the JSON array.',
-    ].filter(Boolean).join(' ');
-    var resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
-        messages:[{role:'user',content:prompt}]})
-    });
-    var data=await resp.json();
-    var raw=(data.content&&data.content[0]&&data.content[0].text)||'[]';
-    raw=raw.replace(/```json|```/g,'').trim();
-    var steps=JSON.parse(raw);
-    var colors=['#4CAF7D','#C9A840','#E07B3A','#7B5EA7','#4A90C4'];
-    out.innerHTML='<div style="margin-top:22px;">'+steps.map(function(s,i){
-      return '<div style="display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;">'
-        +'<div style="width:38px;height:38px;border-radius:50%;background:'+colors[i]+'22;'
-        +'border:2px solid '+colors[i]+';display:flex;align-items:center;justify-content:center;'
-        +'font-size:.75rem;font-weight:700;color:'+colors[i]+';flex-shrink:0;">'+(i+1)+'</div>'
-        +'<div style="flex:1;">'
-        +'<div style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:'+colors[i]+';font-weight:700;margin-bottom:2px;">'+s.level+'</div>'
-        +'<div style="font-weight:700;color:#fff;font-size:.95rem;margin-bottom:4px;">'+s.role+'</div>'
-        +'<div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:6px;">'+( s.skills||[]).join(' · ')+'</div>'
-        +'<div style="font-size:.75rem;color:rgba(255,255,255,.35);font-style:italic;">🏆 '+s.milestone+'</div>'
-        +'</div></div>';
-    }).join('')+'</div>';
-    if(!hasEarnedEver('career_plan')){markEarnedEver('career_plan');awardMP(20,'Career Path Planned 🗺️',false);}
-  }catch(err){renderCareer();}
-}
-
-// ── AI Salary Benchmark (enhanced) ───────────────────────────
-function renderSalaryEnhanced(){
-  renderSalary(); // use existing function
-  if(!hasEarnedEver('salary_check')){markEarnedEver('salary_check');awardMP(10,'Salary Insights Checked 💰',false);}
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -6507,6 +5834,291 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') closeAllTierPages();
 });
 
+// ── AI Cover Letter Generator ─────────────────────────────────────
+async function genCover(){
+  var nm=$('clNm').value.trim();var jt=$('clJT').value.trim();
+  var co=$('clCo').value.trim();var sk=$('clSk').value.trim();var bg=$('clBg').value.trim();
+  var out=$('covOut');
+  if(!nm||!jt||!co){
+    out.innerHTML='<div style="color:#E07070;padding:12px;background:rgba(224,112,112,.1);border-radius:8px;">Please fill in your name, job title and company name.</div>';return;
+  }
+  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">Generating your cover letter...</div>';
+  document.getElementById('clCopy').style.display='none';
+  try{
+    var prompt=[
+      'Write a professional 3-paragraph cover letter for a job application in an African context.',
+      'Applicant: '+nm,'Applying for: '+jt+' at '+co,
+      sk?'Key skills: '+sk:'',bg?'Background: '+bg:'',
+      'Instructions:',
+      '- Opening: why this role and company',
+      '- Middle: key skills with 1-2 examples',
+      '- Closing: call to action',
+      '- Address to Dear Hiring Manager',
+      '- Sign off with Yours sincerely and the applicant name',
+      '- Under 300 words, no placeholder text'
+    ].filter(Boolean).join('\n');
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+    });
+    var data=await resp.json();
+    var letter=(data.content&&data.content[0]&&data.content[0].text)||'';
+    if(!letter)throw new Error('No response');
+    out.innerHTML='<div style="background:rgba(255,255,255,.06);border:1px solid rgba(201,168,64,.2);border-radius:12px;padding:24px;font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.85);white-space:pre-wrap;">'+letter+'</div>';
+    document.getElementById('clCopy').style.display='inline-flex';
+    if(!hasEarnedEver('cover_gen')){markEarnedEver('cover_gen');awardMP(20,'Cover Letter Generated',false);}
+  }catch(err){
+    out.innerHTML='<div style="color:#E07070;padding:12px;background:rgba(224,112,112,.1);border-radius:8px;">Could not generate — check your connection and try again.</div>';
+  }
+}
+function copyCover(){
+  var txt=document.getElementById('covOut').innerText;
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){showToast('Cover letter copied! 📋');});}
+}
+
+// ── AI Interview Coach ────────────────────────────────────────────
+async function genInterviewQs(){
+  var sec=$('intvSec').value;
+  var role=document.getElementById('intvRole')?document.getElementById('intvRole').value:'';
+  var out=$('intvQs');
+  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">Generating questions...</div>';
+  try{
+    var sectorLabel={tech:'Technology',finance:'Finance & Banking',health:'Healthcare',
+      edu:'Education',ngo:'NGO/Development',general:'General Professional'};
+    var prompt=[
+      'Generate 6 interview questions for a '+(sectorLabel[sec]||sec)+' role'+(role?' for '+role+' position':''),
+      'in the Mano River Union (Sierra Leone, Liberia, Guinea, Cote d\'Ivoire).',
+      'For each question provide the question and a 2-3 sentence model answer framework.',
+      'Return only a JSON array: [{q:"question",a:"framework"}]'
+    ].join(' ');
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+    });
+    var data=await resp.json();
+    var raw=(data.content&&data.content[0]&&data.content[0].text)||'[]';
+    raw=raw.replace(/```json|```/g,'').trim();
+    var qs=JSON.parse(raw);
+    out.innerHTML=qs.map(function(q,i){
+      return '<div class="iq" onclick="this.classList.toggle(\'open\')"><div class="iq-q">Q'+(i+1)+'. '+q.q+'</div><div class="iq-a">💡 <strong>Approach:</strong><br>'+q.a+'</div></div>';
+    }).join('');
+    if(!hasEarnedEver('interview_use')){markEarnedEver('interview_use');awardMP(15,'Interview Coach Used',false);}
+  }catch(err){renderIntv();}
+}
+
+// ── AI Career Path Planner ────────────────────────────────────────
+async function genCareerPath(){
+  var track=$('carTrack').value;
+  var current=document.getElementById('carCurrent')?document.getElementById('carCurrent').value.trim():'';
+  var goal=document.getElementById('carGoal')?document.getElementById('carGoal').value.trim():'';
+  var out=$('carOut');
+  out.innerHTML='<div style="color:rgba(255,255,255,.5);text-align:center;padding:24px;">Mapping your career path...</div>';
+  var trackLabel={tech:'Technology',finance:'Finance & Banking',health:'Healthcare',edu:'Education',ngo:'NGO/Development'};
+  try{
+    var prompt=[
+      'Create a 5-stage career progression for '+(trackLabel[track]||track)+' in West Africa (MRU region).',
+      current?'Current role: '+current:'',goal?'Career goal: '+goal:'',
+      'For each stage: level label (e.g. Entry 0-2yrs), typical role title, 3-4 key skills, one milestone.',
+      'Return only JSON: [{level:"label",role:"title",skills:["s1","s2","s3"],milestone:"text"}]'
+    ].filter(Boolean).join(' ');
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+    });
+    var data=await resp.json();
+    var raw=(data.content&&data.content[0]&&data.content[0].text)||'[]';
+    raw=raw.replace(/```json|```/g,'').trim();
+    var steps=JSON.parse(raw);
+    var colors=['#4CAF7D','#C9A840','#E07B3A','#7B5EA7','#4A90C4'];
+    out.innerHTML='<div style="margin-top:22px;">'+steps.map(function(s,i){
+      return '<div style="display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;">'
+        +'<div style="width:38px;height:38px;border-radius:50%;background:'+colors[i]+'22;border:2px solid '+colors[i]+';display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:'+colors[i]+';flex-shrink:0;">'+(i+1)+'</div>'
+        +'<div style="flex:1;">'
+        +'<div style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:'+colors[i]+';font-weight:700;margin-bottom:2px;">'+s.level+'</div>'
+        +'<div style="font-weight:700;color:#fff;font-size:.95rem;margin-bottom:4px;">'+s.role+'</div>'
+        +'<div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:6px;">'+(s.skills||[]).join(' · ')+'</div>'
+        +'<div style="font-size:.75rem;color:rgba(255,255,255,.35);font-style:italic;">🏆 '+s.milestone+'</div>'
+        +'</div></div>';
+    }).join('')+'</div>';
+    if(!hasEarnedEver('career_plan')){markEarnedEver('career_plan');awardMP(20,'Career Path Planned',false);}
+  }catch(err){renderCareer();}
+}
+
+var PATHWAY_COURSES={
+  tech:{
+    0:[{name:'Google IT Support Certificate',partner:'Coursera/Google',url:'https://grow.google/intl/africa/',free:true,dur:'6 months',pts:150},
+       {name:'freeCodeCamp Web Design',partner:'freeCodeCamp',url:'https://freecodecamp.org',free:true,dur:'3 months',pts:120}],
+    1:[{name:'AWS Cloud Practitioner',partner:'AWS Training',url:'https://aws.amazon.com/training/',free:true,dur:'4 months',pts:150}],
+    2:[{name:'ALX Data Science',partner:'ALX Africa',url:'https://alxafrica.com',free:false,dur:'12 months',pts:300}],
+    3:[{name:'ALU Executive Leadership',partner:'ALU',url:'https://alueducation.com',free:false,dur:'12 months',pts:400}]
+  },
+  finance:{
+    0:[{name:'Financial Accounting Fundamentals',partner:'Coursera',url:'https://coursera.org',free:true,dur:'4 months',pts:120}],
+    1:[{name:'ACCA Fundamentals',partner:'ACCA Global',url:'https://accaglobal.com',free:false,dur:'18 months',pts:300}],
+    2:[{name:'CFA Level 1',partner:'CFA Institute',url:'https://cfainstitute.org',free:false,dur:'6 months',pts:400}]
+  },
+  ngo:{
+    0:[{name:'Project Management Essentials',partner:'Coursera',url:'https://coursera.org',free:true,dur:'3 months',pts:120}],
+    1:[{name:'PRINCE2 Foundation',partner:'AXELOS',url:'https://axelos.com',free:false,dur:'3 months',pts:200}],
+    2:[{name:'PMP Certification',partner:'PMI',url:'https://pmi.org',free:false,dur:'4 months',pts:400}]
+  }
+};
+function renderCareerWithCourses(){
+  var track=$('carTrack').value;
+  var steps=CAR_PATHS[track]||[];
+  var courses=PATHWAY_COURSES[track]||{};
+  var colors=['#4CAF7D','#C9A840','#E07B3A','#7B5EA7','#4A90C4'];
+  var out=$('carOut');
+  out.innerHTML='<div style="margin-top:20px;">'+steps.map(function(s,i){
+    var sc=courses[i]||[];
+    var ch=sc.length?'<div style="margin-top:10px;padding:10px;background:rgba(255,255,255,.05);border-radius:8px;">'
+      +'<div style="font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:'+colors[i]+';font-weight:700;margin-bottom:8px;">Recommended Courses</div>'
+      +sc.map(function(cr){
+        return '<a href="'+cr.url+'" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;">'
+          +'<span style="font-size:.75rem;">'+(cr.free?'Free':'Paid')+'</span>'
+          +'<div style="flex:1;"><div style="font-size:.78rem;color:#fff;font-weight:600;">'+cr.name+'</div>'
+          +'<div style="font-size:.68rem;color:rgba(255,255,255,.4);">'+cr.partner+' &middot; '+cr.dur+' &middot; +'+cr.pts+' MPs</div></div>'
+          +'<span style="font-size:.65rem;color:'+(cr.free?'#4CAF7D':'rgba(255,255,255,.3)')+';font-weight:700;">'+(cr.free?'FREE':'PAID')+'</span></a>';
+      }).join('')+'</div>':'';
+    return '<div style="display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;">'
+      +'<div style="width:38px;height:38px;border-radius:50%;background:'+colors[i]+'22;border:2px solid '+colors[i]+';display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:'+colors[i]+';flex-shrink:0;">'+(i+1)+'</div>'
+      +'<div style="flex:1;"><div style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:'+colors[i]+';font-weight:700;margin-bottom:2px;">'+s.l+'</div>'
+      +'<div style="font-weight:700;color:#fff;font-size:.95rem;margin-bottom:4px;">'+s.r+'</div>'
+      +'<div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:4px;">'+s.s+'</div>'
+      +(s.c?'<div style="font-size:.72rem;color:rgba(255,255,255,.35);">'+s.c+'</div>':'')+ch+'</div></div>';
+  }).join('')+'</div>';
+}
+
+// ── Cross-Border MRU Mobility ──────────────────────────────────
+var _cbCurrentCountry='all';
+function openCrossBorder(){
+  var u=getSession();if(!u){showAuth('seeker','login');return;}
+  var ovl=document.getElementById('crossBorderOvl');
+  if(!ovl)return;
+  ovl.classList.add('active');document.body.style.overflow='hidden';
+  renderCBMySkills(u);renderCBJobs('all');
+}
+function renderCBMySkills(u){
+  var el=document.getElementById('cbMySkills');if(!el)return;
+  var code=localStorage.getItem('aj_country')||'sl';
+  var CM={sl:'Sierra Leone',lr:'Liberia',gn:'Guinea',ci:"Cote d'Ivoire"};
+  var cv=localStorage.getItem('aj_cv_text')||'';
+  var skills=cv?['Python','JavaScript','Excel','Accounting','Healthcare','Teaching','Marketing','SQL','French','English'].filter(function(k){return cv.toLowerCase().indexOf(k.toLowerCase())!==-1;}).slice(0,5):[];
+  el.innerHTML='<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">'
+    +'<div><div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:4px;">Home Country</div>'
+    +'<div style="font-size:1rem;color:#fff;font-weight:600;">'+(CM[code]||code)+'</div></div>'
+    +'<div style="width:1px;height:36px;background:rgba(255,255,255,.1);"></div>'
+    +'<div><div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:4px;">Your Field</div>'
+    +'<div style="font-size:.9rem;color:#fff;">'+(u.field||'Set in your profile')+'</div></div>'
+    +(skills.length?'<div style="width:1px;height:36px;background:rgba(255,255,255,.1);"></div>'
+    +'<div><div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:4px;">Detected Skills</div>'
+    +'<div style="display:flex;gap:5px;flex-wrap:wrap;">'+skills.map(function(s){return '<span style="background:rgba(201,168,64,.15);border:1px solid rgba(201,168,64,.25);color:var(--gold);border-radius:10px;padding:2px 8px;font-size:.68rem;font-weight:600;">'+s+'</span>';}).join('')+'</div></div>':'')
+    +'</div>';
+}
+function filterCBJobs(country,btn){
+  _cbCurrentCountry=country;
+  document.querySelectorAll('.cb-country-btn').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  renderCBJobs(country);
+}
+function renderCBJobs(country){
+  var u=getSession();
+  var userCountry=localStorage.getItem('aj_country')||'sl';
+  var userField=(u&&u.field)||'';
+  var el=document.getElementById('cbJobsList');if(!el)return;
+  var CM={sl:'Sierra Leone',lr:'Liberia',gn:'Guinea',ci:"Cote d'Ivoire"};
+  var allJobs=[];
+  Object.keys(COUNTRIES).forEach(function(code){
+    if(country!=='all'&&code!==country)return;
+    if(code===userCountry&&country==='all')return;
+    var regions=code==='sl'?DISTRICTS.map(function(d){return{jobs:d.jobs,name:d.name.split(' (')[0]};}):(COUNTRIES[code].regions||[]);
+    regions.forEach(function(r){
+      (r.jobs||[]).forEach(function(j){
+        var ms=0;
+        if(userField&&j.sector&&j.sector.toLowerCase().indexOf(userField.split('/')[0].toLowerCase().trim())!==-1)ms=65;
+        if(!ms&&userField)ms=Math.floor(Math.random()*35)+10;
+        allJobs.push({title:j.title,org:j.org,sector:j.sector,type:j.type,salary:j.salary,posted:j.posted,country:code,countryName:CM[code]||code,region:r.name,matchScore:ms});
+      });
+    });
+  });
+  allJobs.sort(function(a,b){return b.matchScore-a.matchScore;});
+  if(!allJobs.length){el.innerHTML='<div style="text-align:center;padding:40px;color:rgba(255,255,255,.35);"><div style="font-size:2rem;margin-bottom:12px;">&#127758;</div><p>No cross-border jobs found. Try a different filter.</p></div>';return;}
+  el.innerHTML='<div style="font-size:.72rem;color:rgba(255,255,255,.35);margin-bottom:14px;">Showing '+Math.min(allJobs.length,20)+' cross-border opportunities</div>'
+    +allJobs.slice(0,20).map(function(j){
+      return '<div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px;">'
+        +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">'
+        +'<div style="flex:1;"><div style="font-weight:700;color:#fff;font-size:.92rem;">'+j.title+'</div>'
+        +'<div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:3px;">'+j.org+' &middot; '+j.region+'</div>'
+        +'<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">'
+        +'<span style="font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);">'+j.countryName+'</span>'
+        +'<span style="font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);">'+j.type+'</span></div></div>'
+        +'<div style="text-align:right;flex-shrink:0;">'
+        +'<div style="font-family:Cormorant Garamond,serif;font-size:1.2rem;font-weight:700;color:var(--gold);">'+j.matchScore+'%</div>'
+        +'<div style="font-size:.6rem;color:rgba(255,255,255,.3);">skill match</div></div></div>'
+        +'<div style="display:flex;align-items:center;gap:8px;margin-top:10px;"><div style="flex:1;background:rgba(255,255,255,.08);border-radius:3px;height:5px;">'
+        +'<div style="height:100%;width:'+j.matchScore+'%;background:linear-gradient(90deg,var(--gold),#7EE8A2);border-radius:3px;"></div></div></div>'
+        +'<div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-top:6px;padding:6px 10px;background:rgba(201,168,64,.06);border-radius:6px;">MRU Free Movement applies &middot; '+j.salary+'</div>'
+        +'</div>';
+    }).join('');
+}
+
+// ── Employer Trust Ratings ─────────────────────────────────────
+var EMP_RATINGS=JSON.parse(localStorage.getItem('aj_emp_ratings')||'{}');
+function openRateEmployer(orgName){
+  var u=getSession();if(!u){showAuth('seeker','login');return;}
+  var ex=document.getElementById('empTrustModal');if(ex)ex.remove();
+  var modal=document.createElement('div');
+  modal.id='empTrustModal';modal.dataset.org=orgName;
+  modal.style.cssText='position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:20px;';
+  var cats=[{key:'pay',label:'Fair Pay'},{key:'env',label:'Work Environment'},{key:'growth',label:'Career Growth'},{key:'respect',label:'Respect & Dignity'}];
+  modal._ratings={};
+  modal.innerHTML='<div style="background:var(--cream);border-radius:16px;padding:32px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,.3);">'
+    +'<div style="font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;color:var(--burg);margin-bottom:4px;">Rate '+orgName+'</div>'
+    +'<div style="font-size:.78rem;color:var(--ink-lt);margin-bottom:20px;">Anonymous review for the MRU community</div>'
+    +cats.map(function(cat){
+      return '<div style="margin-bottom:16px;">'
+        +'<div style="font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:6px;">'+cat.label+'</div>'
+        +'<div id="stars_'+cat.key+'" data-val="0" style="display:flex;gap:10px;font-size:1.8rem;">'
+        +[1,2,3,4,5].map(function(n){
+          return '<span style="filter:grayscale(1);cursor:pointer;" data-key="'+cat.key+'" data-n="'+n+'" onclick="setStarRating(this.dataset.key,this.dataset.n)">&#11088;</span>';
+        }).join('')+'</div></div>';
+    }).join('')
+    +'<textarea id="empReviewText" placeholder="Describe your experience (anonymous)..." style="width:100%;border:1.5px solid rgba(0,0,0,.12);border-radius:8px;padding:10px;font-size:.82rem;min-height:80px;resize:vertical;margin-bottom:14px;outline:none;font-family:DM Sans,sans-serif;"></textarea>'
+    +'<div style="display:flex;gap:10px;">'
+    +'<button onclick="var m=document.getElementById(\'empTrustModal\');submitEmpRating(m.dataset.org,m)" style="flex:1;background:var(--burg);color:#fff;border:none;border-radius:20px;padding:10px;font-weight:700;cursor:pointer;font-size:.82rem;font-family:DM Sans,sans-serif;">Submit Review</button>'
+    +'<button onclick="document.getElementById(\'empTrustModal\').remove()" style="background:none;border:1.5px solid rgba(0,0,0,.15);border-radius:20px;padding:10px 16px;cursor:pointer;font-size:.82rem;font-family:DM Sans,sans-serif;">Cancel</button>'
+    +'</div></div>';
+  document.body.appendChild(modal);
+}
+function setStarRating(key,val){
+  val=parseInt(val);
+  var row=document.getElementById('stars_'+key);if(!row)return;
+  row.querySelectorAll('span').forEach(function(s,i){s.style.filter=i<val?'none':'grayscale(1)';});
+  var modal=document.getElementById('empTrustModal');
+  if(modal){modal._ratings=modal._ratings||{};modal._ratings[key]=val;}
+}
+function submitEmpRating(orgName,modal){
+  var ratings=modal?modal._ratings:{};
+  var vals=Object.values(ratings).filter(function(v){return v>0;});
+  if(!vals.length){showToast('Please rate at least one category.');return;}
+  var avg=vals.reduce(function(a,b){return a+b;},0)/vals.length;
+  var ex=EMP_RATINGS[orgName]||{avg:0,count:0,reviews:[]};
+  var nc=ex.count+1;
+  EMP_RATINGS[orgName]={avg:Math.round(((ex.avg*ex.count+avg)/nc)*10)/10,count:nc,
+    reviews:(ex.reviews||[]).concat(document.getElementById('empReviewText')&&document.getElementById('empReviewText').value.trim()?[{text:document.getElementById('empReviewText').value.trim(),date:new Date().toLocaleDateString('en-GB')}]:[])};
+  localStorage.setItem('aj_emp_ratings',JSON.stringify(EMP_RATINGS));
+  if(modal)modal.remove();
+  showToast('Review submitted! +5 MPs for helping the community');
+  if(typeof awardMP==='function')awardMP(5,'Employer Reviewed',false);
+}
+
+// ── WhatsApp Bot Interface ─────────────────────────────────────
+function openWhatsAppBot(){
+  var ovl=document.getElementById('waOvl');
+  if(!ovl)return;
+  ovl.classList.add('active');document.body.style.overflow='hidden';
+}
+
 // ── Slide-out Sidebar ──────────────────────────────────────────
 function toggleSidebar(){
   var sb=document.getElementById('mobileSidebar');
@@ -6559,11 +6171,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- ══ EDIT PROFILE OVERLAY ══ -->
 <div class="ovl full-ovl" id="editProfileOvl" style="display:none;">
-  <div style="position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:1px solid rgba(201,168,64,.15);padding:11px 28px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
-    <button onclick="closeEditProfile()" aria-label="Go back" style="display:flex;align-items:center;gap:6px;background:rgba(123,28,28,.08);border:1.5px solid rgba(123,28,28,.2);border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:600;color:var(--burg);cursor:pointer;font-family:'DM Sans',sans-serif;">← Back</button>
-    <span style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:700;">✏️ Edit Profile</span>
-    <button onclick="closeEditProfile()" aria-label="Close" style="margin-left:auto;background:none;border:none;font-size:1.3rem;color:var(--ink-lt);cursor:pointer;padding:4px 8px;border-radius:6px;transition:color .15s;" onmouseover="this.style.color='var(--burg)'" onmouseout="this.style.color='var(--ink-lt)'">✕</button>
-  </div>
+  <button class="auth-close" onclick="closeEditProfile()" aria-label="Close">✕<span class="sr-only">Close</span></button>
   <div class="full-pg" style="max-width:640px;">
     <div style="margin-bottom:28px;">
       <div class="section-tag">Account Settings</div>
